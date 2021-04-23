@@ -22,3 +22,6 @@ while x:
             pygame.quit()
 
     frame_per_sec.tick(60)
+
+ 
+
