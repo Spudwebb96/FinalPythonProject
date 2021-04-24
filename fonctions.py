@@ -69,4 +69,21 @@ def hoverboutons(curseur, boutonjouer, boutonregles, boutonparametres, boutonqui
         display_surface.blit(boutonquitterhover,(646,811))
     else :
         display_surface.blit(boutonquitter,(646,811))
-    
+
+'''def curseur(curseur, imagecurseur, imagecurseurhover) :
+    pygame.mouse.set_visible(False)
+
+    if curseur[0] > 664 and curseur[0] < 776 and curseur[1] > 570 and curseur[1] < 611 :
+        display_surface.blit(imagecurseurhover, (curseur[0], curseur[1]))
+
+    elif curseur[0] > 652 and curseur[0] < 788 and curseur[1] > 651 and curseur[1] < 696 :
+        display_surface.blit(imagecurseurhover,(curseur[0], curseur[1]))
+
+    elif curseur[0] > 606.5 and curseur[0] < 833.5 and curseur[1] > 736 and curseur[1] < 771 :
+        display_surface.blit(imagecurseurhover,(curseur[0], curseur[1]))
+
+    elif curseur[0] > 646 and curseur[0] < 794 and curseur[1] > 811 and curseur[1] < 853 :
+        display_surface.blit(imagecurseurhover,(curseur[0], curseur[1]))
+
+    else :
+        display_surface.blit(imagecurseur,((curseur[0], curseur[1]))'''
