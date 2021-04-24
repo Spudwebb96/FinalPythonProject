@@ -10,17 +10,19 @@ pygame.display.set_caption("Words Legends")
 
 backgroundmenu = pygame.image.load('assets/fond_menu.jpg')
 
-'''#curseurs
+# Curseurs
 imagecurseur = pygame.image.load('assets/curseur.png')
-imagecurseurhover = pygame.image.load('assets/curseur_hover.png')'''
+imagecurseur = pygame.transform.scale(imagecurseur, (36,57))
+imagecurseurclick = pygame.image.load('assets/curseur_click.png')
+imagecurseurclick = pygame.transform.scale(imagecurseurclick, (36,57))
 
-#Bouton menu
+# Bouton menu
 boutonjouer = pygame.image.load('assets/bouton_jouer.png')
 boutonregles = pygame.image.load('assets/bouton_regles.png')
 boutonparametres = pygame.image.load('assets/bouton_parametres.png')
 boutonquitter = pygame.image.load('assets/bouton_quitter.png')
 
-#Bouton menu hover
+# Bouton menu hover
 boutonjouerhover = pygame.image.load('assets/bouton_jouer_hover.png')
 boutonregleshover = pygame.image.load('assets/bouton_regles_hover.png')
 boutonparametreshover = pygame.image.load('assets/bouton_parametres_hover.png')
@@ -29,10 +31,17 @@ boutonquitterhover = pygame.image.load('assets/bouton_quitter_hover.png')
 # Essayer de changer notre curseur
 
 x = True
+mouse = False
 
 while x:
 
     curseur = pygame.mouse.get_pos()
+    pygame.mouse.set_visible(False)
+
+    if mouse:
+        display_surface.blit(imagecurseurclick, (curseur[0],curseur[1]))
+    else :
+        display_surface.blit(imagecurseur,(curseur[0],curseur[1]))
 
     #curseur(curseur, imagecurseur, imagecurseurhover)
 
@@ -46,6 +55,12 @@ while x:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
+
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            mouse = True
+        else :
+            mouse = False
+
 
         # if pygame.mouse.get_focused():
             # x, y = pygame.mouse.get_pos()
