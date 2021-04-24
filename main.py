@@ -1,4 +1,5 @@
 import pygame
+from fonctions import *
 pygame.init()
 
 frame_per_sec = pygame.time.Clock()
@@ -12,19 +13,25 @@ boutonjouer = pygame.image.load('assets/bouton_jouer.png')
 boutonregles = pygame.image.load('assets/bouton_regles.png')
 boutonparametres = pygame.image.load('assets/bouton_parametres.png')
 boutonquitter = pygame.image.load('assets/bouton_quitter.png')
+boutonjouerhover = pygame.image.load('assets/bouton_jouer_hover.png')
+boutonregleshover = pygame.image.load('assets/bouton_regles_hover.png')
+boutonparametreshover = pygame.image.load('assets/bouton_parametres_hover.png')
+boutonquitterhover = pygame.image.load('assets/bouton_quitter_hover.png')
 # Essayer de changer notre curseur
 
 x = True
 
 while x:
 
+    curseur = pygame.mouse.get_pos()
+    print(curseur[0])
+
     pygame.display.update()
 
     display_surface.blit(backgroundmenu,(0,0))
-    display_surface.blit(boutonjouer,(664,570)) # espace = 40
-    display_surface.blit(boutonregles,(652,651))
-    display_surface.blit(boutonparametres,(606.5,736))
-    display_surface.blit(boutonquitter,(646,811))
+
+    # Fonction hover boutons menu
+    hoverboutons(curseur, boutonjouer, boutonregles, boutonparametres, boutonquitter, boutonjouerhover, boutonregleshover, boutonparametreshover, boutonquitterhover, display_surface)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -34,5 +41,4 @@ while x:
             # x, y = pygame.mouse.get_pos()
 
     frame_per_sec.tick(60)
-    curseur = pygame.mouse.get_pos()
-    print(curseur)
+    
