@@ -30,33 +30,44 @@ boutonquitterhover = pygame.image.load('assets/bouton_quitter_hover.png')
 
 # Bouton menu hover rect
 boutonjouerhover_rect = boutonjouerhover.get_rect()
+boutonjouerhover_rect.x = 664
+boutonjouerhover_rect.y = 570
+
 boutonregleshover_rect = boutonregleshover.get_rect()
+boutonregleshover_rect.x = 652
+boutonregleshover_rect.y = 651
+
 boutonparametreshover_rect = boutonparametreshover.get_rect()
+boutonparametreshover_rect.x = 606.5
+boutonparametreshover_rect.y = 736
+
 boutonquitterhover_rect = boutonquitterhover.get_rect()
+boutonquitterhover_rect.x = 646
+boutonquitterhover_rect.y = 811
+
 
 # Affichage règles
 menu_regles = False
 fond_regles = pygame.image.load('assets/fond_regles.png')
 
 
-# Essayer de changer notre curseur
-
-x = True
+is_running = True
 mouse = False
 
-while x:
+while is_running:
 
     curseur = pygame.mouse.get_pos()
     pygame.mouse.set_visible(False)
+
+
+
+    if menu_regles:
+        display_surface.blit(fond_regles,(60,440))
 
     if mouse:
         display_surface.blit(imagecurseurclick, (curseur[0],curseur[1]))
     else :
         display_surface.blit(imagecurseur,(curseur[0],curseur[1]))
-
-    if menu_regles:
-        display_surface.blit(fond_regles,(60,440))
-    
 
 
     pygame.display.update()
@@ -80,7 +91,8 @@ while x:
             elif boutonparametreshover_rect.collidepoint(event.pos):
                 menu_parametres = True
             elif boutonquitterhover_rect.collidepoint(event.pos):
-                # pygame.quit()
+                is_running = False
+                pygame.quit()
 
             '''# TEST SON CLICK ( liée au test dictionnaire de sons dans le dossier fonctions ) 
             fonctions.sounds.play('click')'''
