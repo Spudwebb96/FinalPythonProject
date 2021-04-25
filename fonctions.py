@@ -69,3 +69,8 @@ def hoverboutons(curseur, boutonjouer, boutonregles, boutonparametres, boutonqui
         display_surface.blit(boutonquitterhover,(646,811))
     else :
         display_surface.blit(boutonquitter,(646,811))
+
+''' Test dictionnaire de sons
+sounds = {
+    'click' : pygame.mixer.Sound("assets/son/click.ogg"),
+}'''

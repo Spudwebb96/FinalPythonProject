@@ -58,6 +58,11 @@ while x:
 
         if event.type == pygame.MOUSEBUTTONDOWN:
             mouse = True
+
+            ''' TEST SON CLICK ( liée au test dictionnaire de sons dans le dossier fonctions ) 
+            sounds.sound_manager.play('click')
+            '''
+
         else :
             mouse = False
 
