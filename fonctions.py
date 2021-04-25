@@ -44,33 +44,44 @@ def weaknesscalc(self):
         if i == complement :
             insultepower += 1
 
-def hoverboutons(curseur, boutonjouer, boutonregles, boutonparametres, boutonquitter, boutonjouerhover, boutonregleshover, boutonparametreshover, boutonquitterhover, display_surface):
+def hoverboutons(curseur, boutonjouer, boutonregles, boutonparametres, boutonquitter, boutonjouerhover, boutonregleshover, boutonparametreshover, boutonquitterhover, display_surface, menu_regles):
+    if menu_regles == False : 
+        # & parametres
 
-    # Hover bouton "Jouer"
-    if curseur[0] > 664 and curseur[0] < 776 and curseur[1] > 570 and curseur[1] < 611 :
-        display_surface.blit(boutonjouerhover,(664,570))
-    else :
-        display_surface.blit(boutonjouer,(664,570))
+        # Hover bouton "Jouer"
+        if curseur[0] > 664 and curseur[0] < 776 and curseur[1] > 570 and curseur[1] < 611 :
+            display_surface.blit(boutonjouerhover,(664,570))
+        else :
+            display_surface.blit(boutonjouer,(664,570))
 
-    # Hover bouton "Règles"
-    if curseur[0] > 652 and curseur[0] < 788 and curseur[1] > 651 and curseur[1] < 696 :
-        display_surface.blit(boutonregleshover,(652,651))
-    else :
-        display_surface.blit(boutonregles,(652,651))
+        # Hover bouton "Règles"
+        if curseur[0] > 652 and curseur[0] < 788 and curseur[1] > 651 and curseur[1] < 696 :
+            display_surface.blit(boutonregleshover,(652,651))
+        else :
+            display_surface.blit(boutonregles,(652,651))
 
-    # Hover bouton "Paramètres"
-    if curseur[0] > 606.5 and curseur[0] < 833.5 and curseur[1] > 736 and curseur[1] < 771 :
-        display_surface.blit(boutonparametreshover,(606.5,736))
-    else :
-        display_surface.blit(boutonparametres,(606.5,736))
+        # Hover bouton "Paramètres"
+        if curseur[0] > 606.5 and curseur[0] < 833.5 and curseur[1] > 736 and curseur[1] < 771 :
+            display_surface.blit(boutonparametreshover,(606.5,736))
+        else :
+            display_surface.blit(boutonparametres,(606.5,736))
 
-    # Hover bouton "Quitter"
-    if curseur[0] > 646 and curseur[0] < 794 and curseur[1] > 811 and curseur[1] < 853 :
-        display_surface.blit(boutonquitterhover,(646,811))
-    else :
-        display_surface.blit(boutonquitter,(646,811))
+        # Hover bouton "Quitter"
+        if curseur[0] > 646 and curseur[0] < 794 and curseur[1] > 811 and curseur[1] < 853 :
+            display_surface.blit(boutonquitterhover,(646,811))
+        else :
+            display_surface.blit(boutonquitter,(646,811))
 
-''' Test dictionnaire de sons
+
+
+
+
+
+
+
+
+
+'''# Test dictionnaire de sons
 sounds = {
     'click' : pygame.mixer.Sound("assets/son/click.ogg"),
 }'''

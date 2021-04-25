@@ -28,6 +28,17 @@ boutonregleshover = pygame.image.load('assets/bouton_regles_hover.png')
 boutonparametreshover = pygame.image.load('assets/bouton_parametres_hover.png')
 boutonquitterhover = pygame.image.load('assets/bouton_quitter_hover.png')
 
+# Bouton menu hover rect
+boutonjouerhover_rect = boutonjouerhover.get_rect()
+boutonregleshover_rect = boutonregleshover.get_rect()
+boutonparametreshover_rect = boutonparametreshover.get_rect()
+boutonquitterhover_rect = boutonquitterhover.get_rect()
+
+# Affichage règles
+menu_regles = False
+fond_regles = pygame.image.load('assets/fond_regles.png')
+
+
 # Essayer de changer notre curseur
 
 x = True
@@ -43,32 +54,40 @@ while x:
     else :
         display_surface.blit(imagecurseur,(curseur[0],curseur[1]))
 
-    #curseur(curseur, imagecurseur, imagecurseurhover)
+    if menu_regles:
+        display_surface.blit(fond_regles,(60,440))
+    
+
 
     pygame.display.update()
 
     display_surface.blit(backgroundmenu,(0,0))
 
     # Fonction hover boutons menu
-    hoverboutons(curseur, boutonjouer, boutonregles, boutonparametres, boutonquitter, boutonjouerhover, boutonregleshover, boutonparametreshover, boutonquitterhover, display_surface)
+    hoverboutons(curseur, boutonjouer, boutonregles, boutonparametres, boutonquitter, boutonjouerhover, boutonregleshover, boutonparametreshover, boutonquitterhover, display_surface, menu_regles)
 
     for event in pygame.event.get():
+
         if event.type == pygame.QUIT:
             pygame.quit()
 
         if event.type == pygame.MOUSEBUTTONDOWN:
             mouse = True
+            if boutonjouerhover_rect.collidepoint(event.pos):
+                menu_jouer = True
+            elif boutonregleshover_rect.collidepoint(event.pos):
+                menu_regles = True
+            elif boutonparametreshover_rect.collidepoint(event.pos):
+                menu_parametres = True
+            elif boutonquitterhover_rect.collidepoint(event.pos):
+                # pygame.quit()
 
-            ''' TEST SON CLICK ( liée au test dictionnaire de sons dans le dossier fonctions ) 
-            sounds.sound_manager.play('click')
-            '''
+            '''# TEST SON CLICK ( liée au test dictionnaire de sons dans le dossier fonctions ) 
+            fonctions.sounds.play('click')'''
 
         else :
             mouse = False
 
-
-        # if pygame.mouse.get_focused():
-            # x, y = pygame.mouse.get_pos()
 
     frame_per_sec.tick(60)
     
