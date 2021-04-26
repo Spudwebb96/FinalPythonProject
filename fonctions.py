@@ -76,7 +76,7 @@ def hover_boutons(curseur,display_surface):
             display_surface.blit(game.image['bouton_quitter'],(646,811))
 
 ### Fonction utile
-def Position_rect(rect, x, y):
+def position_rect(rect, x, y):
     rect.x = x
     rect.y = y
 

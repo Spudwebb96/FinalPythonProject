@@ -22,11 +22,11 @@ game.image['image_curseur_click'] = pygame.transform.scale(game.image['image_cur
 for key in game.rect:
     game.rect[key]
 # change position rect
-Position_rect(game.rect['bouton_jouer_hover_rect'],664, 570)
-Position_rect(game.rect['bouton_regles_hover_rect'],652, 651)
-Position_rect(game.rect['bouton_parametres_hover_rect'],606.5, 736)
-Position_rect(game.rect['bouton_quitter_hover_rect'],646, 811)
-Position_rect(game.rect['bouton_fermer_rect'], 1319, 465)
+position_rect(game.rect['bouton_jouer_hover_rect'],664, 570)
+position_rect(game.rect['bouton_regles_hover_rect'],652, 651)
+position_rect(game.rect['bouton_parametres_hover_rect'],606.5, 736)
+position_rect(game.rect['bouton_quitter_hover_rect'],646, 811)
+position_rect(game.rect['bouton_fermer_rect'], 1319, 465)
 
 while game.is_running:
 
@@ -70,7 +70,7 @@ while game.is_running:
                     pygame.quit()
             else:
                 if game.rect['bouton_fermer_rect'].collidepoint(event.pos):
-                    game.menu_regles = True
+                    game.menu_regles = False
 
             '''# TEST SON CLICK ( liée au test dictionnaire de sons dans le dossier fonctions ) 
             fonctions.sounds.play('click')'''
