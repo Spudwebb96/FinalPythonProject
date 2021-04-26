@@ -14,6 +14,7 @@ class game:
         self.mouse = False
         ### IMAGE DU JEU
         self.image = {
+
             # Background
             'background_menu' : pygame.image.load('assets/image/fond_menu.jpg'),
 
@@ -34,6 +35,8 @@ class game:
             'bouton_quitter_hover' : pygame.image.load('assets/image/bouton_quitter_hover.png'),
 
             'fond_regles' : pygame.image.load('assets/image/fond_regles.png'),
+            'bouton_fermer' : pygame.image.load('assets/image/fermer.png'),
+
         }
 
 
@@ -43,4 +46,6 @@ class game:
             'bouton_regles_hover_rect' : self.image['bouton_regles_hover'].get_rect(),
             'bouton_parametres_hover_rect' : self.image['bouton_parametres_hover'].get_rect(),
             'bouton_quitter_hover_rect' : self.image['bouton_quitter_hover'].get_rect(),
+            'bouton_fermer_rect' : self.image['bouton_fermer'].get_rect(),
+            
         }

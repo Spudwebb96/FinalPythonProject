@@ -26,6 +26,7 @@ Position_rect(game.rect['bouton_jouer_hover_rect'],664, 570)
 Position_rect(game.rect['bouton_regles_hover_rect'],652, 651)
 Position_rect(game.rect['bouton_parametres_hover_rect'],606.5, 736)
 Position_rect(game.rect['bouton_quitter_hover_rect'],646, 811)
+Position_rect(game.rect['bouton_fermer_rect'], 1319, 465)
 
 while game.is_running:
 
@@ -39,6 +40,8 @@ while game.is_running:
 
     if game.menu_regles:
         display_surface.blit(game.image['fond_regles'],(60,440))
+        
+        display_surface.blit(game.image['bouton_fermer'],(1319,465))
 
     if game.mouse:
         display_surface.blit(game.image['image_curseur_click'], (curseur[0],curseur[1]))
@@ -65,6 +68,9 @@ while game.is_running:
                 elif game.rect['bouton_quitter_hover_rect'].collidepoint(event.pos):
                     game.is_running = False
                     pygame.quit()
+            else:
+                if game.rect['bouton_fermer_rect'].collidepoint(event.pos):
+                    game.menu_regles = True
 
             '''# TEST SON CLICK ( liée au test dictionnaire de sons dans le dossier fonctions ) 
             fonctions.sounds.play('click')'''
