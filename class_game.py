@@ -12,6 +12,7 @@ class game:
         self.is_running = True
         self.menu_regles = False
         self.mouse = False
+        self.tour = 1
         ### IMAGE DU JEU
         self.image = {
 
@@ -47,5 +48,36 @@ class game:
             'bouton_parametres_hover_rect' : self.image['bouton_parametres_hover'].get_rect(),
             'bouton_quitter_hover_rect' : self.image['bouton_quitter_hover'].get_rect(),
             'bouton_fermer_rect' : self.image['bouton_fermer'].get_rect(),
-            
         }
+
+        self.sujetsref = [ 1, 2, 3, 4 ,5 ,6 ,7 ,8 ,9]
+        self.sujets = [ 1, 2, 3, 4 ,5 ,6 ,7 ,8 ,9]
+        self.verbesref = [ "a", "b", "c", "d" ,"e" ,"f" ,"g" ,"h" ,"i"]
+        self.verbes = [ "a", "b", "c", "d" ,"e" ,"f" ,"g" ,"h" ,"i"]
+        self.complementref = [ 10, 11, 12, 13 ,14 ,15 ,16 ,17 ,18]
+        self.complement = [ 10, 11, 12, 13 ,14 ,15 ,16 ,17 ,18]
+
+        x = randint(0,8)
+
+        self.prop.append(self.sujets[x])
+        self.prop.pop[x]
+
+        # rajouter les liaisons INCHALLAH
+        # La liste ne doit pas se remplir apres le debut du round, seulement une fois au debut de chaque round.
+
+        
+        # def proposition() :
+        #     self.prop = []
+        #     while len(self.prop) < 9 and self.tour < 1 :
+        #         x = randint(0,8)
+        #         y = randint(0,8)
+        #         z = randint(0,8)
+
+        #         self.prop += self.verbes[x]
+        #         self.prop += self.sujets[y]
+        #         self.prop += self.complement[z]
+
+        #         if self.prop[x] == self.prop[x-3] :
+
+                
+
