@@ -1,7 +1,6 @@
 import pygame
-import class_game
 from fonctions import * 
-from class_game import * # Pas besoin ?
+from class_game import *
 pygame.init()
 
 game = game()

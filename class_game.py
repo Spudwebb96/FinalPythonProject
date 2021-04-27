@@ -49,12 +49,13 @@ class game:
                 'choisir': pygame.image.load('assets/image/Personnages/Menu/choisir.png'),
 
                 # boutton dynamique
-
                 'jouer_off': pygame.image.load('assets/image/Personnages/Menu/bouton_jouer_menu_jouer.png'),
                 'jouer_on': pygame.image.load('assets/image/Personnages/Menu/bouton_jouer_menu_jouer.png'),
 
                 'pret_off': pygame.image.load('assets/image/Personnages/Menu/bouton_jouer_menu_jouer.png'),
                 'pret_on': pygame.image.load('assets/image/Personnages/Menu/bouton_jouer_menu_jouer.png'),
+
+
         }
 
 
