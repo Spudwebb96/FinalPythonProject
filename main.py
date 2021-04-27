@@ -1,7 +1,9 @@
 import pygame
 from menu import *
+from choix_legends import *
 from fonctions import *
 from class_game import *
+
 
 
 pygame.init()
@@ -38,6 +40,8 @@ while game.is_running:
 
     if game.in_menu:
         menu(game,curseur, display_surface)
+    elif game.in_choix_legends:
+        choix_personnage(game,display_surface)
 
     # Changement du curseur
     if game.mouse:
@@ -58,7 +62,8 @@ while game.is_running:
             if game.in_menu:
                 if game.menu_regles == False:
                     if game.rect['bouton_jouer_hover_rect'].collidepoint(event.pos):
-                        menu_jouer = True
+                        game.in_choix_legends = True
+                        game.in_menu = False
                     elif game.rect['bouton_regles_hover_rect'].collidepoint(event.pos):
                         game.menu_regles = True
                     elif game.rect['bouton_parametres_hover_rect'].collidepoint(event.pos):

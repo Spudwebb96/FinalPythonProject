@@ -13,4 +13,5 @@ def menu(game,curseur, display_surface):
         display_surface.blit(game.image['fond_regles'], (60, 440))
         display_surface.blit(game.image['bouton_fermer'], (1319, 465))
 
+
     # Faire l'onglet parametre

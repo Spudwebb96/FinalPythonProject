@@ -11,35 +11,50 @@ class game:
         '''self.player_one = player_one()'''
         self.is_running = True
         self.in_menu = True
+        self.in_choix_legends = False
         self.menu_regles = False
         self.mouse = False
         self.tour = 1
         ### IMAGE DU JEU
         self.image = {
+            ### MENU
+                # Background
+                'background_menu' : pygame.image.load('assets/image/fond_menu.jpg'),
 
-            # Background
-            'background_menu' : pygame.image.load('assets/image/fond_menu.jpg'),
-            'background_menu_jouer' : pygame.image.load('assets/image/Personnages/Menu/fond_menu_jouer.jpg'),
+                # Curseurs
+                'image_curseur' : pygame.image.load('assets/image/curseur.png'),
+                'image_curseur_click' : pygame.image.load('assets/image/curseur_click.png'),
 
-            # Curseurs
-            'image_curseur' : pygame.image.load('assets/image/curseur.png'),
-            'image_curseur_click' : pygame.image.load('assets/image/curseur_click.png'),
+                # Bouton menu
+                'bouton_jouer' : pygame.image.load('assets/image/bouton_jouer.png'),
+                'bouton_regles' : pygame.image.load('assets/image/bouton_regles.png'),
+                'bouton_parametres' : pygame.image.load('assets/image/bouton_parametres.png'),
+                'bouton_quitter' : pygame.image.load('assets/image/bouton_quitter.png'),
 
-            # Bouton menu
-            'bouton_jouer' : pygame.image.load('assets/image/bouton_jouer.png'),
-            'bouton_regles' : pygame.image.load('assets/image/bouton_regles.png'),
-            'bouton_parametres' : pygame.image.load('assets/image/bouton_parametres.png'),
-            'bouton_quitter' : pygame.image.load('assets/image/bouton_quitter.png'),
+                # Bouton menu hover
+                'bouton_jouer_hover' : pygame.image.load('assets/image/bouton_jouer_hover.png'),
+                'bouton_regles_hover' : pygame.image.load('assets/image/bouton_regles_hover.png'),
+                'bouton_parametres_hover' : pygame.image.load('assets/image/bouton_parametres_hover.png'),
+                'bouton_quitter_hover' : pygame.image.load('assets/image/bouton_quitter_hover.png'),
 
-            # Bouton menu hover
-            'bouton_jouer_hover' : pygame.image.load('assets/image/bouton_jouer_hover.png'),
-            'bouton_regles_hover' : pygame.image.load('assets/image/bouton_regles_hover.png'),
-            'bouton_parametres_hover' : pygame.image.load('assets/image/bouton_parametres_hover.png'),
-            'bouton_quitter_hover' : pygame.image.load('assets/image/bouton_quitter_hover.png'),
+                # Image regles
+                'fond_regles' : pygame.image.load('assets/image/fond_regles.png'),
+                'bouton_fermer' : pygame.image.load('assets/image/fermer.png'),
 
-            'fond_regles' : pygame.image.load('assets/image/fond_regles.png'),
-            'bouton_fermer' : pygame.image.load('assets/image/fermer.png'),
+            ### MENU JOUER
+                # Background
+                'background_menu_jouer': pygame.image.load('assets/image/Personnages/Menu/fond_menu_jouer.jpg'),
 
+                # Image statique
+                'choisir': pygame.image.load('assets/image/Personnages/Menu/choisir.png'),
+
+                # boutton dynamique
+
+                'jouer_off': pygame.image.load('assets/image/Personnages/Menu/bouton_jouer_menu_jouer.png'),
+                'jouer_on': pygame.image.load('assets/image/Personnages/Menu/bouton_jouer_menu_jouer.png'),
+
+                'pret_off': pygame.image.load('assets/image/Personnages/Menu/bouton_jouer_menu_jouer.png'),
+                'pret_on': pygame.image.load('assets/image/Personnages/Menu/bouton_jouer_menu_jouer.png'),
         }
 
 
