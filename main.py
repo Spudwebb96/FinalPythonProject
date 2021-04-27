@@ -26,12 +26,22 @@ game.image['image_curseur_click'] = pygame.transform.scale(game.image['image_cur
 # create rect
 for key in game.rect:
     game.rect[key]
-# change position rect
+
+### POSITION RECT
+# Menu
 position_rect(game.rect['bouton_jouer_hover_rect'],664, 570)
 position_rect(game.rect['bouton_regles_hover_rect'],652, 651)
 position_rect(game.rect['bouton_parametres_hover_rect'],606.5, 736)
 position_rect(game.rect['bouton_quitter_hover_rect'],646, 811)
 position_rect(game.rect['bouton_fermer_rect'], 1319, 465)
+# Choix legends
+position_rect(game.rect['jouer_off_rect'], 550, 452)
+position_rect(game.rect['pret_off_rect'], 198, 900)
+position_rect(game.rect['pret_off_rect'], 1028, 900)
+position_rect(game.rect['fleche_gauche_rect'], 105, 806)
+position_rect(game.rect['fleche_gauche_rect'], 935, 806)
+position_rect(game.rect['fleche_droite_rect'], 465, 806)
+position_rect(game.rect['fleche_droite_rect'], 1295, 806)
 
 while game.is_running:
 
@@ -74,6 +84,11 @@ while game.is_running:
                 else:
                     if game.rect['bouton_fermer_rect'].collidepoint(event.pos):
                         game.menu_regles = False
+            '''elif game.in_choix_legends:
+                if game.rect['jouer_off_rect'].collidepoint(event.pos):
+                    if game.pret_J1 and game.pret_J2:
+                        game.jouer = True'''
+
 
         else:
             game.mouse = False
