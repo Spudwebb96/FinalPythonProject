@@ -1,3 +1,4 @@
+from random import randint
 import pygame
 
 # from joueur import *
@@ -27,6 +28,17 @@ class game:
 
         ## CONSTANTES INGAME
         self.tour = 1
+        self.sujetsref = [ 1, 2, 3, 4 ,5 ,6 ,7 ,8 ,9]
+        self.sujets = [ 1, 2, 3, 4 ,5 ,6 ,7 ,8 ,9]
+        self.verbesref = [ "a", "b", "c", "d" ,"e" ,"f" ,"g" ,"h" ,"i"]
+        self.verbes = [ "a", "b", "c", "d" ,"e" ,"f" ,"g" ,"h" ,"i"]
+        self.complementref = [ 10, 11, 12, 13 ,14 ,15 ,16 ,17 ,18]
+        self.complement = [ 10, 11, 12, 13 ,14 ,15 ,16 ,17 ,18]
+
+        x = randint(0,8) 
+
+        self.prop.append(self.sujets[x])
+        self.prop.pop[x]
         ### IMAGE DU JEU
         self.image = {
             ### MENU
@@ -110,6 +122,9 @@ class game:
                     'lucie_J1_on': pygame.image.load('assets/image/Personnages/Menu/Cartes_J1/lucie_selectionnee_J1.png'),
                     'lucie_J2_off': pygame.image.load('assets/image/Personnages/Menu/Cartes_J2/lucie_J2.png'),
                     'lucie_J2_on': pygame.image.load('assets/image/Personnages/Menu/Cartes_J2/lucie_selectionnee_J2.png'),
+
+            ### In-game
+            
         }
 
         ### RECT DU JEU
