@@ -1,6 +1,6 @@
 import pygame
 
-# from joueur import player_one  
+# from joueur import *
 
 pygame.init()
 
@@ -10,6 +10,7 @@ class game:
 
         '''self.player_one = player_one()'''
         self.is_running = True
+        self.in_menu = True
         self.menu_regles = False
         self.mouse = False
         self.tour = 1
@@ -51,6 +52,7 @@ class game:
             'bouton_fermer_rect' : self.image['bouton_fermer'].get_rect(),
         }
 
+        ''' POUR LE FICHIER INGAME.PY
         self.sujetsref = [ 1, 2, 3, 4 ,5 ,6 ,7 ,8 ,9]
         self.sujets = [ 1, 2, 3, 4 ,5 ,6 ,7 ,8 ,9]
         self.verbesref = [ "a", "b", "c", "d" ,"e" ,"f" ,"g" ,"h" ,"i"]
@@ -78,7 +80,7 @@ class game:
         #         self.prop += self.sujets[y]
         #         self.prop += self.complement[z]
 
-        #         if self.prop[x] == self.prop[x-3] :
+        #         if self.prop[x] == self.prop[x-3] :'''
 
                 
 
