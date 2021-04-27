@@ -12,6 +12,7 @@ class player:
 
             if name == "Bigband":
                 weakness = "yomamajokes"
+                #image ?
             
             if name == "Gunnar":
                 weakness = "yomamajokes"
