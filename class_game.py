@@ -23,22 +23,25 @@ class game:
         self.pret_J1 = False
         self.pret_J2 = False
         self.jouer = False
-        self.personnage_blit_J1 = 1
-        self.personnage_blit_J2 = 1
+        self.legends_J1 = 1
+        self.legends_J2 = 1
 
         ## CONSTANTES INGAME
         self.tour = 1
-        self.sujetsref = [ 1, 2, 3, 4 ,5 ,6 ,7 ,8 ,9]
-        self.sujets = [ 1, 2, 3, 4 ,5 ,6 ,7 ,8 ,9]
-        self.verbesref = [ "a", "b", "c", "d" ,"e" ,"f" ,"g" ,"h" ,"i"]
-        self.verbes = [ "a", "b", "c", "d" ,"e" ,"f" ,"g" ,"h" ,"i"]
-        self.complementref = [ 10, 11, 12, 13 ,14 ,15 ,16 ,17 ,18]
-        self.complement = [ 10, 11, 12, 13 ,14 ,15 ,16 ,17 ,18]
-
+        self.sujetsref = ["Ta mere", "Ton pere", "Ta femme", "Ton nez", "Tes chaussures", "Ton visage", "Ton art martial", "Ta facon de marcher", "Tes techniques"]
+        self.sujets = ["Ta mere", "Ton pere", "Ta femme", "Ton nez", "Tes chaussures", "Ton visage", "Ton art martial", "Ta facon de marcher", "Tes techniques"]
+        self.verbesref = ["est", "sera", "deviendra", "ressemblent a", "ne corresponds pas", "n'est pas capable de", "me fait penser a ", "palit en comparaison avec", "est si moche"]
+        self.verbes = ["est", "sera", "deviendra", "ressemblent a", "ne corresponds pas", "n'est pas capable de", "me fait penser a ", "palit en comparaison avec ", "est si moche"]
+        self.complementref = ["une veritable chevre ", "a un bouillon de legumes", "de la mienne/du mien", "vivre librement", "etre a ma hauteur", "aux marche aux esclaves", "un poulet roti", "te porter chance", "me rendre sourd"]
+        self.complement = ["une veritable chevre ", "a un bouillon de legumes", "de la mienne/du mien", "vivre librement", "etre a ma hauteur", "aux marche aux esclaves", "un poulet roti", "te porter chance", "me rendre sourd"]
+        self.liaisonref = ["a", "de", "pour", "des", "et", "car", "alors que", "sous pretexte que", "a l'image de"]
+        self.liaison = ["a", "de", "pour", "des", "et", "car", "alors que", "sous pretexte que", "a l'image de"]
+        self.finalref = [",c'est repugnant !", ",quelle honte !", ". Tu n'as pas la moindre chance contre moi !", ", vieux plouc !", ", grand pignouf !", ", sagounins des herbes !", ", babolard de premiere !", ",tete de sac a patate !", ", sale paysan !"]
+        self.final = [",c'est repugnant !", ",quelle honte !", ". Tu n'as pas la moindre chance contre moi !", ", vieux plouc !", ", grand pignouf !", ", sagounins des herbes !", ", babolard de premiere !", ",tete de sac a patate !", ", sale paysan !"]
         x = randint(0,8) 
 
-        self.prop.append(self.sujets[x])
-        self.prop.pop[x]
+        '''self.prop.append(self.sujets[x])
+        self.prop.pop[x]'''
         ### IMAGE DU JEU
         self.image = {
             ### MENU
@@ -66,20 +69,23 @@ class game:
                 'fond_regles' : pygame.image.load('assets/image/fond_regles.png'),
                 'bouton_fermer' : pygame.image.load('assets/image/fermer.png'),
 
-            ### MENU JOUER
+            ### CHOIX LEGENDS
 
                 # Background
-                'background_menu_jouer': pygame.image.load('assets/image/Personnages/Menu/fond_menu_jouer.jpg'),
+                'background_menu_jouer': pygame.image.load('assets/image/Personnages/Menu/fond_choix_legends.jpg'),
 
                 # Image statique
                 'choisir': pygame.image.load('assets/image/Personnages/Menu/choisir.png'),
 
-                # Bouton dynamique
-                'jouer_off': pygame.image.load('assets/image/Personnages/Menu/bouton_jouer_menu_jouer.png'),
-                'jouer_on': pygame.image.load('assets/image/Personnages/Menu/bouton_jouer_menu_jouer.png'),
+                # Bouton retour
+                'bouton_retour': pygame.image.load('assets/image/Personnages/Menu/bouton_retour.png'),
 
-                'pret_off': pygame.image.load('assets/image/Personnages/Menu/bouton_jouer_menu_jouer.png'),
-                'pret_on': pygame.image.load('assets/image/Personnages/Menu/bouton_jouer_menu_jouer.png'),
+                # Bouton dynamique
+                'jouer_off': pygame.image.load('assets/image/Personnages/Menu/bouton_jouer_choix_legends.png'),
+                'jouer_on': pygame.image.load('assets/image/Personnages/Menu/bouton_jouer_hover_choix_legends.png'),
+
+                'pret_off': pygame.image.load('assets/image/Personnages/Menu/bouton_pret.png'),
+                'pret_on': pygame.image.load('assets/image/Personnages/Menu/bouton_pret_hover.png'),
 
                 # Bouton carrousel
                 'fleche_droite': pygame.image.load('assets/image/Personnages/Menu/fleche_droite.png'),
@@ -123,7 +129,7 @@ class game:
                     'lucie_J2_off': pygame.image.load('assets/image/Personnages/Menu/Cartes_J2/lucie_J2.png'),
                     'lucie_J2_on': pygame.image.load('assets/image/Personnages/Menu/Cartes_J2/lucie_selectionnee_J2.png'),
 
-            ### In-game
+            ### IN-GAME
             
         }
 
@@ -137,12 +143,16 @@ class game:
             'bouton_fermer_rect' : self.image['bouton_fermer'].get_rect(),
 
             ## CHOIX LEGENDS
-            'jouer_off_rect': self.image['jouer_off'].get_rect(),
-            'jouer_on_rect': self.image['jouer_on'].get_rect(),
-            'pret_off_rect': self.image['pret_off'].get_rect(),
-            'pret_on_rect': self.image['pret_on'].get_rect(),
-            'fleche_gauche_rect': self.image['fleche_gauche'].get_rect(),
-            'fleche_droite_rect': self.image['fleche_droite'].get_rect(),
+            'jouer_rect': self.image['jouer_off'].get_rect(),
+            'pret_rect_J1': self.image['pret_off'].get_rect(),
+            'pret_rect_J2': self.image['pret_off'].get_rect(),
+            'fleche_gauche_rect_J1': self.image['fleche_gauche'].get_rect(),
+            'fleche_droite_rect_J1': self.image['fleche_droite'].get_rect(),
+            'fleche_gauche_rect_J2': self.image['fleche_gauche'].get_rect(),
+            'fleche_droite_rect_J2': self.image['fleche_droite'].get_rect(),
+            'bouton_retour_rect': self.image['bouton_retour'].get_rect(),
+
+            ## IN-GAME
 
         }
 
