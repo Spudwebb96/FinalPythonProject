@@ -66,7 +66,7 @@ class game:
                 'bouton_quitter_hover' : pygame.image.load('assets/image/bouton_quitter_hover.png'),
 
                 # Image regles
-                'fond_regles' : pygame.image.load('assets/image/fond_regles.png'),
+                'fond_regles' : pygame.image.load('assets/image/regles.png'),
                 'bouton_fermer' : pygame.image.load('assets/image/fermer.png'),
 
             ### CHOIX LEGENDS

@@ -35,13 +35,14 @@ position_rect(game.rect['bouton_parametres_hover_rect'],606.5, 736)
 position_rect(game.rect['bouton_quitter_hover_rect'],646, 811)
 position_rect(game.rect['bouton_fermer_rect'], 1319, 465)
 # Choix legends
-position_rect(game.rect['jouer_off_rect'], 550, 452)
-position_rect(game.rect['pret_off_rect'], 198, 900)
-position_rect(game.rect['pret_off_rect'], 1028, 900)
-position_rect(game.rect['fleche_gauche_rect'], 105, 806)
-position_rect(game.rect['fleche_gauche_rect'], 935, 806)
-position_rect(game.rect['fleche_droite_rect'], 465, 806)
-position_rect(game.rect['fleche_droite_rect'], 1295, 806)
+position_rect(game.rect['bouton_retour_rect'], 80, 20)
+position_rect(game.rect['jouer_rect'], 550, 452)
+position_rect(game.rect['pret_rect_J1'], 198, 900)
+position_rect(game.rect['pret_rect_J2'], 1028, 900)
+position_rect(game.rect['fleche_gauche_rect_J1'], 105, 806)
+position_rect(game.rect['fleche_gauche_rect_J2'], 935, 806)
+position_rect(game.rect['fleche_droite_rect_J1'], 465, 806)
+position_rect(game.rect['fleche_droite_rect_J2'], 1295, 806)
 
 while game.is_running:
 
@@ -84,10 +85,45 @@ while game.is_running:
                 else:
                     if game.rect['bouton_fermer_rect'].collidepoint(event.pos):
                         game.menu_regles = False
-            '''elif game.in_choix_legends:
-                if game.rect['jouer_off_rect'].collidepoint(event.pos):
-                    if game.pret_J1 and game.pret_J2:
-                        game.jouer = True'''
+
+            elif game.in_choix_legends:
+
+                # Bouton retour
+                if game.rect['bouton_retour_rect'].collidepoint(event.pos):
+                    game.in_choix_legends = False
+                    game.in_menu = True
+
+                # Boutons pret
+                if game.rect['pret_rect_J1'].collidepoint(event.pos):
+                    if game.pret_J1:
+                        game.pret_J1 = False
+                    else:
+                        game.pret_J1 = True
+                if game.rect['pret_rect_J2'].collidepoint(event.pos):
+                    if game.pret_J2:
+                        game.pret_J2 = False
+                    else:
+                        game.pret_J2 = True
+
+                # Bouton jouer
+                if game.pret_J1 and game.pret_J2:
+                    if game.rect['jouer_rect'].collidepoint(event.pos):
+                        game.jouer = True
+
+                # Carrousel
+                if game.rect['fleche_gauche_rect_J1'].collidepoint(event.pos):
+                    if game.legends_J1 != 1:
+                        game.legends_J1 = game.legends_J1 - 1
+                        print(game.legends_J1)
+                elif game.rect['fleche_gauche_rect_J2'].collidepoint(event.pos):
+                    if game.legends_J2 != 1:
+                        game.legends_J2 = game.legends_J2 - 1
+                elif game.rect['fleche_droite_rect_J1'].collidepoint(event.pos):
+                    if game.legends_J1 != 6:
+                        game.legends_J1 = game.legends_J1 + 1
+                elif game.rect['fleche_droite_rect_J2'].collidepoint(event.pos):
+                    if game.legends_J2 != 6:
+                        game.legends_J2 = game.legends_J2 + 1
 
 
         else:

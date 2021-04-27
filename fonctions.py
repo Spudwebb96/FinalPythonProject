@@ -49,7 +49,6 @@ def weaknesscalc(self):
 ### Fonction graphique
 def hover_boutons(curseur,display_surface):
     if game.menu_regles == False :
-        # & parametres
 
         # Hover bouton "Jouer"
         if curseur[0] > 664 and curseur[0] < 776 and curseur[1] > 570 and curseur[1] < 611 :
