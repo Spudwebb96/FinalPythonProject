@@ -12,6 +12,7 @@ class game:
         '''self.player_one = player_one()'''
         self.is_running = True
         self.in_menu = True
+        self.in_game = False
         self.in_choix_legends = False
         self.mouse = False
 
@@ -22,9 +23,9 @@ class game:
         ## CONSTANTES CHOIX LEGENDS
         self.pret_J1 = False
         self.pret_J2 = False
-        self.jouer = False
-        self.menu_legends_J1 = 1
-        self.menu_legends_J2 = 1
+        self.menu_legends_J1 = 0
+        self.menu_legends_J2 = 0
+        self.list_legends = ['bigband', 'isis', 'gunnar', 'kitt', 'harry', 'lucie']
         self.legends_J1 = False
         self.legends_J2 = False
 

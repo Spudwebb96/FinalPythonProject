@@ -44,7 +44,6 @@ def weaknesscalc(self):
         if i == complement :
             insultepower += 1
 
-
 ### Fonction graphique
 def hover_boutons(game,curseur,display_surface):
     if game.in_menu:

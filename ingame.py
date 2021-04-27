@@ -7,7 +7,6 @@ pygame.init()
 p1 = player("P1")
 P2 = player("P2")
 
-
 def Combat():
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN:

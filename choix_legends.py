@@ -32,33 +32,30 @@ def choix_personnage(game,curseur,display_surface) :
         display_surface.blit(game.image['fleche_droite'], (1295, 806))
 
 
-
-
-
 def carroussel_perso(game,display_surface,position_cards_J1,position_cards_J2):
 
     # cards J1
-    if game.menu_legends_J1 == 1:
+    if game.menu_legends_J1 == 0:
         if game.pret_J1:
             display_surface.blit(game.image['bigband_J1_on'], (position_cards_J1[0], position_cards_J1[1]))
         else:
             display_surface.blit(game.image['bigband_J1_off'], (position_cards_J1[0], position_cards_J1[1]))
-    elif game.menu_legends_J1 == 2:
+    elif game.menu_legends_J1 == 1:
         if game.pret_J1:
             display_surface.blit(game.image['isis_J1_on'], (position_cards_J1[0], position_cards_J1[1]))
         else:
             display_surface.blit(game.image['isis_J1_off'], (position_cards_J1[0], position_cards_J1[1]))
-    elif game.menu_legends_J1 == 3:
+    elif game.menu_legends_J1 == 2:
         if game.pret_J1:
             display_surface.blit(game.image['gunnar_J1_on'], (position_cards_J1[0], position_cards_J1[1]))
         else:
             display_surface.blit(game.image['gunnar_J1_off'], (position_cards_J1[0], position_cards_J1[1]))
-    elif game.menu_legends_J1 == 4:
+    elif game.menu_legends_J1 == 3:
         if game.pret_J1:
             display_surface.blit(game.image['kitt_J1_on'], (position_cards_J1[0], position_cards_J1[1]))
         else:
             display_surface.blit(game.image['kitt_J1_off'], (position_cards_J1[0], position_cards_J1[1]))
-    elif game.menu_legends_J1 == 5:
+    elif game.menu_legends_J1 == 4:
         if game.pret_J1:
             display_surface.blit(game.image['harry_J1_on'], (position_cards_J1[0], position_cards_J1[1]))
         else:
@@ -70,27 +67,27 @@ def carroussel_perso(game,display_surface,position_cards_J1,position_cards_J2):
             display_surface.blit(game.image['lucie_J1_off'], (position_cards_J1[0], position_cards_J1[1]))
 
     #cards J2
-    if game.menu_legends_J2 == 1:
+    if game.menu_legends_J2 == 0:
         if game.pret_J2:
             display_surface.blit(game.image['bigband_J2_on'], (position_cards_J2[0], position_cards_J2[1]))
         else:
             display_surface.blit(game.image['bigband_J2_off'], (position_cards_J2[0], position_cards_J2[1]))
-    elif game.menu_legends_J2 == 2:
+    elif game.menu_legends_J2 == 1:
         if game.pret_J2:
             display_surface.blit(game.image['isis_J2_on'], (position_cards_J2[0], position_cards_J2[1]))
         else:
             display_surface.blit(game.image['isis_J2_off'], (position_cards_J2[0], position_cards_J2[1]))
-    elif game.menu_legends_J2 == 3:
+    elif game.menu_legends_J2 == 2:
         if game.pret_J2:
             display_surface.blit(game.image['gunnar_J2_on'], (position_cards_J2[0], position_cards_J2[1]))
         else:
             display_surface.blit(game.image['gunnar_J2_off'], (position_cards_J2[0], position_cards_J2[1]))
-    elif game.menu_legends_J2 == 4:
+    elif game.menu_legends_J2 == 3:
         if game.pret_J2:
             display_surface.blit(game.image['kitt_J2_on'], (position_cards_J2[0], position_cards_J2[1]))
         else:
             display_surface.blit(game.image['kitt_J2_off'], (position_cards_J2[0], position_cards_J2[1]))
-    elif game.menu_legends_J2 == 5:
+    elif game.menu_legends_J2 == 4:
         if game.pret_J2:
             display_surface.blit(game.image['harry_J2_on'], (position_cards_J2[0], position_cards_J2[1]))
         else:
