@@ -1,6 +1,6 @@
 import pygame
 
-from joueur import player_one
+# from joueur import player_one  
 
 pygame.init()
 
@@ -18,6 +18,7 @@ class game:
 
             # Background
             'background_menu' : pygame.image.load('assets/image/fond_menu.jpg'),
+            'background_menu_jouer' : pygame.image.load('assets/image/Personnages/Menu/fond_menu_jouer.jpg'),
 
             # Curseurs
             'image_curseur' : pygame.image.load('assets/image/curseur.png'),
