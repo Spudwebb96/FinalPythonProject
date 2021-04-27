@@ -4,8 +4,6 @@ from choix_legends import *
 from fonctions import *
 from class_game import *
 
-
-
 pygame.init()
 
 frame_per_sec = pygame.time.Clock()
@@ -52,7 +50,7 @@ while game.is_running:
     if game.in_menu:
         menu(game,curseur, display_surface)
     elif game.in_choix_legends:
-        choix_personnage(game,display_surface)
+        choix_personnage(game,curseur,display_surface)
 
     # Changement du curseur
     if game.mouse:
@@ -97,33 +95,47 @@ while game.is_running:
                 if game.rect['pret_rect_J1'].collidepoint(event.pos):
                     if game.pret_J1:
                         game.pret_J1 = False
+                        print(game.pret_J1)
                     else:
                         game.pret_J1 = True
+                        print(game.pret_J1)
+
                 if game.rect['pret_rect_J2'].collidepoint(event.pos):
                     if game.pret_J2:
                         game.pret_J2 = False
+                        print(game.pret_J2)
                     else:
                         game.pret_J2 = True
+                        print(game.pret_J2)
+
 
                 # Bouton jouer
                 if game.pret_J1 and game.pret_J2:
                     if game.rect['jouer_rect'].collidepoint(event.pos):
                         game.jouer = True
+                        print("bouton jouer fonctionne")
 
                 # Carrousel
                 if game.rect['fleche_gauche_rect_J1'].collidepoint(event.pos):
-                    if game.legends_J1 != 1:
-                        game.legends_J1 = game.legends_J1 - 1
-                        print(game.legends_J1)
-                elif game.rect['fleche_gauche_rect_J2'].collidepoint(event.pos):
-                    if game.legends_J2 != 1:
-                        game.legends_J2 = game.legends_J2 - 1
-                elif game.rect['fleche_droite_rect_J1'].collidepoint(event.pos):
-                    if game.legends_J1 != 6:
-                        game.legends_J1 = game.legends_J1 + 1
-                elif game.rect['fleche_droite_rect_J2'].collidepoint(event.pos):
-                    if game.legends_J2 != 6:
-                        game.legends_J2 = game.legends_J2 + 1
+                    if game.menu_legends_J1 != 1 and game.pret_J1 == False:
+                        game.menu_legends_J1 = game.menu_legends_J1 - 1
+                    else:
+                        game.menu_legends_J1 = 6
+                elif game.rect['fleche_gauche_rect_J2'].collidepoint(event.pos) and game.pret_J2 == False:
+                    if game.menu_legends_J2 != 1:
+                        game.menu_legends_J2 = game.menu_legends_J2 - 1
+                    else:
+                        game.menu_legends_J2 = 6
+                elif game.rect['fleche_droite_rect_J1'].collidepoint(event.pos) and game.pret_J1 == False:
+                    if game.menu_legends_J1 != 6:
+                        game.menu_legends_J1 = game.menu_legends_J1 + 1
+                    else:
+                        game.menu_legends_J1 = 1
+                elif game.rect['fleche_droite_rect_J2'].collidepoint(event.pos) and game.pret_J2 == False:
+                    if game.menu_legends_J2 != 6:
+                        game.menu_legends_J2 = game.menu_legends_J2 + 1
+                    else:
+                        game.menu_legends_J2 = 1
 
 
         else:

@@ -6,7 +6,7 @@ def menu(game,curseur, display_surface):
     display_surface.blit(game.image['background_menu'], (0, 0))
 
     # Fonction hover boutons menu
-    hover_boutons(curseur, display_surface)
+    hover_boutons(game,curseur, display_surface)
 
     # Affichage des regles
     if game.menu_regles:

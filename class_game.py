@@ -23,8 +23,10 @@ class game:
         self.pret_J1 = False
         self.pret_J2 = False
         self.jouer = False
-        self.legends_J1 = 1
-        self.legends_J2 = 1
+        self.menu_legends_J1 = 1
+        self.menu_legends_J2 = 1
+        self.legends_J1 = False
+        self.legends_J2 = False
 
         ## CONSTANTES INGAME
         self.tour = 1
