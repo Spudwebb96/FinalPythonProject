@@ -97,7 +97,3 @@ def carroussel_perso(game,display_surface,position_cards_J1,position_cards_J2):
             display_surface.blit(game.image['lucie_J2_on'], (position_cards_J2[0], position_cards_J2[1]))
         else:
             display_surface.blit(game.image['lucie_J2_off'], (position_cards_J2[0], position_cards_J2[1]))
-
-
-
-

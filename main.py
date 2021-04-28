@@ -1,4 +1,5 @@
 import pygame
+from ingame import *
 from menu import *
 from choix_legends import *
 from fonctions import *
@@ -51,6 +52,9 @@ while game.is_running:
         menu(game,curseur, display_surface)
     elif game.in_choix_legends:
         choix_personnage(game,curseur,display_surface)
+    elif game.in_game:
+            in_game(game,display_surface)
+
 
     # Changement du curseur
     if game.mouse:
@@ -112,6 +116,7 @@ while game.is_running:
                         game.legends_J1 = game.list_legends[game.menu_legends_J1]
                         game.legends_J2 = game.list_legends[game.menu_legends_J2]
                         print(game.legends_J1, game.legends_J2)
+                        game.in_choix_legends = False
                         game.in_game = True
                         print("bouton jouer fonctionne")
 
