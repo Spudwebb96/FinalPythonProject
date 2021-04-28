@@ -3,7 +3,7 @@ from fonctions import *
 from class_game import *
 pygame.init()
 
-def choix_personnage(game,curseur,display_surface) :
+def choix_legends(game,curseur,display_surface) :
     display_surface.blit(game.image['background_menu_jouer'],(0,0))
     display_surface.blit(game.image['bouton_retour'], (80, 20))
     display_surface.blit(game.image['choisir'],(0,68))

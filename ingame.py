@@ -21,28 +21,28 @@ def Combat():
 
 def in_game(game,display_surface):
     display_surface.blit(game.image['background_menu_jouer'], (0, 0))
-    if game.legends_J1 == 'bigband':
+    if game.player.legends_J1 == 'bigband':
         display_surface.blit(game.image['bigband_J1_1'], (0, 224))
-    elif game.legends_J1 == 'gunnar':
+    elif game.player.legends_J1 == 'gunnar':
         display_surface.blit(game.image['gunnar_J1_1'], (0, 224))
-    elif game.legends_J1 == 'harry':
+    elif game.player.legends_J1 == 'harry':
         display_surface.blit(game.image['harry_J1_1'], (0, 224))
-    elif game.legends_J1 == 'isis':
+    elif game.player.legends_J1 == 'isis':
         display_surface.blit(game.image['isis_J1_1'], (0, 224))
-    elif game.legends_J1 == 'kitt':
+    elif game.player.legends_J1 == 'kitt':
         display_surface.blit(game.image['kitt_J1_1'], (0, 224))
-    elif game.legends_J1 == 'lucie':
+    elif game.player.legends_J1 == 'lucie':
         display_surface.blit(game.image['lucie_J1_1'], (0, 224))
 
-    if game.legends_J2 == 'bigband':
+    if game.player.legends_J2 == 'bigband':
         display_surface.blit(game.image['bigband_J2_1'], (924.02, 224))
-    elif game.legends_J2 == 'gunnar':
+    elif game.player.legends_J2 == 'gunnar':
         display_surface.blit(game.image['gunnar_J2_1'], (728.76, 224))
-    elif game.legends_J2 == 'harry':
+    elif game.player.legends_J2 == 'harry':
         display_surface.blit(game.image['harry_J2_1'], (777.14, 224))
-    elif game.legends_J2 == 'isis':
+    elif game.player.legends_J2 == 'isis':
         display_surface.blit(game.image['isis_J2_1'], (824.62, 224))
-    elif game.legends_J2 == 'kitt':
+    elif game.player.legends_J2 == 'kitt':
         display_surface.blit(game.image['kitt_J2_1'], (728.76, 224))
     else:
         display_surface.blit(game.image['lucie_J2_1'], (836.91, 224))
@@ -55,6 +55,6 @@ def in_game(game,display_surface):
         display_surface.blit(fond_noir_surface, (0, 0))
         game.alpha = game.alpha - 10
         pygame.time.delay(30)
-
+    print(game.player.faiblesse_J1,game.player.faiblesse_J2)
 
 

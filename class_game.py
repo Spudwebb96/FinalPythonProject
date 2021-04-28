@@ -9,7 +9,8 @@ class game:
 
     def __init__(self):
 
-        '''self.player_one = player_one()'''
+        self.player = player()
+
         self.is_running = True
         self.in_menu = True
         self.in_game = False
@@ -26,8 +27,6 @@ class game:
         self.menu_legends_J1 = 0
         self.menu_legends_J2 = 0
         self.list_legends = ['bigband', 'isis', 'gunnar', 'kitt', 'harry', 'lucie']
-        self.legends_J1 = False
-        self.legends_J2 = False
 
         ## CONSTANTES INGAME
         self.tour = 1
@@ -44,8 +43,18 @@ class game:
         x = randint(0,8)
         self.alpha = 300
 
+        ### STATS DES LEGENDS
+        self.stats = {
+            'bigband': ('Musique', 'Laboratoire'),
+            'gunnar': ('Passe', 'Look'),
+            'harry': ('Famille', 'Look'),
+            'isis': ('Age', 'Look'),
+            'kitt': ('Laboratoire', 'Musique'),
+            'lucie': ('Famille', 'Age'),
+        }
         '''self.prop.append(self.sujets[x])
         self.prop.pop[x]'''
+
         ### IMAGE DU JEU
         self.image = {
             ### MENU
@@ -209,35 +218,14 @@ class game:
 
         }
 
-        ''' POUR LE FICHIER INGAME.PY
-        self.sujetsref = [ 1, 2, 3, 4 ,5 ,6 ,7 ,8 ,9]
-        self.sujets = [ 1, 2, 3, 4 ,5 ,6 ,7 ,8 ,9]
-        self.verbesref = [ "a", "b", "c", "d" ,"e" ,"f" ,"g" ,"h" ,"i"]
-        self.verbes = [ "a", "b", "c", "d" ,"e" ,"f" ,"g" ,"h" ,"i"]
-        self.complementref = [ 10, 11, 12, 13 ,14 ,15 ,16 ,17 ,18]
-        self.complement = [ 10, 11, 12, 13 ,14 ,15 ,16 ,17 ,18]
 
-        x = randint(0,8)
+class player:
+    def __init__(self):
+        self.Hp_J1 = 3
+        self.Hp_J2 = 3
+        self.legends_J1 = None
+        self.legends_J2 = None
+        self.faiblesse_J1 = None
+        self.faiblesse_J2 = None
 
-        self.prop.append(self.sujets[x])
-        self.prop.pop[x]
-
-        # rajouter les liaisons INCHALLAH
-        # La liste ne doit pas se remplir apres le debut du round, seulement une fois au debut de chaque round.
-
-        
-        # def proposition() :
-        #     self.prop = []
-        #     while len(self.prop) < 9 and self.tour < 1 :
-        #         x = randint(0,8)
-        #         y = randint(0,8)
-        #         z = randint(0,8)
-
-        #         self.prop += self.verbes[x]
-        #         self.prop += self.sujets[y]
-        #         self.prop += self.complement[z]
-
-        #         if self.prop[x] == self.prop[x-3] :'''
-
-                
 

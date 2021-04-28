@@ -51,7 +51,7 @@ while game.is_running:
     if game.in_menu:
         menu(game,curseur, display_surface)
     elif game.in_choix_legends:
-        choix_personnage(game,curseur,display_surface)
+        choix_legends(game,curseur,display_surface)
     elif game.in_game:
             in_game(game,display_surface)
 
@@ -113,9 +113,11 @@ while game.is_running:
                 # Bouton jouer
                 if game.pret_J1 and game.pret_J2:
                     if game.rect['jouer_rect'].collidepoint(event.pos):
-                        game.legends_J1 = game.list_legends[game.menu_legends_J1]
-                        game.legends_J2 = game.list_legends[game.menu_legends_J2]
-                        print(game.legends_J1, game.legends_J2)
+                        game.player.legends_J1 = game.list_legends[game.menu_legends_J1]
+                        game.player.legends_J2 = game.list_legends[game.menu_legends_J2]
+                        game.player.faiblesse_J1 = game.stats[game.player.legends_J1]
+                        game.player.faiblesse_J2 = game.stats[game.player.legends_J2]
+                        print(game.player.legends_J1, game.player.legends_J2)
                         game.in_choix_legends = False
                         game.in_game = True
                         print("bouton jouer fonctionne")
