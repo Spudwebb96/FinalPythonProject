@@ -20,10 +20,24 @@ def Combat():
 
 def barre_de_vie(game,display_surface):
     bar_vie = (111, 210, 46)
+    bar_losehp = (255, 211, 121)
     bar_background = (0,0,0)
     bar_position_J1 = [20, 20, 500, 50]
-    '''pygame.draw.rect(display_surface, bar_background, bar_position_J1)'''
+    bar_position_J2 = [ 920, 20, 500, 50]
+
+    #j1
+    pygame.draw.rect(display_surface, bar_vie, bar_position_J1,0,25)
+    pygame.draw.rect(display_surface, bar_losehp, bar_position_J1,0,25)
     pygame.draw.rect(display_surface, bar_background, bar_position_J1,5,25)
+
+    #j2
+    pygame.draw.rect(display_surface, bar_vie, bar_position_J2,0,25)
+    pygame.draw.rect(display_surface, bar_losehp, bar_position_J2,0,25)
+    pygame.draw.rect(display_surface, bar_background, bar_position_J2,5,25)
+
+    bar_position_J1[2] = game.player.Hp_J1
+
+
 
 def in_game(game,display_surface):
     display_surface.blit(game.image['background_menu_jouer'], (0, 0))
