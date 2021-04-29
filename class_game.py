@@ -41,6 +41,7 @@ class game:
         self.liaison = ["a", "de", "pour", "des", "et", "car", "alors que", "sous pretexte que", "a l'image de"]
         self.finalref = [",c'est repugnant !", ",quelle honte !", ". Tu n'as pas la moindre chance contre moi !", ", vieux plouc !", ", grand pignouf !", ", sagounins des herbes !", ", babolard de premiere !", ",tete de sac a patate !", ", sale paysan !"]
         self.final = [",c'est repugnant !", ",quelle honte !", ". Tu n'as pas la moindre chance contre moi !", ", vieux plouc !", ", grand pignouf !", ", sagounins des herbes !", ", babolard de premiere !", ",tete de sac a patate !", ", sale paysan !"]
+        self.stage_select = None
         self.alpha = 300
 
         ### STATS DES LEGENDS
