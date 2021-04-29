@@ -69,13 +69,22 @@ def remplir_tableau():
     game.prop.pop[x]
 
 def tableau_prop(display_surface):
-    tableau_prop = (179,148,85)
+    tableau_prop = (255,255,255)
     tableau_position = [545, 324, 350, 650]
     pygame.draw.rect(display_surface, tableau_prop, tableau_position)
 
+    line_couleur = (0,0,0)
+    line_position_start = [545, 374]
+    line_position_end = [895, 374]
+
+    for i in range(1,13):
+        pygame.draw.line(display_surface,line_couleur,line_position_start,line_position_end)
+        line_position_start[1] += 50
+        line_position_end[1] += 50
+
 def in_game(game,display_surface):
     choix_background(game,display_surface)
-    # tableau_prop(display_surface)
+    tableau_prop(display_surface)
     if game.player.legends_J1 == 'bigband':
         display_surface.blit(game.image['bigband_J1_1'], (0, 224))
     elif game.player.legends_J1 == 'gunnar':
