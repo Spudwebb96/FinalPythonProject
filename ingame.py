@@ -76,6 +76,9 @@ def tableau_prop(display_surface):
     line_couleur = (0,0,0)
     line_position_start = [545, 374]
     line_position_end = [895, 374]
+    line_position_start_vert = [720, 973]
+    line_position_end_vert = [720, 923]
+    pygame.draw.line(display_surface,line_couleur,line_position_start_vert,line_position_end_vert)
 
     for i in range(1,13):
         pygame.draw.line(display_surface,line_couleur,line_position_start,line_position_end)
@@ -110,6 +113,9 @@ def in_game(game,display_surface):
         display_surface.blit(game.image['kitt_J2_1'], (728.76, 224))
     else:
         display_surface.blit(game.image['lucie_J2_1'], (836.91, 224))
+
+    display_surface.blit(game.image['nuage_J1'], (20,87))
+    display_surface.blit(game.image['nuage_J2'], (767,87))   
 
     barre_de_vie(game,display_surface)
    

@@ -197,6 +197,10 @@ class game:
                     'lucie_J2_2': pygame.image.load('assets/image/Personnages/Lucie/lucie_J2/Lucie_neutre_J2.png'),
                     'lucie_J2_3': pygame.image.load('assets/image/Personnages/Lucie/lucie_J2/Lucie_neutre_J2.png'),
 
+                ## Nuages de texte
+                'nuage_J1' : pygame.image.load('assets/image/en_jeu/nuage_J1.png'),
+                'nuage_J2' : pygame.image.load('assets/image/en_jeu/nuage_J2.png'),
+
                 ## Background
 
                 #Bigband
