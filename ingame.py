@@ -18,6 +18,12 @@ def Combat():
                     p2.phrase2.append(p2.prop[x])
                     p2.tour += 1
 
+def barre_de_vie(game,display_surface):
+    bar_vie = (111, 210, 46)
+    bar_background = (0,0,0)
+    bar_position_J1 = [20, 20, 500, 50]
+    '''pygame.draw.rect(display_surface, bar_background, bar_position_J1)'''
+    pygame.draw.rect(display_surface, bar_background, bar_position_J1,5,25)
 
 def in_game(game,display_surface):
     display_surface.blit(game.image['background_menu_jouer'], (0, 0))
@@ -46,6 +52,8 @@ def in_game(game,display_surface):
         display_surface.blit(game.image['kitt_J2_1'], (728.76, 224))
     else:
         display_surface.blit(game.image['lucie_J2_1'], (836.91, 224))
+
+    barre_de_vie(game,display_surface)
 
     # Effet fond noir transparent
     if game.alpha != 0:

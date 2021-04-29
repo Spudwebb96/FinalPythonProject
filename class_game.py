@@ -221,8 +221,8 @@ class game:
 
 class player:
     def __init__(self):
-        self.Hp_J1 = 3
-        self.Hp_J2 = 3
+        self.Hp_J1 = 500
+        self.Hp_J2 = 500
         self.legends_J1 = None
         self.legends_J2 = None
         self.faiblesse_J1 = None
