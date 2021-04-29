@@ -59,7 +59,7 @@ def barre_de_vie(game,display_surface):
         pygame.draw.rect(display_surface, bar_border, [920, 20, 500, 50], 3, 25)
 
 def choix_background(game,display_surface):
-    if game.player.legends_J1 == 'bigband':
+    if game.player.legends_J1 == 'isis':
         display_surface.blit(game.image['isis_back'], (0, 0))
 
 
