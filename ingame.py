@@ -34,13 +34,27 @@ def barre_de_vie(game,display_surface):
     pygame.draw.rect(display_surface, bar_vie, bar_position_J2,0,25)
     pygame.draw.rect(display_surface, bar_losehp, bar_position_J2,0,25)
     pygame.draw.rect(display_surface, bar_background, bar_position_J2,5,25)
-
+    
     bar_position_J1[2] = game.player.Hp_J1
 
+def choix_background(game,display_surface):
+    if game.player.legends_J1 == 'bigband':
+        display_surface.blit(game.image['isis_back'], (0, 0))
 
+
+def remplir_tableau():
+    x = randint(0,8)
+    game.prop.append(self.sujets[x])
+    game.prop.pop[x]
+
+def tableau_prop(display_surface):
+    tableau_prop = (179,148,85)
+    tableau_position = [545, 324, 350, 650]
+    pygame.draw.rect(display_surface, tableau_prop, tableau_position)
 
 def in_game(game,display_surface):
-    display_surface.blit(game.image['background_menu_jouer'], (0, 0))
+    choix_background(game,display_surface)
+    # tableau_prop(display_surface)
     if game.player.legends_J1 == 'bigband':
         display_surface.blit(game.image['bigband_J1_1'], (0, 224))
     elif game.player.legends_J1 == 'gunnar':
@@ -68,6 +82,7 @@ def in_game(game,display_surface):
         display_surface.blit(game.image['lucie_J2_1'], (836.91, 224))
 
     barre_de_vie(game,display_surface)
+   
 
     # Effet fond noir transparent
     if game.alpha != 0:

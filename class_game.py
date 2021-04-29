@@ -34,13 +34,12 @@ class game:
         self.sujets = ["Ta mere", "Ton pere", "Ta femme", "Ton nez", "Tes chaussures", "Ton visage", "Ton art martial", "Ta facon de marcher", "Tes techniques"]
         self.verbesref = ["est", "sera", "deviendra", "ressemblent a", "ne corresponds pas", "n'est pas capable de", "me fait penser a ", "palit en comparaison avec", "est si moche"]
         self.verbes = ["est", "sera", "deviendra", "ressemblent a", "ne corresponds pas", "n'est pas capable de", "me fait penser a ", "palit en comparaison avec ", "est si moche"]
-        self.complementref = ["une veritable chevre ", "a un bouillon de legumes", "de la mienne/du mien", "vivre librement", "etre a ma hauteur", "aux marche aux esclaves", "un poulet roti", "te porter chance", "me rendre sourd"]
-        self.complement = ["une veritable chevre ", "a un bouillon de legumes", "de la mienne/du mien", "vivre librement", "etre a ma hauteur", "aux marche aux esclaves", "un poulet roti", "te porter chance", "me rendre sourd"]
+        self.complementref = ["une chevre ", "a un bouillon de legumes", "de la mienne/du mien", "vivre librement", "etre a ma hauteur", "aux marche aux esclaves", "un poulet roti", "te porter chance", "me rendre sourd"]
+        self.complement = ["une chevre ", "a un bouillon de legumes", "de la mienne/du mien", "vivre librement", "etre a ma hauteur", "aux marche aux esclaves", "un poulet roti", "te porter chance", "me rendre sourd"]
         self.liaisonref = ["a", "de", "pour", "des", "et", "car", "alors que", "sous pretexte que", "a l'image de"]
         self.liaison = ["a", "de", "pour", "des", "et", "car", "alors que", "sous pretexte que", "a l'image de"]
         self.finalref = [",c'est repugnant !", ",quelle honte !", ". Tu n'as pas la moindre chance contre moi !", ", vieux plouc !", ", grand pignouf !", ", sagounins des herbes !", ", babolard de premiere !", ",tete de sac a patate !", ", sale paysan !"]
         self.final = [",c'est repugnant !", ",quelle honte !", ". Tu n'as pas la moindre chance contre moi !", ", vieux plouc !", ", grand pignouf !", ", sagounins des herbes !", ", babolard de premiere !", ",tete de sac a patate !", ", sale paysan !"]
-        x = randint(0,8)
         self.alpha = 300
 
         ### STATS DES LEGENDS
@@ -193,6 +192,11 @@ class game:
                     'lucie_J2_1': pygame.image.load('assets/image/Personnages/Lucie/lucie_J2/Lucie_neutre_J2.png'),
                     'lucie_J2_2': pygame.image.load('assets/image/Personnages/Lucie/lucie_J2/Lucie_neutre_J2.png'),
                     'lucie_J2_3': pygame.image.load('assets/image/Personnages/Lucie/lucie_J2/Lucie_neutre_J2.png'),
+
+                ## Background
+
+                #Bigband
+                'isis_back' : pygame.image.load('assets/image/background/isis_background.jpg'),
         }
 
         ### RECT DU JEU
@@ -215,6 +219,7 @@ class game:
             'bouton_retour_rect': self.image['bouton_retour'].get_rect(),
 
             ## IN-GAME
+            
 
         }
 
