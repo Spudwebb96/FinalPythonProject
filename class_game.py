@@ -107,6 +107,10 @@ class game:
                 'fleche_droite': pygame.image.load('assets/image/Personnages/Menu/fleche_droite.png'),
                 'fleche_gauche': pygame.image.load('assets/image/Personnages/Menu/fleche_gauche.png'),
 
+                # Bouton cartes info
+                "bouton_fermer" : pygame.image.load('assets/image/Personnages/Menu/infos/fermer_infos.png'),
+                "bouton_infos" : pygame.image.load('assets/image/Personnages/Menu/infos/bouton_infos.png'),
+
                 ## Carte personnage
 
                     # Bigband
@@ -144,6 +148,18 @@ class game:
                     'lucie_J1_on': pygame.image.load('assets/image/Personnages/Menu/Cartes_J1/lucie_selectionnee_J1.png'),
                     'lucie_J2_off': pygame.image.load('assets/image/Personnages/Menu/Cartes_J2/lucie_J2.png'),
                     'lucie_J2_on': pygame.image.load('assets/image/Personnages/Menu/Cartes_J2/lucie_selectionnee_J2.png'),
+                
+                ## Infos personnages
+
+                    'isis_infos' : pygame.image.load('assets/image/Personnages/Menu/infos/info_isis.png'),
+                    'gunnar_infos' : pygame.image.load('assets/image/Personnages/Menu/infos/info_gunnar.png'),
+                    'kitt_infos' : pygame.image.load('assets/image/Personnages/Menu/infos/info_kitt.png'),
+                    'lucie_infos' : pygame.image.load('assets/image/Personnages/Menu/infos/info_lucie.png'),
+                    'harry_infos' : pygame.image.load('assets/image/Personnages/Menu/infos/info_harry.png'),
+                    'bigband_infos' : pygame.image.load('assets/image/Personnages/Menu/infos/info_bigband.png'),
+
+
+
 
             ### IN-GAME
 
