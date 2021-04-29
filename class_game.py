@@ -19,6 +19,7 @@ class game:
 
         ## CONSTANTES MENU
         self.menu_regles = False
+        self.menu_regles_page = 1
         self.parametres = False
 
         ## CONSTANTES CHOIX LEGENDS
@@ -78,7 +79,10 @@ class game:
                 'bouton_quitter_hover' : pygame.image.load('assets/image/bouton_quitter_hover.png'),
 
                 # Image regles
-                'fond_regles' : pygame.image.load('assets/image/regles.png'),
+                'fond_regles_1' : pygame.image.load('assets/image/regles_1.png'),
+                'fond_regles_2' : pygame.image.load('assets/image/regles_2.png'),
+                'fleche_regles_1' : pygame.image.load('assets/image/Personnages/Menu/fleche_droite.png'),
+                'fleche_regles_2' : pygame.image.load('assets/image/Personnages/Menu/fleche_gauche.png'),
                 'bouton_fermer' : pygame.image.load('assets/image/fermer.png'),
 
             ### CHOIX LEGENDS
@@ -207,6 +211,8 @@ class game:
             'bouton_parametres_hover_rect' : self.image['bouton_parametres_hover'].get_rect(),
             'bouton_quitter_hover_rect' : self.image['bouton_quitter_hover'].get_rect(),
             'bouton_fermer_rect' : self.image['bouton_fermer'].get_rect(),
+            'bouton_regles_1' : self.image['fleche_regles_1'].get_rect(),
+            'bouton_regles_2' : self.image['fleche_regles_2'].get_rect(),
 
             ## CHOIX LEGENDS
             'jouer_rect': self.image['jouer_off'].get_rect(),

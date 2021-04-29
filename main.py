@@ -21,6 +21,9 @@ for key in game.image:
 # transform scale Image
 game.image['image_curseur'] = pygame.transform.scale(game.image['image_curseur'], (36, 57))
 game.image['image_curseur_click'] = pygame.transform.scale(game.image['image_curseur_click'], (36, 57))
+game.image['fleche_regles_1'] = pygame.transform.scale(game.image['fleche_regles_1'], (30, 37))
+game.image['fleche_regles_2'] = pygame.transform.scale(game.image['fleche_regles_2'], (30, 37))
+
 
 # create rect
 for key in game.rect:
@@ -33,6 +36,8 @@ position_rect(game.rect['bouton_regles_hover_rect'],652, 651)
 position_rect(game.rect['bouton_parametres_hover_rect'],606.5, 736)
 position_rect(game.rect['bouton_quitter_hover_rect'],646, 811)
 position_rect(game.rect['bouton_fermer_rect'], 1319, 465)
+position_rect(game.rect['bouton_regles_1'], 1325, 902)
+position_rect(game.rect['bouton_regles_2'], 1223, 902)
 # Choix legends
 position_rect(game.rect['bouton_retour_rect'], 80, 20)
 position_rect(game.rect['jouer_rect'], 550, 452)
@@ -87,7 +92,10 @@ while game.is_running:
                 else:
                     if game.rect['bouton_fermer_rect'].collidepoint(event.pos):
                         game.menu_regles = False
-
+                    elif game.rect['bouton_regles_1'].collidepoint(event.pos):
+                        game.menu_regles_page = 2
+                    elif game.rect['bouton_regles_2'].collidepoint(event.pos):
+                        game.menu_regles_page = 1
             elif game.in_choix_legends:
 
                 # Bouton retour

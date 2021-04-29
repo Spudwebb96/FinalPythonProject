@@ -10,7 +10,13 @@ def menu(game,curseur, display_surface):
 
     # Affichage des regles
     if game.menu_regles:
-        display_surface.blit(game.image['fond_regles'], (60, 440))
+        if game.menu_regles_page == 1:
+            display_surface.blit(game.image['fond_regles_1'], (60, 440))
+            display_surface.blit(game.image['fleche_regles_1'], (1325, 902))
+
+        elif game.menu_regles_page == 2:
+            display_surface.blit(game.image['fond_regles_2'], (60, 440))
+            display_surface.blit(game.image['fleche_regles_2'], (1223, 902))
         display_surface.blit(game.image['bouton_fermer'], (1319, 465))
 
     # Faire l'onglet parametre
