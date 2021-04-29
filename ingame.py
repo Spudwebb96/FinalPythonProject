@@ -1,3 +1,4 @@
+from random import randint
 import pygame
 import class_game
 from fonctions import *
@@ -6,6 +7,7 @@ pygame.init()
 
 '''p1 = player("P1")
 P2 = player("P2")'''
+
 
 def Combat():
     for event in pygame.event.get():
@@ -58,9 +60,19 @@ def barre_de_vie(game,display_surface):
         pygame.draw.rect(display_surface, game.player.bar_vie_J2, game.player.bar_position_J2, 0, 25)
         pygame.draw.rect(display_surface, bar_border, [920, 20, 500, 50], 3, 25)
 
-def choix_background(game,display_surface):
-    if game.player.legends_J1 == 'isis':
+def choix_background_local(game,display_surface,stage_select):
+    if stage_select == 1:
         display_surface.blit(game.image['isis_back'], (0, 0))
+    if stage_select == 2:
+        display_surface.blit(game.image['gunnar_back'], (0, 0))
+    if stage_select == 3:
+        display_surface.blit(game.image['bigband_back'], (0, 0))
+    if stage_select == 4:
+        display_surface.blit(game.image['kitt_back'], (0, 0))
+    if stage_select == 5:
+        display_surface.blit(game.image['harry_back'], (0, 0))
+    if stage_select == 6:
+        display_surface.blit(game.image['lucie_back'], (0, 0))
 
 
 def remplir_tableau():
@@ -86,7 +98,8 @@ def tableau_prop(display_surface):
         line_position_end[1] += 50
 
 def in_game(game,display_surface):
-    choix_background(game,display_surface)
+    stage_select = 1
+    choix_background_local(game,display_surface,stage_select)
     tableau_prop(display_surface)
     if game.player.legends_J1 == 'bigband':
         display_surface.blit(game.image['bigband_J1_1'], (0, 224))

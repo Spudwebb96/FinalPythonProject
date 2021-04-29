@@ -203,8 +203,23 @@ class game:
 
                 ## Background
 
-                #Bigband
-                'isis_back' : pygame.image.load('assets/image/en_jeu/background/isis_background.jpg'),
+                    #Isis
+                    'isis_back' : pygame.image.load('assets/image/en_jeu/background/isis_background.jpg'),
+
+                    #Bigband
+                    'bigband_back' : pygame.image.load('assets/image/en_jeu/background/bigband_background.jpg'),
+
+                    #K.I.T.T
+                    'kitt_back' : pygame.image.load('assets/image/en_jeu/background/kitt_background.jpg'),
+
+                    #Gunnar
+                    'gunnar_back' : pygame.image.load('assets/image/en_jeu/background/gunnar_background.jpg'),
+
+                    #Lucie
+                    'lucie_back' : pygame.image.load('assets/image/en_jeu/background/lucie_background.jpg'),
+
+                    #Harry
+                    'harry_back' : pygame.image.load('assets/image/en_jeu/background/harry_background.jpg'),
         }
 
         ### RECT DU JEU
