@@ -196,7 +196,7 @@ class game:
                 ## Background
 
                 #Bigband
-                'isis_back' : pygame.image.load('assets/image/background/isis_background.jpg'),
+                'isis_back' : pygame.image.load('assets/image/en_jeu/background/isis_background.jpg'),
         }
 
         ### RECT DU JEU
