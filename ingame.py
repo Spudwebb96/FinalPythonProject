@@ -19,23 +19,44 @@ def Combat():
                     p2.tour += 1
 
 def barre_de_vie(game,display_surface):
-    bar_vie = (111, 210, 46)
+    bar_border = (0, 0, 0)
     bar_losehp = (255, 211, 121)
-    bar_background = (0,0,0)
-    bar_position_J1 = [20, 20, 500, 50]
-    bar_position_J2 = [ 920, 20, 500, 50]
+    bar_position_J1 = [20, 20, game.player.max_Hp_J1, 50]
+    ecart = game.player.max_Hp_J1 - game.player.Hp_J1
 
     #j1
-    pygame.draw.rect(display_surface, bar_vie, bar_position_J1,0,25)
-    pygame.draw.rect(display_surface, bar_losehp, bar_position_J1,0,25)
-    pygame.draw.rect(display_surface, bar_background, bar_position_J1,5,25)
+    if game.player.max_Hp_J1 != game.player.Hp_J1:
+        if game.player.max_Hp_J1 == 380:
+            game.player.bar_vie_J1 = (232, 170, 14)
+        elif game.player.max_Hp_J1 == 240:
+            game.player.bar_vie_J1 = (205, 0, 0)
+        pygame.draw.rect(display_surface, bar_losehp, [20, 20, 500, 50], 0, 25)
+        pygame.draw.rect(display_surface, game.player.bar_vie_J1, bar_position_J1, 0, 25)
+        pygame.draw.rect(display_surface, bar_border, [20, 20, 500, 50], 3, 25)
+        game.player.max_Hp_J1 = game.player.max_Hp_J1 - 2
+
+    else:
+        pygame.draw.rect(display_surface, bar_losehp, [20, 20, 500, 50], 0, 25)
+        pygame.draw.rect(display_surface, game.player.bar_vie_J1, bar_position_J1, 0, 25)
+        pygame.draw.rect(display_surface, bar_border, [20, 20, 500, 50], 3, 25)
 
     #j2
-    pygame.draw.rect(display_surface, bar_vie, bar_position_J2,0,25)
-    pygame.draw.rect(display_surface, bar_losehp, bar_position_J2,0,25)
-    pygame.draw.rect(display_surface, bar_background, bar_position_J2,5,25)
-    
-    bar_position_J1[2] = game.player.Hp_J1
+    if game.player.max_Hp_J2 != game.player.Hp_J2:
+        if game.player.max_Hp_J2 == 380:
+            game.player.bar_vie_J2 = (232, 170, 14)
+        elif game.player.max_Hp_J2 == 240:
+            game.player.bar_vie_J2 = (205, 0, 0)
+        pygame.draw.rect(display_surface, bar_losehp, [920, 20, 500, 50], 0, 25)
+        pygame.draw.rect(display_surface, game.player.bar_vie_J2, game.player.bar_position_J2, 0, 25)
+        pygame.draw.rect(display_surface, bar_border, [920, 20, 500, 50], 3, 25)
+        game.player.max_Hp_J2 = game.player.max_Hp_J2 - 2
+        game.player.bar_position_J2[0] = game.player.bar_position_J2[0] + 2
+        game.player.bar_position_J2[2] = game.player.max_Hp_J2
+        print(game.player.max_Hp_J2)
+    else:
+        pygame.draw.rect(display_surface, bar_losehp, [920, 20, 500, 50], 0, 25)
+        pygame.draw.rect(display_surface, game.player.bar_vie_J2, game.player.bar_position_J2, 0, 25)
+        pygame.draw.rect(display_surface, bar_border, [920, 20, 500, 50], 3, 25)
 
 def choix_background(game,display_surface):
     if game.player.legends_J1 == 'bigband':
@@ -92,6 +113,5 @@ def in_game(game,display_surface):
         display_surface.blit(fond_noir_surface, (0, 0))
         game.alpha = game.alpha - 10
         pygame.time.delay(30)
-    print(game.player.faiblesse_J1,game.player.faiblesse_J2)
 
 

@@ -228,6 +228,14 @@ class player:
     def __init__(self):
         self.Hp_J1 = 500
         self.Hp_J2 = 500
+        self.max_Hp_J1 = 500
+        self.max_Hp_J2 = 500
+        self.Hp_J1 = 500
+        self.Hp_J2 = 500
+        # barre de vie
+        self.bar_position_J2 = [920, 20, self.max_Hp_J2, 50]
+        self.bar_vie_J1 = (0, 204, 82)
+        self.bar_vie_J2 = (0, 204, 82)
         self.legends_J1 = None
         self.legends_J2 = None
         self.faiblesse_J1 = None
