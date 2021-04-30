@@ -29,6 +29,10 @@ class game:
         self.menu_legends_J2 = 0
         self.list_legends = ['bigband', 'isis', 'gunnar', 'kitt', 'harry', 'lucie']
 
+        #INFOS LEGENDS
+        self.infos_legends_j1 = False
+        self.infos_legends_j2 = False
+
         ## CONSTANTES INGAME
         self.tour = 1
         self.sujetsref = ["Ta mere", "Ton pere", "Ta femme", "Ton nez", "Tes chaussures", "Ton visage", "Ton art martial", "Ta facon de marcher", "Tes techniques"]
@@ -108,8 +112,9 @@ class game:
                 'fleche_gauche': pygame.image.load('assets/image/Personnages/Menu/fleche_gauche.png'),
 
                 # Bouton cartes info
-                "bouton_fermer" : pygame.image.load('assets/image/Personnages/Menu/infos/fermer_infos.png'),
-                "bouton_infos" : pygame.image.load('assets/image/Personnages/Menu/infos/bouton_infos.png'),
+                "bouton_fermer_infos" : pygame.image.load('assets/image/Personnages/Menu/infos/fermer_infos.png'),
+                "bouton_infos_j1" : pygame.image.load('assets/image/Personnages/Menu/infos/bouton_infos.png'),
+                "bouton_infos_j2" : pygame.image.load('assets/image/Personnages/Menu/infos/bouton_infos.png'),
 
                 ## Carte personnage
 
@@ -258,6 +263,10 @@ class game:
             'fleche_gauche_rect_J2': self.image['fleche_gauche'].get_rect(),
             'fleche_droite_rect_J2': self.image['fleche_droite'].get_rect(),
             'bouton_retour_rect': self.image['bouton_retour'].get_rect(),
+            'bouton_infos_j1' : self.image['bouton_infos_j1'].get_rect(),
+            'bouton_infos_j2' : self.image['bouton_infos_j2'].get_rect(),
+            'bouton_fermer_infos_j1' : self.image['bouton_fermer_infos'].get_rect(),
+            'bouton_fermer_infos_j2' : self.image['bouton_fermer_infos'].get_rect(),
 
             ## IN-GAME
             
