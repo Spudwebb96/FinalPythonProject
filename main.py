@@ -149,6 +149,7 @@ while game.is_running:
                         print(game.player.legends_J1, game.player.legends_J2)
                         game.in_choix_legends = False
                         game.in_game = True
+                        game.stage_select = randint(1,6)
                         print("bouton jouer fonctionne")
 
                 # Carrousel
