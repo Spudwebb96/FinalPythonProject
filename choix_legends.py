@@ -63,7 +63,7 @@ def carroussel_perso(game,display_surface,position_cards_J1,position_cards_J2):
             else:
                 display_surface.blit(game.image['gunnar_J1_off'], (position_cards_J1[0], position_cards_J1[1]))
         else:
-            display_surface.blit(game.image['isis_infos'], (position_cards_J1[0], position_cards_J1[1]))
+            display_surface.blit(game.image['gunnar_infos'], (position_cards_J1[0], position_cards_J1[1]))
 
     elif game.menu_legends_J1 == 3:
         if game.infos_legends_j1 == False :
@@ -88,7 +88,7 @@ def carroussel_perso(game,display_surface,position_cards_J1,position_cards_J2):
             else:
                 display_surface.blit(game.image['lucie_J1_off'], (position_cards_J1[0], position_cards_J1[1]))
         else:
-            display_surface.blit(game.image['harry_infos'], (position_cards_J1[0], position_cards_J1[1]))
+            display_surface.blit(game.image['lucie_infos'], (position_cards_J1[0], position_cards_J1[1]))
 
     if game.infos_legends_j1 == False:       
         display_surface.blit(game.image['bouton_infos_j1'], (100, 210))

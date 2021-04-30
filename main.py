@@ -53,9 +53,6 @@ position_rect(game.rect['bouton_infos_j2'], 1305, 210)
 position_rect(game.rect['bouton_fermer_infos_j1'], 492, 204)
 position_rect(game.rect['bouton_fermer_infos_j2'], 1322, 204)
 
-
-
-
 while game.is_running:
 
     curseur = pygame.mouse.get_pos()
@@ -67,7 +64,6 @@ while game.is_running:
         choix_legends(game,curseur,display_surface)
     elif game.in_game:
             in_game(game,display_surface)
-
 
     # Changement du curseur
     if game.mouse:
