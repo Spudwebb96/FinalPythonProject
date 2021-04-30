@@ -117,27 +117,31 @@ while game.is_running:
 
 
                 # Boutons pret
-                if game.rect['pret_rect_J1'].collidepoint(event.pos):
-                    if game.pret_J1:
-                        game.pret_J1 = False
-                    else:
-                        game.pret_J1 = True
-                if game.rect['pret_rect_J2'].collidepoint(event.pos):
-                    if game.pret_J2:
-                        game.pret_J2 = False
-                    else:
-                        game.pret_J2 = True
+                if game.infos_legends_j1 == False:
+                    if game.rect['pret_rect_J1'].collidepoint(event.pos):
+                        if game.pret_J1:
+                            game.pret_J1 = False
+                        else:
+                            game.pret_J1 = True
+                if game.infos_legends_j2 == False:
+                    if game.rect['pret_rect_J2'].collidepoint(event.pos):
+                        if game.pret_J2:
+                            game.pret_J2 = False
+                        else:
+                            game.pret_J2 = True
 
                 # Boutons infos
-                if game.rect['bouton_infos_j1'].collidepoint(event.pos):
-                    game.infos_legends_j1 = True
-                if game.rect['bouton_fermer_infos_j1'].collidepoint(event.pos):
-                    game.infos_legends_j1 = False
-                if game.rect['bouton_infos_j2'].collidepoint(event.pos):
-                    game.infos_legends_j2 = True
-                if game.rect['bouton_fermer_infos_j2'].collidepoint(event.pos):
-                    game.infos_legends_j2 = False
-                
+                if game.pret_J1 == False :
+                    if game.rect['bouton_infos_j1'].collidepoint(event.pos):
+                        game.infos_legends_j1 = True
+                    if game.rect['bouton_fermer_infos_j1'].collidepoint(event.pos):
+                        game.infos_legends_j1 = False
+                if game.pret_J2 == False:
+                    if game.rect['bouton_infos_j2'].collidepoint(event.pos):
+                        game.infos_legends_j2 = True
+                    if game.rect['bouton_fermer_infos_j2'].collidepoint(event.pos):
+                        game.infos_legends_j2 = False
+                    
 
                 # Bouton jouer
                 if game.pret_J1 and game.pret_J2:
