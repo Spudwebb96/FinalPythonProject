@@ -77,18 +77,20 @@ def hover_boutons(game,curseur,display_surface):
     if game.in_choix_legends:
 
         # Hover bouton "Pret J1"
-        if curseur[0] > 198 and curseur[0] < 413 and curseur[1] > 900 and curseur[1] < 1000 :
-            display_surface.blit(game.image['pret_on'],(198,900))
-        else :
-            if game.pret_J1 == False:
-                display_surface.blit(game.image['pret_off'],(198,900))
+        if game.infos_legends_j1 == False:
+            if curseur[0] > 198 and curseur[0] < 413 and curseur[1] > 900 and curseur[1] < 1000 :
+                display_surface.blit(game.image['pret_on'],(198,900))
+            else :
+                if game.pret_J1 == False:
+                    display_surface.blit(game.image['pret_off'],(198,900))
 
         # Hover bouton "Pret J2"
-        if curseur[0] > 1028 and curseur[0] < 1243 and curseur[1] > 900 and curseur[1] < 1000 :
-            display_surface.blit(game.image['pret_on'],(1028,900))
-        else :
-            if game.pret_J2 == False:
-                display_surface.blit(game.image['pret_off'],(1028,900))
+        if game.infos_legends_j2 == False:
+            if curseur[0] > 1028 and curseur[0] < 1243 and curseur[1] > 900 and curseur[1] < 1000 :
+                display_surface.blit(game.image['pret_on'],(1028,900))
+            else :
+                if game.pret_J2 == False:
+                    display_surface.blit(game.image['pret_off'],(1028,900))
 
         # Hover bouton "Jouer"
         if curseur[0] > 550 and curseur[0] < 890 and curseur[1] > 452 and curseur[1] < 572 :
