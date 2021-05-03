@@ -84,7 +84,10 @@ while game.is_running:
             game.is_running = False
             pygame.quit()
 
-        if event.type == pygame.MOUSEBUTTONDOWN:
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            mixer.music.load('assets/son/click.wav')
+            mixer.music.set_volume(0.5)
+            mixer.music.play()
             game.mouse = True
             if game.in_menu:
                 if game.menu_regles == False:
@@ -180,6 +183,22 @@ while game.is_running:
                     else:
                         game.menu_legends_J2 = 0
 
+        # Bouton clavier
+        elif event.type == pygame.KEYDOWN:
+            # Menu
+            if game.in_menu == True:
+                if event.key == pygame.K_ESCAPE:
+                    game.menu_regles = False
+                    print(game.menu_regles)
+
+            # Choix legends
+
+            # In_game
+            if game.in_game == True:
+                if event.key == pygame.K_ESCAPE:
+                    game.in_game = False
+                    game.in_choix_legends = True
+                    print(game.menu_regles)
 
         else:
             game.mouse = False
