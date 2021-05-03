@@ -123,6 +123,8 @@ class game:
                 # Bouton carrousel
                 'fleche_droite': pygame.image.load('assets/image/Personnages/Menu/fleche_droite.png'),
                 'fleche_gauche': pygame.image.load('assets/image/Personnages/Menu/fleche_gauche.png'),
+                'fleche_droite_info': pygame.image.load('assets/image/Personnages/Menu/fleche_droite_or.png'),
+                'fleche_gauche_info': pygame.image.load('assets/image/Personnages/Menu/fleche_gauche_or.png'),
 
                 # Bouton cartes info
                 "bouton_fermer_infos" : pygame.image.load('assets/image/Personnages/Menu/infos/fermer_infos.png'),

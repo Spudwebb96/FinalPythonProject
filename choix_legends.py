@@ -29,11 +29,16 @@ def choix_legends(game,curseur,display_surface) :
         display_surface.blit(game.image['fleche_droite'], (465, 806))
     if game.infos_legends_j1 == True:
         display_surface.blit(game.image['bouton_fermer_infos'], (492, 204))
+        display_surface.blit(game.image['fleche_gauche_info'], (105, 806))
+        display_surface.blit(game.image['fleche_droite_info'], (465, 806))
     if game.pret_J2 == False:
         display_surface.blit(game.image['fleche_gauche'], (935, 806))
         display_surface.blit(game.image['fleche_droite'], (1295, 806))
     if game.infos_legends_j2 == True:
         display_surface.blit(game.image['bouton_fermer_infos'], (926, 204))
+        display_surface.blit(game.image['fleche_gauche_info'], (935, 806))
+        display_surface.blit(game.image['fleche_droite_info'], (1295, 806))
+
 
 
 
