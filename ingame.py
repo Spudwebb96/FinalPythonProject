@@ -76,9 +76,24 @@ def choix_background_local(game,display_surface):
 
 
 def remplir_tableau():
-    x = randint(0,len(game.sujets))
-    game.prop.append(game.sujets[x])
-    game.prop.pop[x]
+    if len(game.prop) < 12:
+        v = randint(0,len(game.sujets))
+        w = randint(0,len(game.verbes))
+        x = randint(0,len(game.complement))
+        y = randint(0,len(game.liaison))
+        z = randint(0,len(game.final))
+        game.prop.append(game.sujets[v])
+        game.sujets.pop[v]
+        game.prop.append(game.verbes[w])
+        game.verbes.pop[w]
+        game.prop.append(game.complement[x])
+        game.complement.pop[x]
+        game.prop.append(game.liaison[y])
+        game.liaison.pop[y]
+        game.prop.append(game.final[z])
+        game.final.pop[z]
+
+
 
 def tableau_prop(display_surface):
     tableau_prop = (212,212,212)

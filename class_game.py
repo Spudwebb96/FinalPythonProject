@@ -43,20 +43,22 @@ class game:
         # self.complement = ["une chevre ", "a un bouillon de legumes", "de la mienne/du mien", "vivre librement", "etre a ma hauteur", "aux marche aux esclaves", "un poulet roti", "te porter chance", "me rendre sourd"]
         # self.liaisonref = ["a", "de", "pour", "des", "et", "car", "alors que", "sous pretexte que", "a l'image de"]
         # self.liaison = ["a", "de", "pour", "des", "et", "car", "alors que", "sous pretexte que", "a l'image de"]
-        # self.finalref = [",c'est repugnant !", ",quelle honte !", ". Tu n'as pas la moindre chance contre moi !", ", vieux plouc !", ", grand pignouf !", ", sagounins des herbes !", ", babolard de premiere !", ",tete de sac a patate !", ", sale paysan !"]
+        # self.finalref = [",c'est repugnant ", ",quelle honte !", ". Tu n'as pas la moindre chance contre moi !", ", vieux plouc !", ", grand pignouf !", ", sagounins des herbes !", ", babolard de premiere !", ",tete de sac a patate !", ", sale paysan !"]
         # self.final = [",c'est repugnant !", ",quelle honte !", ". Tu n'as pas la moindre chance contre moi !", ", vieux plouc !", ", grand pignouf !", ", sagounins des herbes !", ", babolard de premiere !", ",tete de sac a patate !", ", sale paysan !"]
         self.sujets = ["Ta mere", "Ton pere", "Ton créateur", "Ton homme", "Tes cheveux", "Tes vetements", "Ta beauté", "Ton style", "Ton flow", "Tu", "Ta demarche", "Ta femme", "Ton odeur", "ton age", "ta musique"]
         self.verbes = ["te bats/se bat/se battent", "es/est/sont", "deviendras/deviendra/deviendront", "ressemble x2/ressemblent a", "me rends/mend/rendent", "corresponds/correspond/correspondent a", "n'es/n’est/ne sont pas capable/nt d’etre", "me fais/fait/font penser a "]
         self.complement = ["une chevre", "un cochon", "un pigeon", "un vieux plouc", "une morue", "de l’eau", "une ratatouille", "moi/toi", "un prisonnier", "a ma hauteur(?)", "une paysanne", "un village", "une foret", "un poulet roti", "sourd/e/s", "fou/e/s", "si moche/moches", "aveugle", "moche", "malade", "abominable", "un monstre", "un laboratoire"]
         self.liaison = ["pour", "et", "a l'image de", "comme", "et", "comme", "dans"]
-        self.final = [",c'est repugnant !", ",quelle monstre !", ". Eloignez cette bete !", ", vieux plouc !", ", folichon va !", ", espece de marionette !", ", babolard a papa!", ",sac a patate solitaire !", ", sale paysan !"]
+        self.final = [",c'est repugnant ", ",quelle monstre ", ". Eloignez cette bete ", ", vieux plouc ", ", folichon va ", ", espece de marionette ", ", babolard a papa", ",sac a patate solitaire ", ", sale paysan "]
         self.sujetsref = ["Ta mere", "Ton pere", "Ton créateur", "Ton homme", "Tes cheveux", "Tes vetements", "Ta beauté", "Ton style", "Ton flow", "Tu", "Ta demarche", "Ta femme", "Ton odeur", "ton age", "ta musique"]
         self.verbesref = ["te bats/se bat/se battent", "es/est/sont", "deviendras/deviendra/deviendront", "ressemble x2/ressemblent a", "me rends/mend/rendent", "corresponds/correspond/correspondent a", "n'es/n’est/ne sont pas capable/nt d’etre", "me fais/fait/font penser a "]
         self.complementref = ["une chevre", "un cochon", "un pigeon", "un vieux plouc", "une morue", "de l’eau", "une ratatouille", "moi/toi", "un prisonnier", "a ma hauteur(?)", "une paysanne", "un village", "une foret", "un poulet roti", "sourd/e/s", "fou/e/s", "si moche/moches", "aveugle", "moche", "malade", "abominable", "un monstre", "un laboratoire"]
         self.liaisonref = ["pour", "et", "a l'image de", "comme", "et", "comme", "dans"]
-        self.finalref = [",c'est repugnant !", ",quelle monstre !", ". Eloignez cette bete !", ", vieux plouc !", ", folichon va !", ", espece de marionette !", ", babolard a papa!", ",sac a patate solitaire !", ", sale paysan !"]
+        self.finalref = [",c'est repugnant ", ",quelle monstre ", ". Eloignez cette bete ", ", vieux plouc ", ", folichon va ", ", espece de marionette ", ", babolard a papa", ",sac a patate solitaire ", ", sale paysan "]
+        self.ponctuation = ["!", "."]
         self.stage_select = None
         self.alpha = 300
+        self.prop = []
 
         ### STATS DES LEGENDS
         self.stats = {
