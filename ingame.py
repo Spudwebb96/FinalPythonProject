@@ -76,8 +76,8 @@ def choix_background_local(game,display_surface):
 
 
 def remplir_tableau():
-    x = randint(0,8)
-    game.prop.append(self.sujets[x])
+    x = randint(0,len(game.sujets))
+    game.prop.append(game.sujets[x])
     game.prop.pop[x]
 
 def tableau_prop(display_surface):

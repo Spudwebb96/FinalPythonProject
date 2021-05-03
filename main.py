@@ -9,7 +9,7 @@ from pygame import mixer
 pygame.init()
 mixer.init()
 mixer.music.load('assets/son/musique.wav')
-mixer.music.set_volume(0.0001)
+mixer.music.set_volume(0.01)
 mixer.music.play()
 
 frame_per_sec = pygame.time.Clock()
