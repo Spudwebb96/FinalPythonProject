@@ -81,19 +81,20 @@ def remplir_tableau():
     game.prop.pop[x]
 
 def tableau_prop(display_surface):
-    tableau_prop = (255,255,255)
+    tableau_prop = (212,212,212)
     tableau_position = [545, 324, 350, 650]
     pygame.draw.rect(display_surface, tableau_prop, tableau_position)
+    pygame.draw.rect(display_surface, (0,0,0), tableau_position, 3)
 
     line_couleur = (0,0,0)
     line_position_start = [545, 374]
     line_position_end = [895, 374]
     line_position_start_vert = [720, 973]
     line_position_end_vert = [720, 923]
-    pygame.draw.line(display_surface,line_couleur,line_position_start_vert,line_position_end_vert)
+    pygame.draw.line(display_surface,line_couleur,line_position_start_vert,line_position_end_vert,3)
 
     for i in range(1,13):
-        pygame.draw.line(display_surface,line_couleur,line_position_start,line_position_end)
+        pygame.draw.line(display_surface,line_couleur,line_position_start,line_position_end,3)
         line_position_start[1] += 50
         line_position_end[1] += 50
 
@@ -103,7 +104,7 @@ def in_game(game,display_surface):
     if game.player.legends_J1 == 'bigband':
         display_surface.blit(game.image['bigband_J1_1'], (0, 224))
     elif game.player.legends_J1 == 'gunnar':
-        display_surface.blit(game.image['gunnar_J1_1'], (0, 224))
+        display_surface.blit(game.image['gunnar_J1_1'], (-10, 224))
     elif game.player.legends_J1 == 'harry':
         display_surface.blit(game.image['harry_J1_1'], (0, 224))
     elif game.player.legends_J1 == 'isis':
@@ -116,7 +117,7 @@ def in_game(game,display_surface):
     if game.player.legends_J2 == 'bigband':
         display_surface.blit(game.image['bigband_J2_1'], (924.02, 224))
     elif game.player.legends_J2 == 'gunnar':
-        display_surface.blit(game.image['gunnar_J2_1'], (728.76, 224))
+        display_surface.blit(game.image['gunnar_J2_1'], (738.76, 224))
     elif game.player.legends_J2 == 'harry':
         display_surface.blit(game.image['harry_J2_1'], (777.14, 224))
     elif game.player.legends_J2 == 'isis':

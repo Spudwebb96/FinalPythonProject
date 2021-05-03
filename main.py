@@ -4,8 +4,13 @@ from menu import *
 from choix_legends import *
 from fonctions import *
 from class_game import *
+from pygame import mixer 
 
 pygame.init()
+mixer.init()
+mixer.music.load('assets/son/musique.wav')
+mixer.music.set_volume(0.1)
+mixer.music.play()
 
 frame_per_sec = pygame.time.Clock()
 
