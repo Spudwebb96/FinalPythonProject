@@ -8,9 +8,11 @@ from pygame import mixer
 
 pygame.init()
 mixer.init()
-mixer.music.load('assets/son/musique.wav')
+'''mixer.music.load('assets/son/menu.wav')
 mixer.music.set_volume(0.01)
-mixer.music.play()
+mixer.music.play()'''
+pygame.mixer.Channel(0).set_volume(0.1)
+pygame.mixer.Channel(0).play(pygame.mixer.Sound('assets/son/menu.wav'),-1)
 
 frame_per_sec = pygame.time.Clock()
 
@@ -85,9 +87,8 @@ while game.is_running:
             pygame.quit()
 
         elif event.type == pygame.MOUSEBUTTONDOWN:
-            mixer.music.load('assets/son/click.wav')
-            mixer.music.set_volume(0.5)
-            mixer.music.play()
+            pygame.mixer.Channel(1).set_volume(0.05)
+            pygame.mixer.Channel(1).play(pygame.mixer.Sound('assets/son/click.wav'))
             game.mouse = True
             if game.in_menu:
                 if game.menu_regles == False:
