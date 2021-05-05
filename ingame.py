@@ -1,12 +1,28 @@
 from random import randint
 import pygame
 import class_game
+import time
 from fonctions import *
 from class_game import *
 pygame.init()
 
 '''p1 = player("P1")
 P2 = player("P2")'''
+
+RED = (125, 0, 0)
+BLUE = (0, 48, 170)
+GREEN = (0 ,116, 19)
+YELLOW = (239, 215, 0)
+
+sysfont = pygame.font.get_default_font()
+print('system font :', sysfont)
+
+t0 = time.time()
+font = pygame.font.SysFont("palatinolinotype", 48, bold=True, italic=False)
+print('time needed for Font creation :', time.time()-t0)
+
+font1 = pygame.font.SysFont('palatinolinotype', 35)
+img1 = font1.render('Une longue phrase', True, BLUE)
 
 
 def Combat():
@@ -145,6 +161,7 @@ def in_game(game,display_surface):
     display_surface.blit(game.image['nuage_J1'], (20,87))
     display_surface.blit(game.image['nuage_J2'], (767,87))   
 
+    display_surface.blit(img1, (555, 330)) 
     barre_de_vie(game,display_surface)
    
 
