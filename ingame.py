@@ -6,24 +6,6 @@ from fonctions import *
 from class_game import *
 pygame.init()
 
-'''p1 = player("P1")
-P2 = player("P2")'''
-
-RED = (125, 0, 0)
-BLUE = (0, 48, 170)
-GREEN = (0 ,116, 19)
-YELLOW = (239, 215, 0)
-
-sysfont = pygame.font.get_default_font()
-print('system font :', sysfont)
-
-t0 = time.time()
-font = pygame.font.SysFont("palatinolinotype", 48, bold=True, italic=False)
-print('time needed for Font creation :', time.time()-t0)
-
-font1 = pygame.font.SysFont('palatinolinotype', 35)
-img1 = font1.render('Une longue phrase', True, BLUE)
-
 
 def Combat():
     for event in pygame.event.get():
@@ -91,27 +73,70 @@ def choix_background_local(game,display_surface):
         display_surface.blit(game.image['lucie_back'], (0, 0))
 
 
-def remplir_tableau():
-    if len(game.prop) < 12:
-        v = randint(0,len(game.sujets))
-        w = randint(0,len(game.verbes))
-        x = randint(0,len(game.complement))
-        y = randint(0,len(game.liaison))
-        z = randint(0,len(game.final))
+
+
+def remplir_tableau(game, display_surface):
+    RED = (125, 0, 0)
+    BLUE = (0, 48, 170)
+    GREEN = (0, 116, 19)
+    YELLOW = (255, 135, 0) 
+    sysfont = pygame.font.get_default_font()
+    #print('system font :', sysfont)
+
+    t0 = time.time()
+    font = pygame.font.SysFont("palatinolinotype", 48, bold=True, italic=False)
+    #print('time needed for Font creation :', time.time() - t0)
+
+    font1 = pygame.font.SysFont('palatinolinotype', 35)
+
+    if len(game.prop) != 12:
+        v = randint(0,len(game.sujets) - 1)
+        w = randint(0,len(game.verbes) - 1)
         game.prop.append(game.sujets[v])
-        game.sujets.pop[v]
+        game.sujets.pop(v)
         game.prop.append(game.verbes[w])
-        game.verbes.pop[w]
-        game.prop.append(game.complement[x])
-        game.complement.pop[x]
-        game.prop.append(game.liaison[y])
-        game.liaison.pop[y]
-        game.prop.append(game.final[z])
-        game.final.pop[z]
+        game.verbes.pop(w)
+        if len(game.prop) != 12 :
+            x = randint(0, len(game.complement) - 1)
+            y = randint(0, len(game.liaison) - 1)
+            z = randint(0, len(game.final) - 1)
+            game.prop.append(game.complement[x])
+            game.complement.pop(x)
+            game.prop.append(game.liaison[y])
+            game.liaison.pop(y)
+            game.prop.append(game.final[z])
+            game.final.pop(z)
+
+    img1 = font1.render(game.prop[0], True, RED)
+    img2 = font1.render(game.prop[1], True, BLUE)
+    img3 = font1.render(game.prop[2], True, GREEN)
+    img4 = font1.render(game.prop[3], True, YELLOW)
+    img5 = font1.render(game.prop[4], True, GREEN)
+    display_surface.blit(img1, (555, 330))
+    display_surface.blit(img2, (555, 380))
+    display_surface.blit(img3, (555, 430))
+    display_surface.blit(img4, (555, 480))
+    display_surface.blit(img5, (555, 530))
+    if len(game.prop) > 5 :
+        img6 = font1.render(game.prop[5], True, RED)
+        img7 = font1.render(game.prop[6], True, BLUE)
+        img8 = font1.render(game.prop[7], True, GREEN)
+        img9 = font1.render(game.prop[8], True, YELLOW)
+        img10 = font1.render(game.prop[9], True, GREEN)
+        display_surface.blit(img6, (555, 580))
+        display_surface.blit(img7, (555, 630))
+        display_surface.blit(img8, (555, 680))
+        display_surface.blit(img9, (555, 730))
+        display_surface.blit(img10, (555, 780))
+    if len(game.prop) > 10 :
+        img11 = font1.render(game.prop[10], True, RED)
+        img12 = font1.render(game.prop[11], True, BLUE)
+        display_surface.blit(img11, (555, 830))
+        display_surface.blit(img12, (555, 880))
 
 
 
-def tableau_prop(display_surface):
+def tableau_prop(game, display_surface):
     tableau_prop = (212,212,212)
     tableau_position = [545, 324, 350, 650]
     pygame.draw.rect(display_surface, tableau_prop, tableau_position)
@@ -128,10 +153,11 @@ def tableau_prop(display_surface):
         pygame.draw.line(display_surface,line_couleur,line_position_start,line_position_end,3)
         line_position_start[1] += 50
         line_position_end[1] += 50
+    remplir_tableau(game, display_surface)
 
 def in_game(game,display_surface):
     choix_background_local(game,display_surface)
-    tableau_prop(display_surface)
+    tableau_prop(game, display_surface)
     if game.player.legends_J1 == 'bigband':
         display_surface.blit(game.image['bigband_J1_1'], (0, 224))
     elif game.player.legends_J1 == 'gunnar':
@@ -161,7 +187,6 @@ def in_game(game,display_surface):
     display_surface.blit(game.image['nuage_J1'], (20,87))
     display_surface.blit(game.image['nuage_J2'], (767,87))   
 
-    display_surface.blit(img1, (555, 330)) 
     barre_de_vie(game,display_surface)
    
 

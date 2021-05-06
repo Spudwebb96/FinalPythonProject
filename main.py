@@ -155,11 +155,9 @@ while game.is_running:
                         game.player.legends_J2 = game.list_legends[game.menu_legends_J2]
                         game.player.faiblesse_J1 = game.stats[game.player.legends_J1]
                         game.player.faiblesse_J2 = game.stats[game.player.legends_J2]
-                        print(game.player.legends_J1, game.player.legends_J2)
                         game.in_choix_legends = False
                         game.in_game = True
                         game.stage_select = randint(1,6)
-                        print("bouton jouer fonctionne")
 
                 # Carrousel
                 if game.rect['fleche_gauche_rect_J1'].collidepoint(event.pos) and game.pret_J1 == False:
@@ -199,6 +197,7 @@ while game.is_running:
                 if event.key == pygame.K_ESCAPE:
                     game.in_game = False
                     game.in_choix_legends = True
+                    game.prop = []
                     print(game.menu_regles)
 
         else:
