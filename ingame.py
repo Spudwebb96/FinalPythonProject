@@ -64,7 +64,7 @@ def choix_background_local(game,display_surface):
     if game.stage_select == 2:
         display_surface.blit(game.image['gunnar_back'], (0, 0))
     if game.stage_select == 3:
-        display_surface.blit(game.image['bigband_back'], (0, 0))
+        display_surface.blit(game.image['bigband_back'], (0, 0))    
     if game.stage_select == 4:
         display_surface.blit(game.image['kitt_back'], (0, 0))
     if game.stage_select == 5:

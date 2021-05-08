@@ -8,11 +8,9 @@ from pygame import mixer
 
 pygame.init()
 mixer.init()
-'''mixer.music.load('assets/son/menu.wav')
-mixer.music.set_volume(0.01)
-mixer.music.play()'''
-pygame.mixer.Channel(0).set_volume(0.1)
+pygame.mixer.Channel(0).set_volume(0.08)
 pygame.mixer.Channel(0).play(pygame.mixer.Sound('assets/son/menu.wav'),-1)
+
 
 frame_per_sec = pygame.time.Clock()
 
@@ -74,8 +72,8 @@ while game.is_running:
             pygame.quit()
 
         elif event.type == pygame.MOUSEBUTTONDOWN:
-            pygame.mixer.Channel(1).set_volume(0.05)
-            pygame.mixer.Channel(1).play(pygame.mixer.Sound('assets/son/click.wav'))
+            pygame.mixer.Channel(2).set_volume(0.05)
+            pygame.mixer.Channel(2).play(pygame.mixer.Sound('assets/son/click.wav'))
             game.mouse = True
             # event dans le menu principal
             if game.in_menu:
@@ -147,6 +145,28 @@ while game.is_running:
                         game.in_choix_legends = False
                         game.in_game = True
                         game.stage_select = randint(1,6)
+                        pygame.mixer.Channel(0).stop()
+
+                        # Musiques stages
+                        if game.stage_select == 1:
+                            pygame.mixer.Channel(1).set_volume(0.06)
+                            pygame.mixer.Channel(1).play(pygame.mixer.Sound('assets/son/isis_musique.wav'),-1)
+                        elif game.stage_select == 2:
+                            pygame.mixer.Channel(1).set_volume(0.04)
+                            pygame.mixer.Channel(1).play(pygame.mixer.Sound('assets/son/gunnar_musique.wav'),-1)
+                        elif game.stage_select == 3:
+                            pygame.mixer.Channel(1).set_volume(0.05)
+                            pygame.mixer.Channel(1).play(pygame.mixer.Sound('assets/son/bigband_musique.wav'),-1)
+                        elif game.stage_select == 4:
+                            pygame.mixer.Channel(1).set_volume(0.04)
+                            pygame.mixer.Channel(1).play(pygame.mixer.Sound('assets/son/kitt_musique.wav'),-1)
+                        elif game.stage_select == 5:
+                            pygame.mixer.Channel(1).set_volume(0.06)
+                            pygame.mixer.Channel(1).play(pygame.mixer.Sound('assets/son/harry_musique.wav'),-1)
+                        else:
+                            pygame.mixer.Channel(1).set_volume(0.06)
+                            pygame.mixer.Channel(1).play(pygame.mixer.Sound('assets/son/lucie_musique.wav'),-1)
+
 
                 # Carrousel
                 if game.rect_choix_legends['fleche_gauche_rect_J1'].collidepoint(event.pos) and game.pret_J1 == False:
@@ -177,7 +197,6 @@ while game.is_running:
             if game.in_menu == True:
                 if event.key == pygame.K_ESCAPE:
                     game.menu_regles = False
-                    print(game.menu_regles)
 
             # Choix legends
 
@@ -187,7 +206,8 @@ while game.is_running:
                     game.in_game = False
                     game.in_choix_legends = True
                     game.prop = []
-                    print(game.menu_regles)
+                    pygame.mixer.Channel(0).play(pygame.mixer.Sound('assets/son/menu.wav'),-1)
+                    pygame.mixer.Channel(1).stop()
 
         else:
             game.mouse = False
