@@ -52,10 +52,9 @@ while game.is_running:
 
     elif game.in_game:
         in_game(game,display_surface)
-        '''for key in game.rect_ingame:
+        for key in game.rect_ingame:
             game.rect_ingame[key]
-            for key in game.rect_position_ingame:
-                game.rect_position_ingame[key]'''
+
 
     # Changement du curseur
     if game.mouse:
@@ -190,6 +189,37 @@ while game.is_running:
                         game.menu_legends_J2 = game.menu_legends_J2 + 1
                     else:
                         game.menu_legends_J2 = 0
+
+            elif game.in_game:
+                if game.rect_ingame['rect_1'].collidepoint(event.pos):
+                    Combat(game, 0, display_surface)
+                elif game.rect_ingame['rect_2'].collidepoint(event.pos):
+                    Combat(game, 1, display_surface)
+                elif game.rect_ingame['rect_3'].collidepoint(event.pos):
+                    Combat(game, 2, display_surface)
+                elif game.rect_ingame['rect_4'].collidepoint(event.pos):
+                    Combat(game, 3, display_surface)
+                elif game.rect_ingame['rect_5'].collidepoint(event.pos):
+                    Combat(game, 4, display_surface)
+                elif game.rect_ingame['rect_6'].collidepoint(event.pos):
+                    Combat(game, 5, display_surface)
+                elif game.rect_ingame['rect_7'].collidepoint(event.pos):
+                    Combat(game, 6, display_surface)
+                elif game.rect_ingame['rect_8'].collidepoint(event.pos):
+                    Combat(game, 7, display_surface)
+                elif game.rect_ingame['rect_9'].collidepoint(event.pos):
+                    Combat(game, 8, display_surface)
+                elif game.rect_ingame['rect_10'].collidepoint(event.pos):
+                    Combat(game, 9, display_surface)
+                elif game.rect_ingame['rect_11'].collidepoint(event.pos):
+                    Combat(game, 10, display_surface)
+                elif game.rect_ingame['rect_12'].collidepoint(event.pos):
+                    Combat(game, 11, display_surface)
+                elif game.rect_ingame['rect_13'].collidepoint(event.pos):
+                    Combat(game, 12, display_surface)
+                elif game.rect_ingame['rect_14'].collidepoint(event.pos):
+                    Combat(game ,13, display_surface)
+
 
         # Bouton clavier
         elif event.type == pygame.KEYDOWN:

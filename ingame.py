@@ -1,3 +1,4 @@
+'''@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');'''
 from random import randint
 import pygame
 import class_game
@@ -6,17 +7,43 @@ from fonctions import *
 from class_game import *
 pygame.init()
 
+def Combat(game, x, display_surface):
+    if game.p1_phrase[1] == False or game.p2_phrase[1] == False or game.p1_phrase[1] == False and game.p2_phrase[1] == False:
+        if game.tour == 1:
+            if x < 12 :
+                game.p1_phrase[0].append(game.prop[x])
+            elif x == 12:
+                game.p1_phrase[0].append(".")
+                game.p1_phrase[1] = True
+            else :
+                game.p1_phrase[0].append("!")
+                game.p1_phrase[1] = True
+            game.tour = 0
+        else :
+            if x < 12:
+                game.p2_phrase[0].append(game.prop[x])
+            elif x == 12:
+                game.p2_phrase[0].append(".")
+                game.p2_phrase[1] = True
+            else :
+                game.p2_phrase[0].append("!")
+                game.p2_phrase[1] = True
+            game.tour = 1
 
-def Combat():
-    for event in pygame.event.get():
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            while len(p1.phrase1) < 3 and len(p2.phrase2) < 3:
-                if game.tour%2 == 1:
-                    p1.phrase1.append(p1.prop[x])
-                    p1.tour += 1
-                if game.tour%2 == 0:
-                    p2.phrase2.append(p2.prop[x])
-                    p2.tour += 1
+
+def nuage(game, display_surface):
+    print(game.p1_phrase[1] , game.p2_phrase[1])
+    font1 = pygame.font.SysFont("palatinolinotype", 20, bold=True, italic=False)
+    concatenationJ1 = ""
+    concatenationJ2 = ""
+    for i in game.p1_phrase[0]:
+        concatenationJ1 = concatenationJ1 + " " + i
+    for i in game.p2_phrase[0]:
+        concatenationJ2 = concatenationJ2 + " " + i
+    phraseJ1 = font1.render(concatenationJ1, True, (0, 0, 0))
+    phraseJ2 = font1.render(concatenationJ2, True, (0, 0, 0))
+    display_surface.blit(phraseJ1, (81, 168))
+    display_surface.blit(phraseJ2, (823, 168))
 
 def barre_de_vie(game,display_surface):
     bar_border = (0, 0, 0)
@@ -77,14 +104,9 @@ def remplir_tableau(game, display_surface):
     BLUE = (0, 48, 170)
     GREEN = (0, 116, 19)
     YELLOW = (255, 135, 0) 
-    sysfont = pygame.font.get_default_font()
-    #print('system font :', sysfont)
 
-    t0 = time.time()
-    font = pygame.font.SysFont("palatinolinotype", 48, bold=True, italic=False)
-    #print('time needed for Font creation :', time.time() - t0)
+    font1 = pygame.font.SysFont("palatinolinotype", 40, bold=True, italic=False)
 
-    font1 = pygame.font.SysFont('palatinolinotype', 35)
 
     if len(game.prop) != 12:
         v = randint(0,len(game.sujets) - 1)
@@ -110,27 +132,27 @@ def remplir_tableau(game, display_surface):
     img4 = font1.render(game.prop[3], True, YELLOW)
     img5 = font1.render(game.prop[4], True, GREEN)
 
-    display_surface.blit(img1, (555, 330))
-    display_surface.blit(img2, (555, 380))
-    display_surface.blit(img3, (555, 430))
-    display_surface.blit(img4, (555, 480))
-    display_surface.blit(img5, (555, 530))
+    display_surface.blit(img1, (555, 331))
+    display_surface.blit(img2, (555, 381))
+    display_surface.blit(img3, (555, 431))
+    display_surface.blit(img4, (555, 481))
+    display_surface.blit(img5, (555, 531))
     if len(game.prop) > 5 :
         img6 = font1.render(game.prop[5], True, RED)
         img7 = font1.render(game.prop[6], True, BLUE)
         img8 = font1.render(game.prop[7], True, GREEN)
         img9 = font1.render(game.prop[8], True, YELLOW)
         img10 = font1.render(game.prop[9], True, GREEN)
-        display_surface.blit(img6, (555, 580))
-        display_surface.blit(img7, (555, 630))
-        display_surface.blit(img8, (555, 680))
-        display_surface.blit(img9, (555, 730))
-        display_surface.blit(img10, (555, 780))
+        display_surface.blit(img6, (555, 581))
+        display_surface.blit(img7, (555, 631))
+        display_surface.blit(img8, (555, 681))
+        display_surface.blit(img9, (555, 731))
+        display_surface.blit(img10, (555, 781))
     if len(game.prop) > 10 :
         img11 = font1.render(game.prop[10], True, RED)
         img12 = font1.render(game.prop[11], True, BLUE)
-        display_surface.blit(img11, (555, 830))
-        display_surface.blit(img12, (555, 880))
+        display_surface.blit(img11, (555, 831))
+        display_surface.blit(img12, (555, 881))
 
 def tableau_prop(game, display_surface):
     tableau_prop = (212,212,212)
@@ -181,7 +203,8 @@ def in_game(game,display_surface):
         display_surface.blit(game.image['lucie_J2_1'], (836.91, 224))
 
     display_surface.blit(game.image['nuage_J1'], (20,87))
-    display_surface.blit(game.image['nuage_J2'], (767,87))   
+    display_surface.blit(game.image['nuage_J2'], (767,87))
+    nuage(game, display_surface)
 
     barre_de_vie(game,display_surface)
    

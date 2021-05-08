@@ -1,3 +1,4 @@
+from random import randint
 from fonctions import *
 import pygame
 
@@ -34,7 +35,7 @@ class game:
         self.infos_legends_j2 = False
 
         ## CONSTANTES INGAME
-        self.tour = 1
+        self.tour = randint(0,1)
         self.sujets = ["Ta mere", "Ton pere", "Ton créateur", "Ton homme", "Tes cheveux", "Tes vetements", "Ta beauté", "Ton style", "Ton flow", "Tu", "Ta demarche", "Ta femme", "Ton odeur", "ton age", "ta musique"]
         self.verbes = ["te bats/se bat/se battent", "es/est/sont", "deviendras/deviendra/deviendront", "ressemble x2/ressemblent a", "me rends/mend/rendent", "corresponds/correspond/correspondent a", "n'es/n’est/ne sont pas capable/nt d’etre", "me fais/fait/font penser a "]
         self.complement = ["une chevre", "un cochon", "un pigeon", "un vieux plouc", "une morue", "de l’eau", "une ratatouille", "moi/toi", "un prisonnier", "a ma hauteur(?)", "une paysanne", "un village", "une foret", "un poulet roti", "sourd/e/s", "fou/e/s", "si moche/moches", "aveugle", "moche", "malade", "abominable", "un monstre", "un laboratoire"]
@@ -47,6 +48,8 @@ class game:
         self.finalref = [",c'est repugnant ", ",quelle monstre ", ". Eloignez cette bete ", ", vieux plouc ", ", folichon va ", ", espece de marionette ", ", babolard a papa", ",sac a patate solitaire ", ", sale paysan "]
         self.ponctuation = ["!", "."]
         self.stage_select = None
+        self.p1_phrase = [[],False]
+        self.p2_phrase = [[],False]
         self.alpha = 300
         self.prop = []
 
@@ -299,8 +302,25 @@ class game:
             'bouton_fermer_infos_j2' : position_rect(self.rect_choix_legends['bouton_fermer_infos_j2'], 926, 204),
         }
 
-        self.rect_ingame = {}
-        self.rect_position_ingame = {}
+        self.rect_ingame = {
+            'rect_1' : pygame.Rect(545,326,350, 44),
+            'rect_2' : pygame.Rect(545,376,350, 44),
+            'rect_3' : pygame.Rect(545,426,350, 44),
+            'rect_4' : pygame.Rect(545,476,350, 44),
+            'rect_5' : pygame.Rect(545,526,350, 44),
+            'rect_6' : pygame.Rect(545,576,350, 44),
+            'rect_7' : pygame.Rect(545,626,350, 44),
+            'rect_8' : pygame.Rect(545,676,350, 44),
+            'rect_9' : pygame.Rect(545,726,350, 44),
+            'rect_10' : pygame.Rect(545,776,350, 44),
+            'rect_11' : pygame.Rect(545,826,350, 44),
+            'rect_12' : pygame.Rect(545,876,350, 44),
+            'rect_13' : pygame.Rect(548,926,169, 44),
+            'rect_14' : pygame.Rect(717,926,169, 44),
+
+        }
+
+
             
 
 
