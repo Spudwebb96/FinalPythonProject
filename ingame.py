@@ -72,9 +72,6 @@ def choix_background_local(game,display_surface):
     if game.stage_select == 6:
         display_surface.blit(game.image['lucie_back'], (0, 0))
 
-
-
-
 def remplir_tableau(game, display_surface):
     RED = (125, 0, 0)
     BLUE = (0, 48, 170)
@@ -112,6 +109,7 @@ def remplir_tableau(game, display_surface):
     img3 = font1.render(game.prop[2], True, GREEN)
     img4 = font1.render(game.prop[3], True, YELLOW)
     img5 = font1.render(game.prop[4], True, GREEN)
+
     display_surface.blit(img1, (555, 330))
     display_surface.blit(img2, (555, 380))
     display_surface.blit(img3, (555, 430))
@@ -133,8 +131,6 @@ def remplir_tableau(game, display_surface):
         img12 = font1.render(game.prop[11], True, BLUE)
         display_surface.blit(img11, (555, 830))
         display_surface.blit(img12, (555, 880))
-
-
 
 def tableau_prop(game, display_surface):
     tableau_prop = (212,212,212)
@@ -196,7 +192,7 @@ def in_game(game,display_surface):
         fond_noir_surface.set_alpha(game.alpha)
         fond_noir_surface.fill((0, 0, 0))
         display_surface.blit(fond_noir_surface, (0, 0))
-        game.alpha = game.alpha - 10
-        pygame.time.delay(30)
+        game.alpha = game.alpha - 5
+
 
 

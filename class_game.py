@@ -1,4 +1,4 @@
-from random import randint
+from fonctions import *
 import pygame
 
 # from joueur import *
@@ -258,9 +258,9 @@ class game:
                     'harry_back' : pygame.image.load('assets/image/en_jeu/background/harry_background.jpg'),
         }
 
-        ### RECT DU JEU
-        self.rect = {
-            ## MENU
+        ### RECT DU JEU + Position
+
+        self.rect_menu = {
             'bouton_jouer_hover_rect' : self.image['bouton_jouer_hover'].get_rect(),
             'bouton_regles_hover_rect' : self.image['bouton_regles_hover'].get_rect(),
             'bouton_parametres_hover_rect' : self.image['bouton_parametres_hover'].get_rect(),
@@ -268,8 +268,19 @@ class game:
             'bouton_fermer_rect' : self.image['bouton_fermer'].get_rect(),
             'bouton_regles_1' : self.image['fleche_regles_1'].get_rect(),
             'bouton_regles_2' : self.image['fleche_regles_2'].get_rect(),
+        }
 
-            ## CHOIX LEGENDS
+        self.rect_position_menu ={
+            'bouton_jouer_hover_rect': position_rect(self.rect_menu['bouton_jouer_hover_rect'], 664, 570),
+            'bouton_regles_hover_rect': position_rect(self.rect_menu['bouton_regles_hover_rect'], 652, 651),
+            'bouton_parametres_hover_rect': position_rect(self.rect_menu['bouton_parametres_hover_rect'], 606.5, 736),
+            'bouton_quitter_hover_rect': position_rect(self.rect_menu['bouton_quitter_hover_rect'], 646, 811),
+            'bouton_fermer_rect': position_rect(self.rect_menu['bouton_fermer_rect'], 1319, 465),
+            'bouton_regles_1': position_rect(self.rect_menu['bouton_regles_1'], 1325, 902),
+            'bouton_regles_2': position_rect(self.rect_menu['bouton_regles_2'], 1223, 902),
+        }
+
+        self.rect_choix_legends = {
             'jouer_rect': self.image['jouer_off'].get_rect(),
             'pret_rect_J1': self.image['pret_off'].get_rect(),
             'pret_rect_J2': self.image['pret_off'].get_rect(),
@@ -282,11 +293,27 @@ class game:
             'bouton_infos_j2' : self.image['bouton_infos_j2'].get_rect(),
             'bouton_fermer_infos_j1' : self.image['bouton_fermer_infos'].get_rect(),
             'bouton_fermer_infos_j2' : self.image['bouton_fermer_infos'].get_rect(),
+        }
+        self.rect_position_choix_legends = {
+            'jouer_rect': position_rect(self.rect_choix_legends['jouer_rect'], 550, 452),
+            'pret_rect_J1': position_rect(self.rect_choix_legends['pret_rect_J1'], 198, 900),
+            'pret_rect_J2': position_rect(self.rect_choix_legends['pret_rect_J2'], 1028, 900),
+            'fleche_gauche_rect_J1': position_rect(self.rect_choix_legends['fleche_gauche_rect_J1'], 105, 806),
+            'fleche_droite_rect_J1': position_rect(self.rect_choix_legends['fleche_droite_rect_J1'], 465, 806),
+            'fleche_gauche_rect_J2': position_rect(self.rect_choix_legends['fleche_gauche_rect_J2'], 935, 806),
+            'fleche_droite_rect_J2': position_rect(self.rect_choix_legends['fleche_droite_rect_J2'], 1295, 806),
+            'bouton_retour_rect': position_rect(self.rect_choix_legends['bouton_retour_rect'], 80, 20),
+            'bouton_infos_j1' : position_rect(self.rect_choix_legends['bouton_infos_j1'], 100, 210),
+            'bouton_infos_j2' : position_rect(self.rect_choix_legends['bouton_infos_j2'], 1305, 210),
+            'bouton_fermer_infos_j1' : position_rect(self.rect_choix_legends['bouton_fermer_infos_j1'], 492, 204),
+            'bouton_fermer_infos_j2' : position_rect(self.rect_choix_legends['bouton_fermer_infos_j2'], 926, 204),
+        }
 
-            ## IN-GAME
+        self.rect_ingame = {}
+        self.rect_position_ingame = {}
             
 
-        }
+
 
 
 class player:
