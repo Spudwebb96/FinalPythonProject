@@ -64,6 +64,91 @@ def position_rect(rect, x, y):
     rect.x = x
     rect.y = y
 
+def grammaire(game):
+    #Joueur 1
+    if game.player.p1_phrase[0][0] in game.sujetsref:
+        game.player.score_J1 += 1
+    else:
+        game.player.score_J1 -= 1
+    if len(game.player.p1_phrase[0]) > 1:
+        if game.player.p1_phrase[0][1] in game.verbesref:
+            game.player.score_J1 += 1
+        else:
+            game.player.score_J1 -= 1
+    if len(game.player.p1_phrase[0]) > 2:
+        if game.player.p1_phrase[0][2] in game.complementref:
+            game.player.score_J1 += 1
+        else:
+            game.player.score_J1 -= 1
+    if len(game.player.p1_phrase[0]) > 3:
+        if game.player.p1_phrase[0][3] in game.liaisonref:
+            game.player.score_J1 += 1
+        else:
+            game.player.score_J1 -= 11
+    if len(game.player.p1_phrase[0]) > 4:
+        if game.player.p1_phrase[0][4] in game.complementref:
+            game.player.score_J1 += 1
+        else:
+            game.player.score_J1 -= 11
+
+    #Joueur 2
+    if game.player.p2_phrase[0][0] in game.sujetsref:
+        game.player.score_J2 += 1
+    else:
+        game.player.score_J2 -= 1
+    if len(game.player.p1_phrase[0]) > 1:
+        if game.player.p2_phrase[0][1] in game.verbesref:
+            game.player.score_J2 += 1
+        else:
+            game.player.score_J2 -= 1
+    if len(game.player.p1_phrase[0]) > 2:
+        if game.player.p2_phrase[0][2] in game.complementref:
+            game.player.score_J2 += 1
+        else:
+            game.player.score_J2 -= 1
+    if len(game.player.p2_phrase[0]) > 3:
+        if game.player.p2_phrase[0][3] in game.liaisonref:
+            game.player.score_J2 += 1
+        else:
+            game.player.score_J2 -= 11
+    if len(game.player.p2_phrase[0]) > 4:
+        if game.player.p2_phrase[0][4] in game.complementref:
+            game.player.score_J2 += 1
+        else:
+            game.player.score_J2 -= 11
+
+
+def round(game):
+    if game.round_ref != game.round:
+        game.tour = randint(0, 1)
+        game.prop = []
+        game.sujets = game.sujetsref
+        game.verbes = game.verbesref
+        game.complement = game.complementref
+        game.liaison = game.liaisonref
+        game.player.score_J1 = 0
+        game.player.score_J2 = 0
+        game.player.p1_phrase = [[], False]
+        game.player.p2_phrase = [[], False]
+        game.rect_utilisé = [True, True, True, True, True, True, True, True, True, True, True, True]
+        game.round_ref = game.round
+
+def degats(game):
+    if game.player.score_J1 > game.player.score_J2 and game.player.max_Hp_J2 == 500 :
+        game.player.Hp_J2 = game.player.Hp_J2 - 150
+    elif game.player.score_J1 > game.player.score_J2 and game.player.max_Hp_J2 == 350 :
+        game.player.Hp_J2 = game.player.Hp_J2 - 150
+    elif game.player.score_J1 > game.player.score_J2 and game.player.max_Hp_J2 == 200 :
+        game.player.Hp_J2 = game.player.Hp_J2 - 200
+
+    elif game.player.score_J2 > game.player.score_J1 and game.player.max_Hp_J1 == 500 :
+        game.player.Hp_J1 = game.player.Hp_J1 - 150
+    elif game.player.score_J2 > game.player.score_J1 and game.player.max_Hp_J1 == 350 :
+        game.player.Hp_J1 = game.player.Hp_J1 - 150
+    elif game.player.score_J2 > game.player.score_J1 and game.player.max_Hp_J1 == 200 :
+        game.player.Hp_J1 = game.player.Hp_J1 - 200
+
+
 
 
 '''# Test dictionnaire de sons

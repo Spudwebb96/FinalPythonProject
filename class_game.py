@@ -11,7 +11,6 @@ class game:
     def __init__(self):
 
         self.player = player()
-
         self.is_running = True
         self.in_menu = True
         self.in_game = False
@@ -36,31 +35,44 @@ class game:
 
         ## CONSTANTES INGAME
         self.tour = randint(0,1)
+        self.round = 1
+        self.round_ref = 1
         self.sujets = ["Ta mere", "Ton pere", "Ton créateur", "Ton homme", "Tes cheveux", "Tes vetements", "Ta beauté", "Ton style", "Ton flow", "Tu", "Ta demarche", "Ta femme", "Ton odeur", "ton age", "ta musique"]
         self.verbes = ["te bats/se bat/se battent", "es/est/sont", "deviendras/deviendra/deviendront", "ressemble x2/ressemblent a", "me rends/mend/rendent", "corresponds/correspond/correspondent a", "n'es/n’est/ne sont pas capable/nt d’etre", "me fais/fait/font penser a "]
         self.complement = ["une chevre", "un cochon", "un pigeon", "un vieux plouc", "une morue", "de l’eau", "une ratatouille", "moi/toi", "un prisonnier", "a ma hauteur(?)", "une paysanne", "un village", "une foret", "un poulet roti", "sourd/e/s", "fou/e/s", "si moche/moches", "aveugle", "moche", "malade", "abominable", "un monstre", "un laboratoire"]
         self.liaison = ["pour", "et", "a l'image de", "comme", "et", "comme", "dans"]
-        self.final = [",c'est repugnant ", ",quelle monstre ", ". Eloignez cette bete ", ", vieux plouc ", ", folichon va ", ", espece de marionette ", ", babolard a papa", ",sac a patate solitaire ", ", sale paysan "]
+        '''self.final = [",c'est repugnant ", ",quelle monstre ", ". Eloignez cette bete ", ", vieux plouc ", ", folichon va ", ", espece de marionette ", ", babolard a papa", ",sac a patate solitaire ", ", sale paysan "]'''
+
         self.sujetsref = ["Ta mere", "Ton pere", "Ton créateur", "Ton homme", "Tes cheveux", "Tes vetements", "Ta beauté", "Ton style", "Ton flow", "Tu", "Ta demarche", "Ta femme", "Ton odeur", "ton age", "ta musique"]
         self.verbesref = ["te bats/se bat/se battent", "es/est/sont", "deviendras/deviendra/deviendront", "ressemble x2/ressemblent a", "me rends/mend/rendent", "corresponds/correspond/correspondent a", "n'es/n’est/ne sont pas capable/nt d’etre", "me fais/fait/font penser a "]
         self.complementref = ["une chevre", "un cochon", "un pigeon", "un vieux plouc", "une morue", "de l’eau", "une ratatouille", "moi/toi", "un prisonnier", "a ma hauteur(?)", "une paysanne", "un village", "une foret", "un poulet roti", "sourd/e/s", "fou/e/s", "si moche/moches", "aveugle", "moche", "malade", "abominable", "un monstre", "un laboratoire"]
         self.liaisonref = ["pour", "et", "a l'image de", "comme", "et", "comme", "dans"]
-        self.finalref = [",c'est repugnant ", ",quelle monstre ", ". Eloignez cette bete ", ", vieux plouc ", ", folichon va ", ", espece de marionette ", ", babolard a papa", ",sac a patate solitaire ", ", sale paysan "]
-        self.ponctuation = ["!", "."]
+        '''self.finalref = [",c'est repugnant ", ",quelle monstre ", ". Eloignez cette bete ", ", vieux plouc ", ", folichon va ", ", espece de marionette ", ", babolard a papa", ",sac a patate solitaire ", ", sale paysan "]'''
         self.stage_select = None
-        self.p1_phrase = [[],False]
-        self.p2_phrase = [[],False]
-        self.alpha = 300
+        self.alpha = [300]
+        self.rect_utilisé = [True,True,True,True,True,True,True,True,True,True,True,True]
         self.prop = []
 
         ### STATS DES LEGENDS
         self.stats = {
-            'bigband': ('Musique', 'Laboratoire'),
-            'gunnar': ('Passe', 'Look'),
-            'harry': ('Famille', 'Look'),
-            'isis': ('Age', 'Look'),
-            'kitt': ('Laboratoire', 'Musique'),
-            'lucie': ('Famille', 'Age'),
+            'bigband': ('Musique', 'Laboratoire', 'Nourriture'),
+            'gunnar': ('Famille', 'Lieux'),
+            'harry': ('Pere','Animaux', 'Style'),
+            'isis': ('Age', 'Style'),
+            'kitt': ('Laboratoire', 'Musique', 'Eau'),
+            'lucie': ('Famille', 'Age', 'Eau'),
+        }
+        self.faiblesse = {
+            'Musique' : ("Ta musique", "abominable", "un monstre"),
+            'Laboratoire' : ("Ton créateur",),
+            'Style' : ("Tes cheveux", "Tes vêtements", "Ta beauté", "Ton style", "Ton flow","Ta démarche", "un monstre", "un vieu plouc", "une paysanne", "si moche/moches", "moche", "abominable",),
+            'Famille' : ("Ta mère", "Ton père", "Ta femme", "Ton Homme",),
+            'Age' : ("Ton age","un vieu plouc"),
+            'Lieux' : ("village", "une forêt", "un laboratoire", "un prisonnier"),
+            'Animaux' : ("une chèvre", "un cochon", "un pigeon", "une morue"),
+            'Pere' : "Ton Pere",
+            'Eau' : "de l'eau" ,
+            'Nourriture' : ("un poulet rôti" , "une ratatouille",)
         }
         '''self.prop.append(self.sujets[x])
         self.prop.pop[x]'''
@@ -342,5 +354,8 @@ class player:
         self.legends_J2 = None
         self.faiblesse_J1 = None
         self.faiblesse_J2 = None
-
+        self.p1_phrase = [[], False]
+        self.p2_phrase = [[], False]
+        self.score_J1 = 0
+        self.score_J2 = 0
 

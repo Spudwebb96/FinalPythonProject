@@ -1,4 +1,3 @@
-'''@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');'''
 from random import randint
 import pygame
 import class_game
@@ -8,42 +7,70 @@ from class_game import *
 pygame.init()
 
 def Combat(game, x, display_surface):
-    if game.p1_phrase[1] == False or game.p2_phrase[1] == False or game.p1_phrase[1] == False and game.p2_phrase[1] == False:
+    if game.player.p1_phrase[1] == False or game.player.p2_phrase[1] == False or game.player.p1_phrase[1] == False and game.player.p2_phrase[1] == False:
         if game.tour == 1:
             if x < 12 :
-                game.p1_phrase[0].append(game.prop[x])
+                game.player.p1_phrase[0].append(game.prop[x])
             elif x == 12:
-                game.p1_phrase[0].append(".")
-                game.p1_phrase[1] = True
+                game.player.p1_phrase[0].append(".")
+                game.player.p1_phrase[1] = True
             else :
-                game.p1_phrase[0].append("!")
-                game.p1_phrase[1] = True
+                game.player.p1_phrase[0].append("!")
+                game.player.p1_phrase[1] = True
             game.tour = 0
         else :
             if x < 12:
-                game.p2_phrase[0].append(game.prop[x])
+                game.player.p2_phrase[0].append(game.prop[x])
             elif x == 12:
-                game.p2_phrase[0].append(".")
-                game.p2_phrase[1] = True
+                game.player.p2_phrase[0].append(".")
+                game.player.p2_phrase[1] = True
             else :
-                game.p2_phrase[0].append("!")
-                game.p2_phrase[1] = True
+                game.player.p2_phrase[0].append("!")
+                game.player.p2_phrase[1] = True
             game.tour = 1
+    else :
+        # Calcul score de la phrase
+        if len(game.player.p1_phrase[0]) > len(game.player.p2_phrase[0]):
+            game.player.score_J1 = 1
+            game.player.score_J2 = 0
+            print("joueur 1 a la phrase la plus longue")
+        elif len(game.player.p1_phrase[0]) > len(game.player.p2_phrase[0]):
+            game.player.score_J1 = 0
+            game.player.score_J2 = 1
+            print("joueur 2 a la phrase la plus longue")
+        print(game.player.score_J1, game.player.score_J2)
+        for i in game.player.p1_phrase[0]:
+            for s in game.stats[game.player.legends_J2]:
+                for j in game.faiblesse[s]:
+                    if i == j:
+                        game.player.score_J1 += 1
+        for i in game.player.p2_phrase[0]:
+            for s in game.stats[game.player.legends_J1]:
+                for j in game.faiblesse[s]:
+                    if i == j:
+                        game.player.score_J2 += 1
+        print(game.player.score_J1, game.player.score_J2)
+        grammaire(game)
+        print(game.player.score_J1, game.player.score_J2)
+        degats(game)
+        game.round += 1
+        round(game)
+
+
 
 
 def nuage(game, display_surface):
-    print(game.p1_phrase[1] , game.p2_phrase[1])
     font1 = pygame.font.SysFont("palatinolinotype", 20, bold=True, italic=False)
     concatenationJ1 = ""
     concatenationJ2 = ""
-    for i in game.p1_phrase[0]:
+    for i in game.player.p1_phrase[0]:
         concatenationJ1 = concatenationJ1 + " " + i
-    for i in game.p2_phrase[0]:
+    for i in game.player.p2_phrase[0]:
         concatenationJ2 = concatenationJ2 + " " + i
     phraseJ1 = font1.render(concatenationJ1, True, (0, 0, 0))
     phraseJ2 = font1.render(concatenationJ2, True, (0, 0, 0))
-    display_surface.blit(phraseJ1, (81, 168))
-    display_surface.blit(phraseJ2, (823, 168))
+    display_surface.blit(phraseJ1, (76, 173))
+    display_surface.blit(phraseJ2, (818, 173))
 
 def barre_de_vie(game,display_surface):
     bar_border = (0, 0, 0)
@@ -79,7 +106,6 @@ def barre_de_vie(game,display_surface):
         game.player.max_Hp_J2 = game.player.max_Hp_J2 - 2
         game.player.bar_position_J2[0] = game.player.bar_position_J2[0] + 2
         game.player.bar_position_J2[2] = game.player.max_Hp_J2
-        print(game.player.max_Hp_J2)
     else:
         pygame.draw.rect(display_surface, bar_losehp, [920, 20, 500, 50], 0, 25)
         pygame.draw.rect(display_surface, game.player.bar_vie_J2, game.player.bar_position_J2, 0, 25)
@@ -117,14 +143,14 @@ def remplir_tableau(game, display_surface):
         game.verbes.pop(w)
         if len(game.prop) != 12 :
             x = randint(0, len(game.complement) - 1)
-            y = randint(0, len(game.liaison) - 1)
-            z = randint(0, len(game.final) - 1)
             game.prop.append(game.complement[x])
             game.complement.pop(x)
+            y = randint(0, len(game.liaison) - 1)
             game.prop.append(game.liaison[y])
             game.liaison.pop(y)
-            game.prop.append(game.final[z])
-            game.final.pop(z)
+            z = randint(0, len(game.complement) - 1)
+            game.prop.append(game.complement[z])
+            game.complement.pop(z)
 
     img1 = font1.render(game.prop[0], True, RED)
     img2 = font1.render(game.prop[1], True, BLUE)
@@ -132,27 +158,46 @@ def remplir_tableau(game, display_surface):
     img4 = font1.render(game.prop[3], True, YELLOW)
     img5 = font1.render(game.prop[4], True, GREEN)
 
-    display_surface.blit(img1, (555, 331))
-    display_surface.blit(img2, (555, 381))
-    display_surface.blit(img3, (555, 431))
-    display_surface.blit(img4, (555, 481))
-    display_surface.blit(img5, (555, 531))
+    if game.rect_utilisé[0]:
+        display_surface.blit(img1, (555, 331))
+    if game.rect_utilisé[1]:
+        display_surface.blit(img2, (555, 381))
+    if game.rect_utilisé[2]:
+        display_surface.blit(img3, (555, 431))
+    if game.rect_utilisé[3]:
+        display_surface.blit(img4, (555, 481))
+    if game.rect_utilisé[4]:
+        display_surface.blit(img5, (555, 531))
+
     if len(game.prop) > 5 :
         img6 = font1.render(game.prop[5], True, RED)
         img7 = font1.render(game.prop[6], True, BLUE)
         img8 = font1.render(game.prop[7], True, GREEN)
         img9 = font1.render(game.prop[8], True, YELLOW)
         img10 = font1.render(game.prop[9], True, GREEN)
-        display_surface.blit(img6, (555, 581))
-        display_surface.blit(img7, (555, 631))
-        display_surface.blit(img8, (555, 681))
-        display_surface.blit(img9, (555, 731))
-        display_surface.blit(img10, (555, 781))
+
+        if game.rect_utilisé[5]:
+            display_surface.blit(img6, (555, 581))
+        if game.rect_utilisé[6]:
+            display_surface.blit(img7, (555, 631))
+        if game.rect_utilisé[7]:
+            display_surface.blit(img8, (555, 681))
+        if game.rect_utilisé[8]:
+            display_surface.blit(img9, (555, 731))
+        if game.rect_utilisé[9]:
+            display_surface.blit(img10, (555, 781))
+
     if len(game.prop) > 10 :
         img11 = font1.render(game.prop[10], True, RED)
         img12 = font1.render(game.prop[11], True, BLUE)
-        display_surface.blit(img11, (555, 831))
-        display_surface.blit(img12, (555, 881))
+        if game.rect_utilisé[10]:
+            display_surface.blit(img11, (555, 831))
+        if game.rect_utilisé[11]:
+            display_surface.blit(img12, (555, 881))
+    img13 = font1.render(".", True, (0,0,0))
+    img14 = font1.render("!", True, (0,0,0))
+    display_surface.blit(img13, (632.5,931))
+    display_surface.blit(img14, (801.5,931))
 
 def tableau_prop(game, display_surface):
     tableau_prop = (212,212,212)
@@ -210,12 +255,12 @@ def in_game(game,display_surface):
    
 
     # Effet fond noir transparent
-    if game.alpha != 0:
+    if game.alpha[0] != 0:
         fond_noir_surface = pygame.Surface((1440, 1024))
-        fond_noir_surface.set_alpha(game.alpha)
+        fond_noir_surface.set_alpha(game.alpha[0])
         fond_noir_surface.fill((0, 0, 0))
         display_surface.blit(fond_noir_surface, (0, 0))
-        game.alpha = game.alpha - 5
+        game.alpha[0] = game.alpha[0] - 5
 
 
 
