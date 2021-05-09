@@ -219,12 +219,12 @@ class game:
                     'harry_J1_2': pygame.image.load('assets/image/Personnages/Harry/harry_J1/Harry_pose_J1.png'),
                     'harry_J1_3': pygame.image.load('assets/image/Personnages/Harry/harry_J1/Harry_geste_parler_J1.png'),
                     'harry_J1_4': pygame.image.load('assets/image/Personnages/Harry/harry_J1/Harry_fier_J1.png'),
-                    'harry_J1_5': pygame.image.load('assets/image/Personnages/Harry/harry_J1/Harry_evidence_J1.png'),
+                    'harry_J1_5': pygame.image.load('assets/image/Personnages/Harry/harry_J1/Harry_pose_sourire_J1.png'),
                     'harry_J2_1': pygame.image.load('assets/image/Personnages/Harry/harry_J2/Harry_neutre_J2.png'),
                     'harry_J2_2': pygame.image.load('assets/image/Personnages/Harry/harry_J2/Harry_pose_J2.png'),
                     'harry_J2_3': pygame.image.load('assets/image/Personnages/Harry/harry_J2/Harry_geste_parler_J2.png'),
                     'harry_J2_4': pygame.image.load('assets/image/Personnages/Harry/harry_J2/Harry_fier_J2.png'),
-                    'harry_J2_5': pygame.image.load('assets/image/Personnages/Harry/harry_J2/Harry_evidence_J2.png'),
+                    'harry_J2_5': pygame.image.load('assets/image/Personnages/Harry/harry_J2/Harry_pose_sourire_J2.png'),
 
                     # Isis
                     'isis_J1_1': pygame.image.load('assets/image/Personnages/Isis/isis_J1/Isis_neutre_J1.png'),
@@ -241,13 +241,13 @@ class game:
                     # Kitt
                     'kitt_J1_1': pygame.image.load('assets/image/Personnages/K.I.T.T/kitt_J1/Kitt_1_J1.png'),
                     'kitt_J1_2': pygame.image.load('assets/image/Personnages/K.I.T.T/kitt_J1/Kitt_12_J1.png'),
-                    'kitt_J1_3': pygame.image.load('assets/image/Personnages/K.I.T.T/kitt_J1/Kitt_7_J1.png'),
-                    'kitt_J1_4': pygame.image.load('assets/image/Personnages/K.I.T.T/kitt_J1/Kitt_3_J1.png'),
+                    'kitt_J1_3': pygame.image.load('assets/image/Personnages/K.I.T.T/kitt_J1/Kitt_10_J1.png'),
+                    'kitt_J1_4': pygame.image.load('assets/image/Personnages/K.I.T.T/kitt_J1/Kitt_4_J1.png'),
                     'kitt_J1_5': pygame.image.load('assets/image/Personnages/K.I.T.T/kitt_J1/Kitt_6_J1.png'),
                     'kitt_J2_1': pygame.image.load('assets/image/Personnages/K.I.T.T/kitt_J2/Kitt_1_J2.png'),
                     'kitt_J2_2': pygame.image.load('assets/image/Personnages/K.I.T.T/kitt_J2/Kitt_12_J2.png'),
-                    'kitt_J2_3': pygame.image.load('assets/image/Personnages/K.I.T.T/kitt_J2/Kitt_7_J2.png'),
-                    'kitt_J2_4': pygame.image.load('assets/image/Personnages/K.I.T.T/kitt_J2/Kitt_3_J2.png'),
+                    'kitt_J2_3': pygame.image.load('assets/image/Personnages/K.I.T.T/kitt_J2/Kitt_10_J2.png'),
+                    'kitt_J2_4': pygame.image.load('assets/image/Personnages/K.I.T.T/kitt_J2/Kitt_4_J2.png'),
                     'kitt_J2_5': pygame.image.load('assets/image/Personnages/K.I.T.T/kitt_J2/Kitt_6_J2.png'),
 
                     # Lucie

@@ -282,7 +282,7 @@ def degats(game):
 
 def Combat(game, x, display_surface):
     if game.player.p1_phrase[1] == False or game.player.p2_phrase[1] == False or game.player.p1_phrase[1] == False and game.player.p2_phrase[1] == False:
-        if game.tour == 1:
+        if game.tour == 0:
             if x < 12 :
                 game.player.p1_phrase[0].append(game.prop[x])
             elif x == 12:
@@ -291,7 +291,7 @@ def Combat(game, x, display_surface):
             else :
                 game.player.p1_phrase[0].append("!")
                 game.player.p1_phrase[1] = True
-            game.tour = 0
+            game.tour = 1
         else :
             if x < 12:
                 game.player.p2_phrase[0].append(game.prop[x])
@@ -301,7 +301,7 @@ def Combat(game, x, display_surface):
             else :
                 game.player.p2_phrase[0].append("!")
                 game.player.p2_phrase[1] = True
-            game.tour = 1
+            game.tour = 0
     elif game.player.Hp_J2 > 0 or game.player.Hp_J1 > 0:
         # Calcul score de la phrase
         if len(game.player.p1_phrase[0]) > len(game.player.p2_phrase[0]):
@@ -498,4 +498,147 @@ def tableau_prop(game, display_surface):
         line_position_start[1] += 50
         line_position_end[1] += 50
     remplir_tableau(game, display_surface)
+
+def affichage_joueur(game,display_surface):
+    if game.player.max_Hp_J2 != game.player.Hp_J2 or game.player.max_Hp_J2 == 0 :
+        if game.player.legends_J1 == 'bigband':
+            display_surface.blit(game.image['bigband_J1_4'], (0, 224))
+        elif game.player.legends_J1 == 'gunnar':
+            display_surface.blit(game.image['gunnar_J1_4'], (-10, 224))
+        elif game.player.legends_J1 == 'harry':
+            display_surface.blit(game.image['harry_J1_4'], (-20, 224))
+        elif game.player.legends_J1 == 'isis':
+            display_surface.blit(game.image['isis_J1_4'], (0, 224))
+        elif game.player.legends_J1 == 'kitt':
+            display_surface.blit(game.image['kitt_J1_4'], (0, 224))
+        elif game.player.legends_J1 == 'lucie':
+            display_surface.blit(game.image['lucie_J1_4'], (0, 224))
+    elif game.player.max_Hp_J1 == 0:
+        if game.player.legends_J1 == 'bigband':
+            display_surface.blit(game.image['bigband_J1_3'], (0, 224))
+        elif game.player.legends_J1 == 'gunnar':
+            display_surface.blit(game.image['gunnar_J1_3'], (-10, 224))
+        elif game.player.legends_J1 == 'harry':
+            display_surface.blit(game.image['harry_J1_3'], (-20, 224))
+        elif game.player.legends_J1 == 'isis':
+            display_surface.blit(game.image['isis_J1_3'], (0, 224))
+        elif game.player.legends_J1 == 'kitt':
+            display_surface.blit(game.image['kitt_J1_3'], (0, 224))
+        elif game.player.legends_J1 == 'lucie':
+            display_surface.blit(game.image['lucie_J1_3'], (0, 224))
+    elif game.player.max_Hp_J1 != game.player.Hp_J1:
+        if game.player.legends_J1 == 'bigband':
+            display_surface.blit(game.image['bigband_J1_2'], (0, 224))
+        elif game.player.legends_J1 == 'gunnar':
+            display_surface.blit(game.image['gunnar_J1_2'], (-10, 224))
+        elif game.player.legends_J1 == 'harry':
+            display_surface.blit(game.image['harry_J1_2'], (-20, 224))
+        elif game.player.legends_J1 == 'isis':
+            display_surface.blit(game.image['isis_J1_2'], (0, 224))
+        elif game.player.legends_J1 == 'kitt':
+            display_surface.blit(game.image['kitt_J1_2'], (0, 224))
+        elif game.player.legends_J1 == 'lucie':
+            display_surface.blit(game.image['lucie_J1_2'], (0, 224))
+    elif game.tour == 0:
+        if game.player.legends_J1 == 'bigband':
+            display_surface.blit(game.image['bigband_J1_5'], (0, 224))
+        elif game.player.legends_J1 == 'gunnar':
+            display_surface.blit(game.image['gunnar_J1_5'], (-10, 224))
+        elif game.player.legends_J1 == 'harry':
+            display_surface.blit(game.image['harry_J1_5'], (-20, 224))
+        elif game.player.legends_J1 == 'isis':
+            display_surface.blit(game.image['isis_J1_5'], (0, 224))
+        elif game.player.legends_J1 == 'kitt':
+            display_surface.blit(game.image['kitt_J1_5'], (0, 224))
+        elif game.player.legends_J1 == 'lucie':
+            display_surface.blit(game.image['lucie_J1_5'], (0, 224))
+    elif game.tour == 1 :
+        if game.player.legends_J1 == 'bigband':
+            display_surface.blit(game.image['bigband_J1_1'], (0, 224))
+        elif game.player.legends_J1 == 'gunnar':
+            display_surface.blit(game.image['gunnar_J1_1'], (-10, 224))
+        elif game.player.legends_J1 == 'harry':
+            display_surface.blit(game.image['harry_J1_1'], (-20, 224))
+        elif game.player.legends_J1 == 'isis':
+            display_surface.blit(game.image['isis_J1_1'], (0, 224))
+        elif game.player.legends_J1 == 'kitt':
+            display_surface.blit(game.image['kitt_J1_1'], (0, 224))
+        elif game.player.legends_J1 == 'lucie':
+            display_surface.blit(game.image['lucie_J1_1'], (0, 224))
+
+
+    if game.player.max_Hp_J1 != game.player.Hp_J1:
+        if game.player.legends_J2 == 'bigband':
+            display_surface.blit(game.image['bigband_J2_4'], (924.02, 224))
+        elif game.player.legends_J2 == 'gunnar':
+            display_surface.blit(game.image['gunnar_J2_4'], (738.76, 224))
+        elif game.player.legends_J2 == 'harry':
+            display_surface.blit(game.image['harry_J2_4'], (797.14, 224))
+        elif game.player.legends_J2 == 'isis':
+            display_surface.blit(game.image['isis_J2_4'], (824.62, 224))
+        elif game.player.legends_J2 == 'kitt':
+            display_surface.blit(game.image['kitt_J2_4'], (728.76, 224))
+        else:
+            display_surface.blit(game.image['lucie_J2_4'], (836.91, 224))
+    elif game.player.max_Hp_J2 == 0 :
+        if game.player.legends_J2 == 'bigband':
+            display_surface.blit(game.image['bigband_J2_3'], (924.02, 224))
+        elif game.player.legends_J2 == 'gunnar':
+            display_surface.blit(game.image['gunnar_J2_3'], (738.76, 224))
+        elif game.player.legends_J2 == 'harry':
+            display_surface.blit(game.image['harry_J2_3'], (797.14, 224))
+        elif game.player.legends_J2 == 'isis':
+            display_surface.blit(game.image['isis_J2_3'], (824.62, 224))
+        elif game.player.legends_J2 == 'kitt':
+            display_surface.blit(game.image['kitt_J2_3'], (728.76, 224))
+        else:
+            display_surface.blit(game.image['lucie_J2_3'], (836.91, 224))
+    elif game.player.max_Hp_J2 != game.player.Hp_J2:
+        if game.player.legends_J2 == 'bigband':
+            display_surface.blit(game.image['bigband_J2_2'], (924.02, 224))
+        elif game.player.legends_J2 == 'gunnar':
+            display_surface.blit(game.image['gunnar_J2_2'], (738.76, 224))
+        elif game.player.legends_J2 == 'harry':
+            display_surface.blit(game.image['harry_J2_2'], (797.14, 224))
+        elif game.player.legends_J2 == 'isis':
+            display_surface.blit(game.image['isis_J2_2'], (824.62, 224))
+        elif game.player.legends_J2 == 'kitt':
+            display_surface.blit(game.image['kitt_J2_2'], (728.76, 224))
+        else:
+            display_surface.blit(game.image['lucie_J2_2'], (836.91, 224))
+    elif game.tour == 1:
+        if game.player.legends_J2 == 'bigband':
+            display_surface.blit(game.image['bigband_J2_5'], (924.02, 224))
+        elif game.player.legends_J2 == 'gunnar':
+            display_surface.blit(game.image['gunnar_J2_5'], (738.76, 224))
+        elif game.player.legends_J2 == 'harry':
+            display_surface.blit(game.image['harry_J2_5'], (797.14, 224))
+        elif game.player.legends_J2 == 'isis':
+            display_surface.blit(game.image['isis_J2_5'], (824.62, 224))
+        elif game.player.legends_J2 == 'kitt':
+            display_surface.blit(game.image['kitt_J2_5'], (728.76, 224))
+        elif game.player.legends_J2 == 'lucie':
+            display_surface.blit(game.image['lucie_J2_5'], (836.91, 224))
+    elif game.tour == 0:
+        if game.player.legends_J2 == 'bigband':
+            display_surface.blit(game.image['bigband_J2_1'], (924.02, 224))
+        elif game.player.legends_J2 == 'gunnar':
+            display_surface.blit(game.image['gunnar_J2_1'], (738.76, 224))
+        elif game.player.legends_J2 == 'harry':
+            display_surface.blit(game.image['harry_J2_1'], (797.14, 224))
+        elif game.player.legends_J2 == 'isis':
+            display_surface.blit(game.image['isis_J2_1'], (824.62, 224))
+        elif game.player.legends_J2 == 'kitt':
+            display_surface.blit(game.image['kitt_J2_1'], (728.76, 224))
+        else:
+            display_surface.blit(game.image['lucie_J2_1'], (836.91, 224))
+
+def tour(game, display_surface):
+    font1 = pygame.font.SysFont("palatinolinotype", 45, bold=True, italic=False)
+    pygame.draw.rect(display_surface,(250,250,250), [555, 16, 330, 60])
+    if game.tour == 0:
+        phrase = font1.render("Joueur 1 joue :", True, (0, 0, 0))
+    else :
+        phrase = font1.render("Joueur 2 joue :", True, (0, 0, 0))
+    display_surface.blit(phrase, (577, 25))
 
