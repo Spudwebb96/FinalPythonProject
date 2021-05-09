@@ -72,9 +72,10 @@ while game.is_running:
             game.is_running = False
             pygame.quit()
 
+        # Click sur rect
         elif event.type == pygame.MOUSEBUTTONDOWN:
             pygame.mixer.Channel(2).set_volume(0.05)
-            pygame.mixer.Channel(2).play(pygame.mixer.Sound('assets/son/click.wav'))
+            pygame.mixer.Channel(2).play(pygame.mixer.Sound('assets/son/effet sonore/click.wav'))
             game.mouse = True
             # event dans le menu principal
             if game.in_menu:
@@ -247,28 +248,33 @@ while game.is_running:
                 if game.rect_ingame['rect_14'].collidepoint(event.pos):
                     Combat(game ,13, display_surface)
 
-
         # Bouton clavier
         elif event.type == pygame.KEYDOWN:
-            # Menu
-            if game.in_menu == True:
-                if event.key == pygame.K_ESCAPE:
-                    game.menu_regles = False
+            if event.key == pygame.K_ESCAPE: #bouton echap
+                pygame.mixer.Channel(2).set_volume(0.3)
+                pygame.mixer.Channel(2).play(pygame.mixer.Sound('assets/son/effet sonore/Sortie.wav'))
 
-            # Choix legends
+                if game.in_menu :
+                        game.menu_regles = False
 
-            # In_game
-            if game.in_game == True:
-                if event.key == pygame.K_ESCAPE:
-                    game.in_game = False
-                    game.in_choix_legends = True
-                    game.prop = []
-                    game.sujets = game.sujetsref
-                    game.verbes = game.verbesref
-                    game.complement = game.complementref
-                    game.liaison = game.liaisonref
-                    pygame.mixer.Channel(0).play(pygame.mixer.Sound('assets/son/menu.wav'),-1)
-                    pygame.mixer.Channel(1).stop()
+                elif game.in_choix_legends :
+                        game.in_choix_legends = False
+                        game.in_menu = True
+
+                elif game.in_game :
+                        game.in_game = False
+                        game.in_choix_legends = True
+                        game.prop = []
+                        game.sujets = game.sujetsref
+                        game.verbes = game.verbesref
+                        game.complement = game.complementref
+                        game.liaison = game.liaisonref
+                        game.alpha = 300
+                        game.player.p1_phrase[0] = []
+                        game.player.p2_phrase[0] = []
+                        game.rect_utilisé = [True, True, True, True, True, True, True, True, True, True, True, True]
+                        pygame.mixer.Channel(0).play(pygame.mixer.Sound('assets/son/menu.wav'),-1)
+                        pygame.mixer.Channel(1).stop()
 
         else:
             game.mouse = False
