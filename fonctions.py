@@ -9,27 +9,46 @@ def hover_boutons(game,curseur,display_surface):
 
             # Hover bouton "Jouer"
             if curseur[0] > 664 and curseur[0] < 776 and curseur[1] > 570 and curseur[1] < 611 :
+                if game.son_hover[0] == False :
+                    pygame.mixer.Channel(2).set_volume(0.8)
+                    pygame.mixer.Channel(2).play(pygame.mixer.Sound('assets/son/effet sonore/hover.wav'))
+                game.son_hover[0] = True
                 display_surface.blit(game.image['bouton_jouer_hover'],(664,570))
             else :
-                if game.in_menu :
-                    display_surface.blit(game.image['bouton_jouer'],(664,570))
+                game.son_hover[0] = False
+                display_surface.blit(game.image['bouton_jouer'],(664,570))
 
             # Hover bouton "Règles"
             if curseur[0] > 652 and curseur[0] < 788 and curseur[1] > 651 and curseur[1] < 696 :
+                if game.son_hover[1] == False :
+                    pygame.mixer.Channel(2).set_volume(0.8)
+                    pygame.mixer.Channel(2).play(pygame.mixer.Sound('assets/son/effet sonore/hover.wav'))
+                game.son_hover[1] = True
                 display_surface.blit(game.image['bouton_regles_hover'],(652,651))
             else :
+                game.son_hover[1] = False
                 display_surface.blit(game.image['bouton_regles'],(652,651))
 
             # Hover bouton "Paramètres"
             if curseur[0] > 606.5 and curseur[0] < 833.5 and curseur[1] > 736 and curseur[1] < 771 :
+                if game.son_hover[2] == False :
+                    pygame.mixer.Channel(2).set_volume(0.8)
+                    pygame.mixer.Channel(2).play(pygame.mixer.Sound('assets/son/effet sonore/hover.wav'))
+                game.son_hover[2] = True
                 display_surface.blit(game.image['bouton_parametres_hover'],(606.5,736))
             else :
+                game.son_hover[2] = False
                 display_surface.blit(game.image['bouton_parametres'],(606.5,736))
 
             # Hover bouton "Quitter"
             if curseur[0] > 646 and curseur[0] < 794 and curseur[1] > 811 and curseur[1] < 853 :
+                if game.son_hover[3] == False :
+                    pygame.mixer.Channel(2).set_volume(0.8)
+                    pygame.mixer.Channel(2).play(pygame.mixer.Sound('assets/son/effet sonore/hover.wav'))
+                game.son_hover[3] = True
                 display_surface.blit(game.image['bouton_quitter_hover'],(646,811))
             else :
+                game.son_hover[3] = False
                 display_surface.blit(game.image['bouton_quitter'],(646,811))
 
     if game.in_choix_legends:
@@ -367,6 +386,11 @@ def barre_de_vie(game,display_surface):
         pygame.draw.rect(display_surface, bar_losehp, [920, 20, 500, 50], 0, 25)
         pygame.draw.rect(display_surface, game.player.bar_vie_J2, game.player.bar_position_J2, 0, 25)
         pygame.draw.rect(display_surface, bar_border, [920, 20, 500, 50], 3, 25)
+
+    # Alerte low pv
+    if game.player.max_Hp_J1 == 220 or game.player.max_Hp_J2 == 220 or game.player.max_Hp_J1 + game.player.max_Hp_J2 == 440:
+        pygame.mixer.Channel(3).set_volume(0.5)
+        pygame.mixer.Channel(3).play(pygame.mixer.Sound('assets/son/effet sonore/alerte.wav'))
 
 def choix_background_local(game,display_surface):
     if game.stage_select == 1:

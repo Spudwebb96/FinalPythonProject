@@ -81,11 +81,17 @@ while game.is_running:
             if game.in_menu:
                 if game.menu_regles == False:
                     if game.rect_menu['bouton_jouer_hover_rect'].collidepoint(event.pos):
+                        pygame.mixer.Channel(2).set_volume(0.8)
+                        pygame.mixer.Channel(2).play(pygame.mixer.Sound('assets/son/effet sonore/effet click button.wav'))
                         game.in_choix_legends = True
                         game.in_menu = False
                     elif game.rect_menu['bouton_regles_hover_rect'].collidepoint(event.pos):
+                        pygame.mixer.Channel(2).set_volume(0.8)
+                        pygame.mixer.Channel(2).play(pygame.mixer.Sound('assets/son/effet sonore/effet click button.wav'))
                         game.menu_regles = True
                     elif game.rect_menu['bouton_parametres_hover_rect'].collidepoint(event.pos):
+                        pygame.mixer.Channel(2).set_volume(0.8)
+                        pygame.mixer.Channel(2).play(pygame.mixer.Sound('assets/son/effet sonore/effet click button.wav'))
                         menu_parametres = True
                     elif game.rect_menu['bouton_quitter_hover_rect'].collidepoint(event.pos):
                         game.is_running = False
@@ -251,17 +257,19 @@ while game.is_running:
         # Bouton clavier
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE: #bouton echap
-                pygame.mixer.Channel(2).set_volume(0.3)
-                pygame.mixer.Channel(2).play(pygame.mixer.Sound('assets/son/effet sonore/Sortie.wav'))
 
                 if game.in_menu :
                         game.menu_regles = False
 
                 elif game.in_choix_legends :
+                        pygame.mixer.Channel(2).set_volume(0.3)
+                        pygame.mixer.Channel(2).play(pygame.mixer.Sound('assets/son/effet sonore/Sortie.wav'))
                         game.in_choix_legends = False
                         game.in_menu = True
 
                 elif game.in_game :
+                        pygame.mixer.Channel(2).set_volume(0.3)
+                        pygame.mixer.Channel(2).play(pygame.mixer.Sound('assets/son/effet sonore/Sortie.wav'))
                         game.in_game = False
                         game.in_choix_legends = True
                         game.prop = []

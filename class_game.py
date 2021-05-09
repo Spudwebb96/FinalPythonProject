@@ -16,6 +16,7 @@ class game:
         self.in_game = False
         self.in_choix_legends = False
         self.mouse = False
+        self.son_hover = [False,False,False,False]
 
         ## CONSTANTES MENU
         self.menu_regles = False
@@ -191,51 +192,75 @@ class game:
 
                     # Bigband
                     'bigband_J1_1': pygame.image.load('assets/image/Personnages/Bigband/bigband_J1/Bigband_neutre_J1.png'),
-                    'bigband_J1_2': pygame.image.load('assets/image/Personnages/Bigband/bigband_J1/Bigband_neutre_J1.png'),
-                    'bigband_J1_3': pygame.image.load('assets/image/Personnages/Bigband/bigband_J1/Bigband_neutre_J1.png'),
+                    'bigband_J1_2': pygame.image.load('assets/image/Personnages/Bigband/bigband_J1/Bigband_surpris_J1.png'),
+                    'bigband_J1_3': pygame.image.load('assets/image/Personnages/Bigband/bigband_J1/Bigband_ombre_J1.png'),
+                    'bigband_J1_4': pygame.image.load('assets/image/Personnages/Bigband/bigband_J1/Bigband_sourire_J1.png'),
+                    'bigband_J1_5': pygame.image.load('assets/image/Personnages/Bigband/bigband_J1/Bigband_regard_intense_J1.png'),
                     'bigband_J2_1': pygame.image.load('assets/image/Personnages/Bigband/bigband_J2/Bigband_neutre_J2.png'),
-                    'bigband_J2_2': pygame.image.load('assets/image/Personnages/Bigband/bigband_J2/Bigband_neutre_J2.png'),
-                    'bigband_J2_3': pygame.image.load('assets/image/Personnages/Bigband/bigband_J2/Bigband_neutre_J2.png'),
+                    'bigband_J2_2': pygame.image.load('assets/image/Personnages/Bigband/bigband_J2/Bigband_surpris_J2.png'),
+                    'bigband_J2_3': pygame.image.load('assets/image/Personnages/Bigband/bigband_J2/Bigband_ombre_J2.png'),
+                    'bigband_J2_4': pygame.image.load('assets/image/Personnages/Bigband/bigband_J2/Bigband_sourire_J2.png'),
+                    'bigband_J2_5': pygame.image.load('assets/image/Personnages/Bigband/bigband_J2/Bigband_regard_intense_J2.png'),
 
                     # Gunnar
                     'gunnar_J1_1': pygame.image.load('assets/image/Personnages/Gunnar/gunnar_J1/Gunnar_neutre_J1.png'),
-                    'gunnar_J1_2': pygame.image.load('assets/image/Personnages/Gunnar/gunnar_J1/Gunnar_neutre_J1.png'),
-                    'gunnar_J1_3': pygame.image.load('assets/image/Personnages/Gunnar/gunnar_J1/Gunnar_neutre_J1.png'),
+                    'gunnar_J1_2': pygame.image.load('assets/image/Personnages/Gunnar/gunnar_J1/Gunnar_reflexion_J1.png'),
+                    'gunnar_J1_3': pygame.image.load('assets/image/Personnages/Gunnar/gunnar_J1/Gunnar_enerve_J1.png'),
+                    'gunnar_J1_4': pygame.image.load('assets/image/Personnages/Gunnar/gunnar_J1/Gunnar_provocation_J1.png'),
+                    'gunnar_J1_5': pygame.image.load('assets/image/Personnages/Gunnar/gunnar_J1/Gunnar_fourbe_J1.png'),
                     'gunnar_J2_1': pygame.image.load('assets/image/Personnages/Gunnar/gunnar_J2/Gunnar_neutre_J2.png'),
-                    'gunnar_J2_2': pygame.image.load('assets/image/Personnages/Gunnar/gunnar_J2/Gunnar_neutre_J2.png'),
-                    'gunnar_J2_3': pygame.image.load('assets/image/Personnages/Gunnar/gunnar_J2/Gunnar_neutre_J2.png'),
+                    'gunnar_J2_2': pygame.image.load('assets/image/Personnages/Gunnar/gunnar_J2/Gunnar_reflexion_J2.png'),
+                    'gunnar_J2_3': pygame.image.load('assets/image/Personnages/Gunnar/gunnar_J2/Gunnar_enerve_J2.png'),
+                    'gunnar_J2_4': pygame.image.load('assets/image/Personnages/Gunnar/gunnar_J2/Gunnar_provocation_J2.png'),
+                    'gunnar_J2_5': pygame.image.load('assets/image/Personnages/Gunnar/gunnar_J2/Gunnar_fourbe_J2.png'),
 
                     # Harry
                     'harry_J1_1': pygame.image.load('assets/image/Personnages/Harry/harry_J1/Harry_neutre_J1.png'),
-                    'harry_J1_2': pygame.image.load('assets/image/Personnages/Harry/harry_J1/Harry_neutre_J1.png'),
-                    'harry_J1_3': pygame.image.load('assets/image/Personnages/Harry/harry_J1/Harry_neutre_J1.png'),
+                    'harry_J1_2': pygame.image.load('assets/image/Personnages/Harry/harry_J1/Harry_pose_J1.png'),
+                    'harry_J1_3': pygame.image.load('assets/image/Personnages/Harry/harry_J1/Harry_geste_parler_J1.png'),
+                    'harry_J1_4': pygame.image.load('assets/image/Personnages/Harry/harry_J1/Harry_fier_J1.png'),
+                    'harry_J1_5': pygame.image.load('assets/image/Personnages/Harry/harry_J1/Harry_evidence_J1.png'),
                     'harry_J2_1': pygame.image.load('assets/image/Personnages/Harry/harry_J2/Harry_neutre_J2.png'),
-                    'harry_J2_2': pygame.image.load('assets/image/Personnages/Harry/harry_J2/Harry_neutre_J2.png'),
-                    'harry_J2_3': pygame.image.load('assets/image/Personnages/Harry/harry_J2/Harry_neutre_J2.png'),
+                    'harry_J2_2': pygame.image.load('assets/image/Personnages/Harry/harry_J2/Harry_pose_J2.png'),
+                    'harry_J2_3': pygame.image.load('assets/image/Personnages/Harry/harry_J2/Harry_geste_parler_J2.png'),
+                    'harry_J2_4': pygame.image.load('assets/image/Personnages/Harry/harry_J2/Harry_fier_J2.png'),
+                    'harry_J2_5': pygame.image.load('assets/image/Personnages/Harry/harry_J2/Harry_evidence_J2.png'),
 
                     # Isis
                     'isis_J1_1': pygame.image.load('assets/image/Personnages/Isis/isis_J1/Isis_neutre_J1.png'),
-                    'isis_J1_2': pygame.image.load('assets/image/Personnages/Isis/isis_J1/Isis_neutre_J1.png'),
-                    'isis_J1_3': pygame.image.load('assets/image/Personnages/Isis/isis_J1/Isis_neutre_J1.png'),
+                    'isis_J1_2': pygame.image.load('assets/image/Personnages/Isis/isis_J1/Isis_regard_intense_J1.png'),
+                    'isis_J1_3': pygame.image.load('assets/image/Personnages/Isis/isis_J1/Isis_transformation_J1.png'),
+                    'isis_J1_4': pygame.image.load('assets/image/Personnages/Isis/isis_J1/Isis_rire_J1.png'),
+                    'isis_J1_5': pygame.image.load('assets/image/Personnages/Isis/isis_J1/Isis_sourire_gene_J1.png'),
                     'isis_J2_1': pygame.image.load('assets/image/Personnages/Isis/isis_J2/Isis_neutre_J2.png'),
-                    'isis_J2_2': pygame.image.load('assets/image/Personnages/Isis/isis_J2/Isis_neutre_J2.png'),
-                    'isis_J2_3': pygame.image.load('assets/image/Personnages/Isis/isis_J2/Isis_neutre_J2.png'),
+                    'isis_J2_2': pygame.image.load('assets/image/Personnages/Isis/isis_J2/Isis_regard_intense_J2.png'),
+                    'isis_J2_3': pygame.image.load('assets/image/Personnages/Isis/isis_J2/Isis_transformee_J2.png'),
+                    'isis_J2_4': pygame.image.load('assets/image/Personnages/Isis/isis_J2/Isis_rire_J2.png'),
+                    'isis_J2_5': pygame.image.load('assets/image/Personnages/Isis/isis_J2/Isis_sourire_gene_J2.png'),
 
                     # Kitt
                     'kitt_J1_1': pygame.image.load('assets/image/Personnages/K.I.T.T/kitt_J1/Kitt_1_J1.png'),
-                    'kitt_J1_2': pygame.image.load('assets/image/Personnages/K.I.T.T/kitt_J1/Kitt_1_J1.png'),
-                    'kitt_J1_3': pygame.image.load('assets/image/Personnages/K.I.T.T/kitt_J1/Kitt_1_J1.png'),
+                    'kitt_J1_2': pygame.image.load('assets/image/Personnages/K.I.T.T/kitt_J1/Kitt_12_J1.png'),
+                    'kitt_J1_3': pygame.image.load('assets/image/Personnages/K.I.T.T/kitt_J1/Kitt_7_J1.png'),
+                    'kitt_J1_4': pygame.image.load('assets/image/Personnages/K.I.T.T/kitt_J1/Kitt_3_J1.png'),
+                    'kitt_J1_5': pygame.image.load('assets/image/Personnages/K.I.T.T/kitt_J1/Kitt_6_J1.png'),
                     'kitt_J2_1': pygame.image.load('assets/image/Personnages/K.I.T.T/kitt_J2/Kitt_1_J2.png'),
-                    'kitt_J2_2': pygame.image.load('assets/image/Personnages/K.I.T.T/kitt_J2/Kitt_1_J2.png'),
-                    'kitt_J2_3': pygame.image.load('assets/image/Personnages/K.I.T.T/kitt_J2/Kitt_1_J2.png'),
+                    'kitt_J2_2': pygame.image.load('assets/image/Personnages/K.I.T.T/kitt_J2/Kitt_12_J2.png'),
+                    'kitt_J2_3': pygame.image.load('assets/image/Personnages/K.I.T.T/kitt_J2/Kitt_7_J2.png'),
+                    'kitt_J2_4': pygame.image.load('assets/image/Personnages/K.I.T.T/kitt_J2/Kitt_3_J2.png'),
+                    'kitt_J2_5': pygame.image.load('assets/image/Personnages/K.I.T.T/kitt_J2/Kitt_6_J2.png'),
 
                     # Lucie
                     'lucie_J1_1': pygame.image.load('assets/image/Personnages/Lucie/lucie_J1/Lucie_neutre_J1.png'),
-                    'lucie_J1_2': pygame.image.load('assets/image/Personnages/Lucie/lucie_J1/Lucie_neutre_J1.png'),
-                    'lucie_J1_3': pygame.image.load('assets/image/Personnages/Lucie/lucie_J1/Lucie_neutre_J1.png'),
+                    'lucie_J1_2': pygame.image.load('assets/image/Personnages/Lucie/lucie_J1/Lucie_blessee_aie_J1.png'),
+                    'lucie_J1_3': pygame.image.load('assets/image/Personnages/Lucie/lucie_J1/Lucie_mort_J1.png'),
+                    'lucie_J1_4': pygame.image.load('assets/image/Personnages/Lucie/lucie_J1/Lucie_sourire_J1.png'),
+                    'lucie_J1_5': pygame.image.load('assets/image/Personnages/Lucie/lucie_J1/Lucie_controle_J1.png'),
                     'lucie_J2_1': pygame.image.load('assets/image/Personnages/Lucie/lucie_J2/Lucie_neutre_J2.png'),
-                    'lucie_J2_2': pygame.image.load('assets/image/Personnages/Lucie/lucie_J2/Lucie_neutre_J2.png'),
-                    'lucie_J2_3': pygame.image.load('assets/image/Personnages/Lucie/lucie_J2/Lucie_neutre_J2.png'),
+                    'lucie_J2_2': pygame.image.load('assets/image/Personnages/Lucie/lucie_J2/Lucie_blessee_aie_J2.png'),
+                    'lucie_J2_3': pygame.image.load('assets/image/Personnages/Lucie/lucie_J2/Lucie_mort_J2.png'),
+                    'lucie_J2_4': pygame.image.load('assets/image/Personnages/Lucie/lucie_J2/Lucie_sourire_J2.png'),
+                    'lucie_J2_5': pygame.image.load('assets/image/Personnages/Lucie/lucie_J2/Lucie_controle_J2.png'),
 
                 ## Nuages de texte
                 'nuage_J1' : pygame.image.load('assets/image/en_jeu/nuage_J1.png'),
