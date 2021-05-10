@@ -17,6 +17,10 @@ class game:
         self.in_choix_legends = False
         self.mouse = False
         self.son_hover = [False,False,False,False,False,False,False]
+        self.musique = 0.5
+        self.effet_sonore = 0.5
+        self.luminosite = 100
+        self.menu_parametre = False
 
         ## CONSTANTES MENU
         self.menu_regles = False
@@ -35,6 +39,7 @@ class game:
         self.infos_legends_j2 = False
 
         ## CONSTANTES INGAME
+        self.menu_pause = False
         self.tour = randint(0,1)
         self.round = [1,1]
         self.sujets = ["Ta mere", "Ton pere", "Ton créateur", "Ton homme", "Tes cheveux", "Tes vêtements", "Ta beauté", "Ton style", "Ton flow", "Tu", "Ta demarche", "Ta femme", "Ton odeur", "Ton âge", "Ta musique"]
@@ -84,29 +89,43 @@ class game:
             'image_curseur': pygame.image.load('assets/image/curseur.png'),
             'image_curseur_click': pygame.image.load('assets/image/curseur_click.png'),
 
+            # Luminosité
+            '80%' : pygame.image.load('assets/image/luminosite/80%.png'),
+            '60%' : pygame.image.load('assets/image/luminosite/60%.png'),
+            '40%' : pygame.image.load('assets/image/luminosite/40%.png'),
+            '20%' : pygame.image.load('assets/image/luminosite/20%.png'),
+            '0%' : pygame.image.load('assets/image/luminosite/0%.png'),
+
+
             ### MENU
 
                 # Background
                 'background_menu' : pygame.image.load('assets/image/menu principal/fond_menu.jpg'),
 
-                # Bouton menu
+                # Boutons menu
                 'bouton_jouer' : pygame.image.load('assets/image/menu principal/bouton_jouer.png'),
                 'bouton_regles' : pygame.image.load('assets/image/menu principal/bouton_regles.png'),
                 'bouton_parametres' : pygame.image.load('assets/image/menu principal/bouton_parametres.png'),
                 'bouton_quitter' : pygame.image.load('assets/image/menu principal/bouton_quitter.png'),
 
-                # Bouton menu hover
+                # Boutons menu hover
                 'bouton_jouer_hover' : pygame.image.load('assets/image/menu principal/bouton_jouer_hover.png'),
                 'bouton_regles_hover' : pygame.image.load('assets/image/menu principal/bouton_regles_hover.png'),
                 'bouton_parametres_hover' : pygame.image.load('assets/image/menu principal/bouton_parametres_hover.png'),
                 'bouton_quitter_hover' : pygame.image.load('assets/image/menu principal/bouton_quitter_hover.png'),
 
-                # Image regles
+                # Images regles
                 'fond_regles_1' : pygame.image.load('assets/image/menu principal/regles_1.png'),
                 'fond_regles_2' : pygame.image.load('assets/image/menu principal/regles_2.png'),
                 'fleche_regles_1' : pygame.image.load('assets/image/fleche_droite.png'),
                 'fleche_regles_2' : pygame.image.load('assets/image/fleche_gauche.png'),
                 'bouton_fermer' : pygame.image.load('assets/image/fermer.png'),
+
+                # Images parametre
+                'fond_parametre': pygame.image.load('assets/image/menu principal/parametres.png'),
+                'plus': pygame.image.load('assets/image/plus.png'),
+                'moins': pygame.image.load('assets/image/moins.png'),
+
 
             ### CHOIX LEGENDS
 
@@ -286,6 +305,20 @@ class game:
 
                     #Harry
                     'harry_back' : pygame.image.load('assets/image/en_jeu/background/harry_background.jpg'),
+
+                ## Menu Pause
+
+                    'fond_menu_pause' : pygame.image.load('assets/image/en_jeu/menu_pause/fond_menu_pause.png'),
+                    'bouton_reprendre' : pygame.image.load('assets/image/en_jeu/menu_pause/bouton_reprendre_pause.png'),
+                    'bouton_reprendre_hover' : pygame.image.load('assets/image/en_jeu/menu_pause/bouton_reprendre_hover_pause.png'),
+                    'bouton_reset' : pygame.image.load('assets/image/en_jeu/menu_pause/bouton_reset_pause.png'),
+                    'bouton_reset_hover' : pygame.image.load('assets/image/en_jeu/menu_pause/bouton_reset_hover_pause.png'),
+                    'bouton_retour_pause': pygame.image.load('assets/image/en_jeu/menu_pause/bouton_retour_pause.png'),
+                    'bouton_retour_pause_hover': pygame.image.load('assets/image/en_jeu/menu_pause/bouton_retour_hover_pause.png'),
+                    'bouton_parametres_pause': pygame.image.load('assets/image/en_jeu/menu_pause/bouton_parametres_pause.png'),
+                    'bouton_parametres_pause_hover': pygame.image.load('assets/image/en_jeu/menu_pause/bouton_parametres_hover_pause.png'),
+                    'bouton_quitter_pause': pygame.image.load('assets/image/en_jeu/menu_pause/bouton_quitter_pause.png'),
+                    'bouton_quitter_pause_hover': pygame.image.load('assets/image/en_jeu/menu_pause/bouton_quitter_hover_pause.png'),
         }
 
         ### RECT DU JEU + Position
@@ -298,6 +331,13 @@ class game:
             'bouton_fermer_rect' : self.image['bouton_fermer'].get_rect(),
             'bouton_regles_1' : self.image['fleche_regles_1'].get_rect(),
             'bouton_regles_2' : self.image['fleche_regles_2'].get_rect(),
+            'moins_1' : self.image['moins'].get_rect(),
+            'moins_2' : self.image['moins'].get_rect(),
+            'moins_3' : self.image['moins'].get_rect(),
+            'plus_1' : self.image['plus'].get_rect(),
+            'plus_2' : self.image['plus'].get_rect(),
+            'plus_3' : self.image['plus'].get_rect(),
+            'bouton_fermer_parametre_rect': self.image['bouton_fermer'].get_rect(),
         }
 
         self.rect_position_menu ={
@@ -308,6 +348,13 @@ class game:
             'bouton_fermer_rect': position_rect(self.rect_menu['bouton_fermer_rect'], 1319, 465),
             'bouton_regles_1': position_rect(self.rect_menu['bouton_regles_1'], 1325, 902),
             'bouton_regles_2': position_rect(self.rect_menu['bouton_regles_2'], 1223, 902),
+            'moins_1': position_rect(self.rect_menu['moins_1'], 625, 648),
+            'moins_2': position_rect(self.rect_menu['moins_2'], 625, 761),
+            'moins_3': position_rect(self.rect_menu['moins_3'], 625, 872),
+            'plus_1': position_rect(self.rect_menu['plus_1'], 784, 647),
+            'plus_2': position_rect(self.rect_menu['plus_2'], 784, 760),
+            'plus_3': position_rect(self.rect_menu['plus_3'], 784, 871),
+            'bouton_fermer_parametre_rect': position_rect(self.rect_menu['bouton_fermer_parametre_rect'], 1104, 456),
         }
 
         self.rect_choix_legends = {
@@ -354,7 +401,19 @@ class game:
             'rect_12' : pygame.Rect(545,876,350, 44),
             'rect_13' : pygame.Rect(548,926,169, 44),
             'rect_14' : pygame.Rect(717,926,169, 44),
+            'bouton_reprendre_hover_rect' : self.image['bouton_reprendre_hover'].get_rect(),
+            'bouton_reset_hover_rect' : self.image['bouton_reset_hover'].get_rect(),
+            'bouton_retour_pause_hover_rect' : self.image['bouton_retour_pause_hover'].get_rect(),
+            'bouton_parametres_pause_hover_rect': self.image['bouton_parametres_pause_hover'].get_rect(),
+            'bouton_quitter_pause_hover_rect': self.image['bouton_quitter_pause_hover'].get_rect(),
+        }
 
+        self.rect_position_ingame = {
+            'bouton_reprendre_hover_rect': position_rect(self.rect_ingame['bouton_reprendre_hover_rect'], 632, 481),
+            'bouton_reset_hover_rect': position_rect(self.rect_ingame['bouton_reset_hover_rect'], 532, 578),
+            'bouton_retour_pause_hover_rect': position_rect(self.rect_ingame['bouton_retour_pause_hover_rect'], 583, 675),
+            'bouton_parametres_pause_hover_rect': position_rect(self.rect_ingame['bouton_parametres_pause_hover_rect'], 621, 772),
+            'bouton_quitter_pause_hover_rect': position_rect(self.rect_ingame['bouton_quitter_pause_hover_rect'], 646, 869),
         }
 
 class player:

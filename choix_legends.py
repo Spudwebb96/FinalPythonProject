@@ -38,3 +38,6 @@ def choix_legends(game,curseur,display_surface) :
         display_surface.blit(game.image['bouton_fermer_infos'], (926, 204))
         display_surface.blit(game.image['fleche_gauche_info'], (935, 806))
         display_surface.blit(game.image['fleche_droite_info'], (1295, 806))
+
+
+

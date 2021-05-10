@@ -19,4 +19,11 @@ def menu(game,curseur, display_surface):
             display_surface.blit(game.image['fleche_regles_2'], (1223, 902))
         display_surface.blit(game.image['bouton_fermer'], (1319, 465))
 
-    # Faire l'onglet parametre
+    # Affichage l'onglet parametre
+    if game.menu_parametre:
+        parametres(game, display_surface)
+
+
+
+
+
