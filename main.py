@@ -203,55 +203,57 @@ while game.is_running:
                         game.menu_legends_J2 = 0
 
             elif game.in_game:
-                if len(game.player.p1_phrase[0]) + len(game.player.p2_phrase[0]) < 10:
-                    if game.rect_ingame['rect_1'].collidepoint(event.pos):
-                        if game.rect_utilise[0]:
-                            Combat(game, 0, display_surface)
-                            game.rect_utilise[0] = False
-                    elif game.rect_ingame['rect_2'].collidepoint(event.pos):
-                        if game.rect_utilise[1]:
-                            Combat(game, 1, display_surface)
-                            game.rect_utilise[1] = False
-                    elif game.rect_ingame['rect_3'].collidepoint(event.pos):
-                        if game.rect_utilise[2]:
-                            Combat(game, 2, display_surface)
-                            game.rect_utilise[2] = False
-                    elif game.rect_ingame['rect_4'].collidepoint(event.pos):
-                        if game.rect_utilise[3]:
-                            Combat(game, 3, display_surface)
-                            game.rect_utilise[3] = False
-                    elif game.rect_ingame['rect_5'].collidepoint(event.pos):
-                        if game.rect_utilise[4]:
-                            Combat(game, 4, display_surface)
-                            game.rect_utilise[4] = False
-                    elif game.rect_ingame['rect_6'].collidepoint(event.pos):
-                        if game.rect_utilise[5]:
-                            Combat(game, 5, display_surface)
-                            game.rect_utilise[5] = False
-                    elif game.rect_ingame['rect_7'].collidepoint(event.pos):
-                        if game.rect_utilise[6]:
-                            Combat(game, 6, display_surface)
-                            game.rect_utilise[6] = False
-                    elif game.rect_ingame['rect_8'].collidepoint(event.pos):
-                        if game.rect_utilise[7]:
-                            Combat(game, 7, display_surface)
-                            game.rect_utilise[7] = False
-                    elif game.rect_ingame['rect_9'].collidepoint(event.pos):
-                        if game.rect_utilise[8]:
-                            Combat(game, 8, display_surface)
-                            game.rect_utilise[8] = False
-                    elif game.rect_ingame['rect_10'].collidepoint(event.pos):
-                        if game.rect_utilise[9]:
-                            Combat(game, 9, display_surface)
-                            game.rect_utilise[9] = False
-                    elif game.rect_ingame['rect_11'].collidepoint(event.pos):
-                        if game.rect_utilise[10]:
-                            Combat(game, 10, display_surface)
-                            game.rect_utilise[10] = False
-                    elif game.rect_ingame['rect_12'].collidepoint(event.pos):
-                        if game.rect_utilise[11]:
-                            Combat(game, 11, display_surface)
-                            game.rect_utilise[11] = False
+                # tableau phrase :
+                if len(game.player.p1_phrase[0]) < 5 and len(game.player.p2_phrase[0]) < 5 :
+                    if game.player.p1_phrase[1] == False or game.player.p2_phrase[1] == False:
+                        if game.rect_ingame['rect_1'].collidepoint(event.pos):
+                            if game.rect_utilise[0]:
+                                Combat(game, 0, display_surface)
+                                game.rect_utilise[0] = False
+                        elif game.rect_ingame['rect_2'].collidepoint(event.pos):
+                            if game.rect_utilise[1]:
+                                Combat(game, 1, display_surface)
+                                game.rect_utilise[1] = False
+                        elif game.rect_ingame['rect_3'].collidepoint(event.pos):
+                            if game.rect_utilise[2]:
+                                Combat(game, 2, display_surface)
+                                game.rect_utilise[2] = False
+                        elif game.rect_ingame['rect_4'].collidepoint(event.pos):
+                            if game.rect_utilise[3]:
+                                Combat(game, 3, display_surface)
+                                game.rect_utilise[3] = False
+                        elif game.rect_ingame['rect_5'].collidepoint(event.pos):
+                            if game.rect_utilise[4]:
+                                Combat(game, 4, display_surface)
+                                game.rect_utilise[4] = False
+                        elif game.rect_ingame['rect_6'].collidepoint(event.pos):
+                            if game.rect_utilise[5]:
+                                Combat(game, 5, display_surface)
+                                game.rect_utilise[5] = False
+                        elif game.rect_ingame['rect_7'].collidepoint(event.pos):
+                            if game.rect_utilise[6]:
+                                Combat(game, 6, display_surface)
+                                game.rect_utilise[6] = False
+                        elif game.rect_ingame['rect_8'].collidepoint(event.pos):
+                            if game.rect_utilise[7]:
+                                Combat(game, 7, display_surface)
+                                game.rect_utilise[7] = False
+                        elif game.rect_ingame['rect_9'].collidepoint(event.pos):
+                            if game.rect_utilise[8]:
+                                Combat(game, 8, display_surface)
+                                game.rect_utilise[8] = False
+                        elif game.rect_ingame['rect_10'].collidepoint(event.pos):
+                            if game.rect_utilise[9]:
+                                Combat(game, 9, display_surface)
+                                game.rect_utilise[9] = False
+                        elif game.rect_ingame['rect_11'].collidepoint(event.pos):
+                            if game.rect_utilise[10]:
+                                Combat(game, 10, display_surface)
+                                game.rect_utilise[10] = False
+                        elif game.rect_ingame['rect_12'].collidepoint(event.pos):
+                            if game.rect_utilise[11]:
+                                Combat(game, 11, display_surface)
+                                game.rect_utilise[11] = False
                 if game.rect_ingame['rect_13'].collidepoint(event.pos):
                         Combat(game, 12, display_surface)
                 if game.rect_ingame['rect_14'].collidepoint(event.pos):
@@ -275,14 +277,7 @@ while game.is_running:
                         pygame.mixer.Channel(2).play(pygame.mixer.Sound('assets/son/effet sonore/Sortie.wav'))
                         game.in_game = False
                         game.in_choix_legends = True
-                        game.prop = []
-                        game.sujets = game.sujetsref.copy()
-                        game.verbes = game.verbesref.copy()
-                        game.complement = game.complementref.copy()
-                        game.liaison = game.liaisonref.copy()
-                        game.alpha = 300
-                        game.player.p1_phrase[0] = []
-                        game.player.p2_phrase[0] = []
+                        game = reset_match(game)
                         game.rect_utilise = [True, True, True, True, True, True, True, True, True, True, True, True]
                         pygame.mixer.Channel(0).play(pygame.mixer.Sound('assets/son/menu.wav'),-1)
                         pygame.mixer.Channel(1).stop()

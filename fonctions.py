@@ -211,51 +211,70 @@ def carroussel_perso(game,display_surface,position_cards_J1,position_cards_J2):
 ### Fonction INGAME
 def grammaire(game):
     #Joueur 1
-    if game.player.p1_phrase[0][0] in game.sujetsref:
-        game.player.score_J1 += 1
-    else:
+    if len(game.player.p1_phrase[0]) > 1:
+        if game.player.p1_phrase[0][0] in game.sujetsref:
+            game.player.score_J1 += 1
+        else:
+            game.player.score_J1 -= 1
+    else :
         game.player.score_J1 -= 1
-    if game.player.p1_phrase[0][1] in game.verbesref:
-        game.player.score_J1 += 1
-    else:
+    if len(game.player.p1_phrase[0]) > 2:
+        if game.player.p1_phrase[0][1] in game.verbesref:
+            game.player.score_J1 += 1
+        else:
+            game.player.score_J1 -= 1
+    else :
         game.player.score_J1 -= 1
-    if game.player.p1_phrase[0][2] in game.complementref:
-        game.player.score_J1 += 1
-    else:
+    if len(game.player.p1_phrase[0]) > 3:
+        if game.player.p1_phrase[0][2] in game.complementref:
+            game.player.score_J1 += 1
+        else:
+            game.player.score_J1 -= 1
+    else :
         game.player.score_J1 -= 1
     if len(game.player.p1_phrase[0]) > 4:
         if game.player.p1_phrase[0][3] in game.liaisonref:
             game.player.score_J1 += 1
         else:
-            game.player.score_J1 -= 11
+            game.player.score_J1 -= 1
+    if len(game.player.p1_phrase[0]) > 5:
         if game.player.p1_phrase[0][4] in game.complementref:
             game.player.score_J1 += 1
         else:
-            game.player.score_J1 -= 11
+            game.player.score_J1 -= 1
 
     #Joueur 2
-    if game.player.p2_phrase[0][0] in game.sujetsref:
-        game.player.score_J2 += 1
-    else:
+    if len(game.player.p2_phrase[0]) > 1:
+        if game.player.p2_phrase[0][0] in game.sujetsref:
+            game.player.score_J2 += 1
+        else:
+            game.player.score_J2 -= 1
+    else :
         game.player.score_J2 -= 1
-    if game.player.p2_phrase[0][1] in game.verbesref:
-        game.player.score_J2 += 1
-    else:
+    if len(game.player.p2_phrase[0]) > 2:
+        if game.player.p2_phrase[0][1] in game.verbesref:
+            game.player.score_J2 += 1
+        else:
+            game.player.score_J2 -= 1
+    else :
         game.player.score_J2 -= 1
-    if game.player.p2_phrase[0][2] in game.complementref:
-        game.player.score_J2 += 1
-    else:
+    if len(game.player.p2_phrase[0]) > 3:
+        if game.player.p2_phrase[0][2] in game.complementref:
+            game.player.score_J2 += 1
+        else:
+            game.player.score_J2 -= 1
+    else :
         game.player.score_J2 -= 1
-
     if len(game.player.p2_phrase[0]) > 4:
         if game.player.p2_phrase[0][3] in game.liaisonref:
             game.player.score_J2 += 1
         else:
-            game.player.score_J2 -= 11
+            game.player.score_J2 -= 1
+    if len(game.player.p2_phrase[0]) > 5:
         if game.player.p2_phrase[0][4] in game.complementref:
             game.player.score_J2 += 1
         else:
-            game.player.score_J2 -= 11
+            game.player.score_J2 -= 1
 
 def round(game):
     if game.round[0] != game.round[1]:
@@ -290,7 +309,7 @@ def degats(game):
 def Combat(game, x, display_surface):
     if game.player.p1_phrase[1] == False or game.player.p2_phrase[1] == False or game.player.p1_phrase[1] == False and game.player.p2_phrase[1] == False:
         if game.tour == 0:
-            if x < 12 :
+            if x < 12 and len(game.player.p1_phrase[0]) < 5:
                 game.player.p1_phrase[0].append(game.prop[x])
             elif x == 12:
                 game.player.p1_phrase[0].append(".")
@@ -298,9 +317,10 @@ def Combat(game, x, display_surface):
             else :
                 game.player.p1_phrase[0].append("!")
                 game.player.p1_phrase[1] = True
-            game.tour = 1
+            if game.player.p2_phrase[1] == False :
+                game.tour = 1
         else :
-            if x < 12:
+            if x < 12 and len(game.player.p2_phrase[0]) < 5:
                 game.player.p2_phrase[0].append(game.prop[x])
             elif x == 12:
                 game.player.p2_phrase[0].append(".")
@@ -308,39 +328,42 @@ def Combat(game, x, display_surface):
             else :
                 game.player.p2_phrase[0].append("!")
                 game.player.p2_phrase[1] = True
-            game.tour = 0
-    elif game.player.Hp_J2 > 0 or game.player.Hp_J1 > 0:
-        # Calcul score de la phrase
+            if game.player.p1_phrase[1] == False:
+                game.tour = 0
+    elif game.player.Hp_J2 > 0 and game.player.Hp_J1 > 0:
+    # Calcul score de la phrase
+
+        # longueur phrase
         if len(game.player.p1_phrase[0]) > len(game.player.p2_phrase[0]):
-            game.player.score_J1 = 1
+            game.player.score_J1 = len(game.player.p1_phrase[0]) - len(game.player.p2_phrase[0])
             game.player.score_J2 = 0
             print("joueur 1 a la phrase la plus longue")
-        elif len(game.player.p1_phrase[0]) > len(game.player.p2_phrase[0]):
+        elif len(game.player.p2_phrase[0]) > len(game.player.p1_phrase[0]):
             game.player.score_J1 = 0
-            game.player.score_J2 = 1
+            game.player.score_J2 = len(game.player.p2_phrase[0]) - len(game.player.p1_phrase[0])
             print("joueur 2 a la phrase la plus longue")
         print(game.player.score_J1, game.player.score_J2)
+
+        # faiblesse phrase
         for i in game.player.p1_phrase[0]:
             for s in game.stats[game.player.legends_J2]:
                 for j in game.faiblesse[s]:
                     if i == j:
-                        game.player.score_J1 += 1
+                        game.player.score_J1 += 5
         for i in game.player.p2_phrase[0]:
             for s in game.stats[game.player.legends_J1]:
                 for j in game.faiblesse[s]:
                     if i == j:
-                        game.player.score_J2 += 1
+                        game.player.score_J2 += 5
         print(game.player.score_J1, game.player.score_J2)
+
+        # grammaire phrase
         grammaire(game)
         print(game.player.score_J1, game.player.score_J2)
         degats(game)
-        game.round[0] += 1
-        round(game)
-    else :
-        if game.player.Hp_J2 == 0:
-            print("joueur 1 win")
-        else:
-            print("joueur 2 win")
+        if game.player.Hp_J1 != 0 and game.player.Hp_J2 != 0:
+            game.round[0] += 1
+            round(game)
 
 def nuage(game, display_surface):
     font1 = pygame.font.SysFont("palatinolinotype", 20, bold=True, italic=False)
@@ -359,8 +382,6 @@ def barre_de_vie(game,display_surface):
     bar_border = (0, 0, 0)
     bar_losehp = (255, 211, 121)
     bar_position_J1 = [20, 20, game.player.max_Hp_J1, 50]
-    ecart = game.player.max_Hp_J1 - game.player.Hp_J1
-
     #j1
     if game.player.max_Hp_J1 != game.player.Hp_J1:
         if game.player.max_Hp_J1 == 380:
@@ -574,7 +595,7 @@ def affichage_joueur(game,display_surface):
             display_surface.blit(game.image['lucie_J1_1'], (0, 224))
 
 
-    if game.player.max_Hp_J1 != game.player.Hp_J1:
+    if game.player.max_Hp_J1 != game.player.Hp_J1 or game.player.max_Hp_J1 == 0:
         if game.player.legends_J2 == 'bigband':
             display_surface.blit(game.image['bigband_J2_4'], (924.02, 224))
         elif game.player.legends_J2 == 'gunnar':
@@ -642,10 +663,48 @@ def affichage_joueur(game,display_surface):
 
 def tour(game, display_surface):
     font1 = pygame.font.SysFont("palatinolinotype", 45, bold=True, italic=False)
-    pygame.draw.rect(display_surface,(250,250,250), [555, 16, 330, 60])
-    if game.tour == 0:
-        phrase = font1.render("Joueur 1 joue :", True, (0, 0, 0))
+    pygame.draw.rect(display_surface,(212,212,212), [555, 16, 330, 60])
+    pygame.draw.rect(display_surface, (0, 0, 0), [555, 16, 330, 60], 3)
+    if game.player.max_Hp_J1 > 0 and game.player.max_Hp_J2 > 0:
+        if game.tour == 0:
+            phrase = font1.render("Joueur 1 joue :", True, (0, 48, 170))
+            display_surface.blit(phrase, (577, 25))
+        else :
+            phrase = font1.render("Joueur 2 joue :", True, (180, 0, 0))
+            display_surface.blit(phrase, (577, 25))
+    elif game.player.max_Hp_J1 == 0 :
+        phrase = font1.render("Joueur 2 gagne", True, (180, 0, 0))
+        display_surface.blit(phrase, (568, 25))
     else :
-        phrase = font1.render("Joueur 2 joue :", True, (0, 0, 0))
-    display_surface.blit(phrase, (577, 25))
+        phrase = font1.render("Joueur 1 gagne", True, (0, 48, 170))
+        display_surface.blit(phrase, (568, 25))
+
+def reset_match(game):
+    game.tour = randint(0, 1)
+    game.round = [1, 1]
+    game.stage_select = None
+    game.alpha = 300
+    game.rect_utilise = [True, True, True, True, True, True, True, True, True, True, True, True]
+    game.prop = []
+    game.pret_J1 = False
+    game.pret_J2 = False
+    game.player.Hp_J1 = 500
+    game.player.Hp_J2 = 500
+    game.player.max_Hp_J1 = 500
+    game.player.max_Hp_J2 = 500
+    game.player.bar_position_J2 = [920, 20, game.player.max_Hp_J2, 50]
+    game.player.bar_vie_J1 = (0, 204, 82)
+    game.player.bar_vie_J2 = (0, 204, 82)
+    game.player.legends_J1 = None
+    game.player.legends_J2 = None
+    game.player.faiblesse_J1 = None
+    game.player.faiblesse_J2 = None
+    game.player.p1_phrase = [[], False]
+    game.player.p2_phrase = [[], False]
+    game.player.score_J1 = 0
+    game.player.score_J2 = 0
+    return game
+
+
+
 

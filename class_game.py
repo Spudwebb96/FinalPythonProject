@@ -358,8 +358,6 @@ class game:
 
 class player:
     def __init__(self):
-        self.Hp_J1 = 500
-        self.Hp_J2 = 500
         self.max_Hp_J1 = 500
         self.max_Hp_J2 = 500
         self.Hp_J1 = 500
