@@ -16,7 +16,10 @@ frame_per_sec = pygame.time.Clock()
 
 display_surface = pygame.display.set_mode((1440,1024))
 
-pygame.display.set_caption("Words Legends")
+'''icon = pygame.image.load("assets/image/test_logo.png")
+pygame.display.set_icon(icon)'''
+
+pygame.display.set_caption("Words Legends",)
 
 game = game()
 

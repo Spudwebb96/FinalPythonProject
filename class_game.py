@@ -16,7 +16,7 @@ class game:
         self.in_game = False
         self.in_choix_legends = False
         self.mouse = False
-        self.son_hover = [False,False,False,False]
+        self.son_hover = [False,False,False,False,False,False,False]
 
         ## CONSTANTES MENU
         self.menu_regles = False

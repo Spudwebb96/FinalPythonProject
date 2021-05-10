@@ -56,34 +56,47 @@ def hover_boutons(game,curseur,display_surface):
         # Hover bouton "Pret J1"
         if game.infos_legends_j1 == False:
             if curseur[0] > 198 and curseur[0] < 413 and curseur[1] > 900 and curseur[1] < 1000 :
+                if game.son_hover[4] == False :
+                    pygame.mixer.Channel(2).set_volume(0.8)
+                    pygame.mixer.Channel(2).play(pygame.mixer.Sound('assets/son/effet sonore/hover.wav'))
+                game.son_hover[4] = True
                 display_surface.blit(game.image['pret_on'],(198,900))
             else :
+                game.son_hover[4] = False
                 if game.pret_J1 == False:
                     display_surface.blit(game.image['pret_off'],(198,900))
 
         # Hover bouton "Pret J2"
         if game.infos_legends_j2 == False:
             if curseur[0] > 1028 and curseur[0] < 1243 and curseur[1] > 900 and curseur[1] < 1000 :
+                if game.son_hover[5] == False :
+                    pygame.mixer.Channel(2).set_volume(0.8)
+                    pygame.mixer.Channel(2).play(pygame.mixer.Sound('assets/son/effet sonore/hover.wav'))
+                game.son_hover[5] = True
                 display_surface.blit(game.image['pret_on'],(1028,900))
             else :
+                game.son_hover[5] = False
                 if game.pret_J2 == False:
                     display_surface.blit(game.image['pret_off'],(1028,900))
 
         # Hover bouton "Jouer"
         if curseur[0] > 550 and curseur[0] < 890 and curseur[1] > 452 and curseur[1] < 572 :
             if game.pret_J1 and game.pret_J2:
+                if game.son_hover[6] == False :
+                    pygame.mixer.Channel(2).set_volume(0.8)
+                    pygame.mixer.Channel(2).play(pygame.mixer.Sound('assets/son/effet sonore/hover.wav'))
+                game.son_hover[6] = True
                 display_surface.blit(game.image['jouer_on'],(550,452))
             else:
+                game.son_hover[6] = False
                 display_surface.blit(game.image['jouer_off'], (550, 452))
         else :
             display_surface.blit(game.image['jouer_off'],(550,452))
-
 
 ### Fonction utile
 def position_rect(rect, x, y):
     rect.x = x
     rect.y = y
-
 
 ### Fonction ChoixLegends
 def carroussel_perso(game,display_surface,position_cards_J1,position_cards_J2):
@@ -195,30 +208,31 @@ def carroussel_perso(game,display_surface,position_cards_J1,position_cards_J2):
     if game.infos_legends_j2 == False:
         display_surface.blit(game.image['bouton_infos_j2'], (1305, 210))
 
-
 ### Fonction INGAME
 def grammaire(game):
     #Joueur 1
     if game.player.p1_phrase[0][0] in game.sujetsref:
         game.player.score_J1 += 1
+        print(" sujet p1 ok")
     else:
         game.player.score_J1 -= 1
-    if len(game.player.p1_phrase[0]) > 1:
-        if game.player.p1_phrase[0][1] in game.verbesref:
-            game.player.score_J1 += 1
-        else:
-            game.player.score_J1 -= 1
-    if len(game.player.p1_phrase[0]) > 2:
-        if game.player.p1_phrase[0][2] in game.complementref:
-            game.player.score_J1 += 1
-        else:
-            game.player.score_J1 -= 1
-    if len(game.player.p1_phrase[0]) > 3:
+    if game.player.p1_phrase[0][1] in game.verbesref:
+        game.player.score_J1 += 1
+        print(" verbe p1 ok")
+    else:
+        game.player.score_J1 -= 1
+    if game.player.p1_phrase[0][2] in game.complementref:
+        game.player.score_J1 += 1
+        print(" compleme,t p1 ok")
+        print(game.player.p1_phrase[0])
+    else:
+        game.player.score_J1 -= 1
+        print(game.player.p1_phrase[0])
+    if len(game.player.p1_phrase[0]) > 4:
         if game.player.p1_phrase[0][3] in game.liaisonref:
             game.player.score_J1 += 1
         else:
             game.player.score_J1 -= 11
-    if len(game.player.p1_phrase[0]) > 4:
         if game.player.p1_phrase[0][4] in game.complementref:
             game.player.score_J1 += 1
         else:
@@ -229,22 +243,20 @@ def grammaire(game):
         game.player.score_J2 += 1
     else:
         game.player.score_J2 -= 1
-    if len(game.player.p1_phrase[0]) > 1:
-        if game.player.p2_phrase[0][1] in game.verbesref:
-            game.player.score_J2 += 1
-        else:
-            game.player.score_J2 -= 1
-    if len(game.player.p1_phrase[0]) > 2:
-        if game.player.p2_phrase[0][2] in game.complementref:
-            game.player.score_J2 += 1
-        else:
-            game.player.score_J2 -= 1
-    if len(game.player.p2_phrase[0]) > 3:
+    if game.player.p2_phrase[0][1] in game.verbesref:
+        game.player.score_J2 += 1
+    else:
+        game.player.score_J2 -= 1
+    if game.player.p2_phrase[0][2] in game.complementref:
+        game.player.score_J2 += 1
+    else:
+        game.player.score_J2 -= 1
+
+    if len(game.player.p2_phrase[0]) > 4:
         if game.player.p2_phrase[0][3] in game.liaisonref:
             game.player.score_J2 += 1
         else:
             game.player.score_J2 -= 11
-    if len(game.player.p2_phrase[0]) > 4:
         if game.player.p2_phrase[0][4] in game.complementref:
             game.player.score_J2 += 1
         else:
