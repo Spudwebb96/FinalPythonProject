@@ -204,7 +204,7 @@ while game.is_running:
 
             elif game.in_game:
                 # tableau phrase :
-                if len(game.player.p1_phrase[0]) < 5 and len(game.player.p2_phrase[0]) < 5 :
+                if len(game.player.p1_phrase[0]) < 5 or len(game.player.p2_phrase[0]) < 5 :
                     if game.player.p1_phrase[1] == False or game.player.p2_phrase[1] == False:
                         if game.rect_ingame['rect_1'].collidepoint(event.pos):
                             if game.rect_utilise[0]:

@@ -79,32 +79,33 @@ class game:
 
         ### IMAGE DU JEU
         self.image = {
+
+            # Curseurs
+            'image_curseur': pygame.image.load('assets/image/curseur.png'),
+            'image_curseur_click': pygame.image.load('assets/image/curseur_click.png'),
+
             ### MENU
 
                 # Background
-                'background_menu' : pygame.image.load('assets/image/fond_menu.jpg'),
-
-                # Curseurs
-                'image_curseur' : pygame.image.load('assets/image/curseur.png'),
-                'image_curseur_click' : pygame.image.load('assets/image/curseur_click.png'),
+                'background_menu' : pygame.image.load('assets/image/menu principal/fond_menu.jpg'),
 
                 # Bouton menu
-                'bouton_jouer' : pygame.image.load('assets/image/bouton_jouer.png'),
-                'bouton_regles' : pygame.image.load('assets/image/bouton_regles.png'),
-                'bouton_parametres' : pygame.image.load('assets/image/bouton_parametres.png'),
-                'bouton_quitter' : pygame.image.load('assets/image/bouton_quitter.png'),
+                'bouton_jouer' : pygame.image.load('assets/image/menu principal/bouton_jouer.png'),
+                'bouton_regles' : pygame.image.load('assets/image/menu principal/bouton_regles.png'),
+                'bouton_parametres' : pygame.image.load('assets/image/menu principal/bouton_parametres.png'),
+                'bouton_quitter' : pygame.image.load('assets/image/menu principal/bouton_quitter.png'),
 
                 # Bouton menu hover
-                'bouton_jouer_hover' : pygame.image.load('assets/image/bouton_jouer_hover.png'),
-                'bouton_regles_hover' : pygame.image.load('assets/image/bouton_regles_hover.png'),
-                'bouton_parametres_hover' : pygame.image.load('assets/image/bouton_parametres_hover.png'),
-                'bouton_quitter_hover' : pygame.image.load('assets/image/bouton_quitter_hover.png'),
+                'bouton_jouer_hover' : pygame.image.load('assets/image/menu principal/bouton_jouer_hover.png'),
+                'bouton_regles_hover' : pygame.image.load('assets/image/menu principal/bouton_regles_hover.png'),
+                'bouton_parametres_hover' : pygame.image.load('assets/image/menu principal/bouton_parametres_hover.png'),
+                'bouton_quitter_hover' : pygame.image.load('assets/image/menu principal/bouton_quitter_hover.png'),
 
                 # Image regles
-                'fond_regles_1' : pygame.image.load('assets/image/regles_1.png'),
-                'fond_regles_2' : pygame.image.load('assets/image/regles_2.png'),
-                'fleche_regles_1' : pygame.image.load('assets/image/Personnages/Menu/fleche_droite.png'),
-                'fleche_regles_2' : pygame.image.load('assets/image/Personnages/Menu/fleche_gauche.png'),
+                'fond_regles_1' : pygame.image.load('assets/image/menu principal/regles_1.png'),
+                'fond_regles_2' : pygame.image.load('assets/image/menu principal/regles_2.png'),
+                'fleche_regles_1' : pygame.image.load('assets/image/fleche_droite.png'),
+                'fleche_regles_2' : pygame.image.load('assets/image/fleche_gauche.png'),
                 'bouton_fermer' : pygame.image.load('assets/image/fermer.png'),
 
             ### CHOIX LEGENDS
@@ -126,8 +127,8 @@ class game:
                 'pret_on': pygame.image.load('assets/image/Personnages/Menu/bouton_pret_hover.png'),
 
                 # Bouton carrousel
-                'fleche_droite': pygame.image.load('assets/image/Personnages/Menu/fleche_droite.png'),
-                'fleche_gauche': pygame.image.load('assets/image/Personnages/Menu/fleche_gauche.png'),
+                'fleche_droite': pygame.image.load('assets/image/fleche_droite.png'),
+                'fleche_gauche': pygame.image.load('assets/image/fleche_gauche.png'),
                 'fleche_droite_info': pygame.image.load('assets/image/Personnages/Menu/fleche_droite_or.png'),
                 'fleche_gauche_info': pygame.image.load('assets/image/Personnages/Menu/fleche_gauche_or.png'),
 
