@@ -114,6 +114,15 @@ def hover_boutons(game,curseur,display_surface):
                 display_surface.blit(game.image['bouton_quitter_pause_hover'], (662, 869))
             else:
                 display_surface.blit(game.image['bouton_quitter_pause'], (662, 869))
+        elif game.player.max_Hp_J2 == 0 or game.player.max_Hp_J1 == 0:
+            if curseur[0] > 808 and curseur[0] < 890 and curseur[1] > 425 and curseur[1] < 461:
+                display_surface.blit(game.image['non_hover'], (808,425))
+            else:
+                display_surface.blit(game.image['non'], (808,425))
+            if curseur[0] > 550 and curseur[0] < 644 and curseur[1] > 425 and curseur[1] < 461:
+                display_surface.blit(game.image['oui_hover'], (550, 425))
+            else:
+                display_surface.blit(game.image['oui'], (550,425))
 
 def luminosite(game, display_surface):
     if game.luminosite == 80:
@@ -798,6 +807,8 @@ def reset_match(game):
     game.complement = game.complementref.copy()
     game.liaison = game.liaisonref.copy()
     return game
+
+
 
 
 

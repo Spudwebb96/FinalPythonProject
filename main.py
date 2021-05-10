@@ -222,11 +222,12 @@ while game.is_running:
                     else:
                         game.menu_legends_J2 = 0
 
+            # Dans Ingame
             elif game.in_game:
                 # tableau phrase :
                 if game.menu_pause == False and game.menu_parametre == False:
                     if game.menu_pause == False or game.menu_parametre == False:
-                        if len(game.player.p1_phrase[0]) < 5 or len(game.player.p2_phrase[0]) < 5 :
+                        if (len(game.player.p1_phrase[0]) < 5  and game.player.p1_phrase[1] == False) or (len(game.player.p2_phrase[0]) < 5  and game.player.p2_phrase[1] == False):
                             if game.player.p1_phrase[1] == False or game.player.p2_phrase[1] == False:
                                 if game.rect_ingame['rect_1'].collidepoint(event.pos):
                                     if game.rect_utilise[0]:
@@ -331,6 +332,7 @@ while game.is_running:
                         reset_match(game)
                         game.in_game = False
                         game.in_choix_legends = True
+                        pygame.mixer.Channel(0).play(pygame.mixer.Sound('assets/son/menu.wav'), -1)
                     elif game.rect_ingame['bouton_parametres_pause_hover_rect'].collidepoint(event.pos):
                         game.menu_pause = False
                         game.menu_parametre = True
@@ -340,6 +342,15 @@ while game.is_running:
                         game.in_game = False
                         reset_match(game)
                         game.in_menu = True
+
+                elif game.player.max_Hp_J2 == 0 or game.player.max_Hp_J1 == 0:
+                    if game.rect_ingame['non_hover_rect'].collidepoint(event.pos):
+                        reset_match(game)
+                        game.in_game = False
+                        game.in_choix_legends = True
+                    elif game.rect_ingame['oui_hover_rect'].collidepoint(event.pos):
+                        reset_match(game)
+                        musique_ingame(game)
 
 
 
@@ -365,13 +376,6 @@ while game.is_running:
                         game.menu_pause = True
                         pygame.mixer.Channel(1).pause()
                         pygame.mixer.Channel(0).pause()
-                    '''pygame.mixer.Channel(1).play(pygame.mixer.Sound('assets/son/effet sonore/Sortie.wav'))
-                    game.in_game = False
-                    game.in_choix_legends = True
-                    game = reset_match(game)
-                    game.rect_utilise = [True, True, True, True, True, True, True, True, True, True, True, True]
-                    pygame.mixer.Channel(0).play(pygame.mixer.Sound('assets/son/menu.wav'),-1)
-                    pygame.mixer.Channel(0).stop()'''
 
         else:
             game.mouse = False

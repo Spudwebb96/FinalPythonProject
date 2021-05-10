@@ -27,6 +27,8 @@ def in_game(game,curseur, display_surface):
         display_surface.blit(fond_noir_surface, (0, 0))
         game.alpha = game.alpha - 5
 
+    if game.player.max_Hp_J2 == 0 or game.player.max_Hp_J1 == 0:
+        display_surface.blit(game.image['fond_end'], (480, 230))
     hover_boutons(game, curseur, display_surface)
 
 

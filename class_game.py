@@ -319,6 +319,15 @@ class game:
                     'bouton_parametres_pause_hover': pygame.image.load('assets/image/en_jeu/menu_pause/bouton_parametres_hover_pause.png'),
                     'bouton_quitter_pause': pygame.image.load('assets/image/en_jeu/menu_pause/bouton_quitter_pause.png'),
                     'bouton_quitter_pause_hover': pygame.image.load('assets/image/en_jeu/menu_pause/bouton_quitter_hover_pause.png'),
+
+                ## Voulez-vous rejouer ?
+
+                    'fond_end' : pygame.image.load('assets/image/en_jeu/end_game/fond_end.png'),
+                    'non' : pygame.image.load('assets/image/en_jeu/end_game/non.png'),
+                    'non_hover' : pygame.image.load('assets/image/en_jeu/end_game/non_hover.png'),
+                    'oui' : pygame.image.load('assets/image/en_jeu/end_game/oui.png'),
+                    'oui_hover' : pygame.image.load('assets/image/en_jeu/end_game/oui_hover.png'),
+
         }
 
         ### RECT DU JEU + Position
@@ -406,6 +415,11 @@ class game:
             'bouton_retour_pause_hover_rect' : self.image['bouton_retour_pause_hover'].get_rect(),
             'bouton_parametres_pause_hover_rect': self.image['bouton_parametres_pause_hover'].get_rect(),
             'bouton_quitter_pause_hover_rect': self.image['bouton_quitter_pause_hover'].get_rect(),
+            'non_rect' : self.image['non'].get_rect(),
+            'non_hover_rect' : self.image['non_hover'].get_rect(),
+            'oui_rect' : self.image['oui'].get_rect(),
+            'oui_hover_rect' : self.image['oui_hover'].get_rect(),
+
         }
 
         self.rect_position_ingame = {
@@ -414,6 +428,9 @@ class game:
             'bouton_retour_pause_hover_rect': position_rect(self.rect_ingame['bouton_retour_pause_hover_rect'], 583, 675),
             'bouton_parametres_pause_hover_rect': position_rect(self.rect_ingame['bouton_parametres_pause_hover_rect'], 621, 772),
             'bouton_quitter_pause_hover_rect': position_rect(self.rect_ingame['bouton_quitter_pause_hover_rect'], 646, 869),
+            'non_hover_rect' : position_rect(self.rect_ingame['non_hover_rect'], 808, 425),
+            'oui_hover_rect' : position_rect(self.rect_ingame['oui_hover_rect'], 550, 425),
+
         }
 
 class player:
