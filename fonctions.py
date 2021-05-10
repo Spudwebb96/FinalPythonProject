@@ -262,7 +262,7 @@ def round(game):
         game.player.score_J2 = 0
         game.player.p1_phrase = [[], False]
         game.player.p2_phrase = [[], False]
-        game.rect_utilise = [True, True, True, True, True, True, True, True, True, True, True, True]
+        game.rect_utilisé = [True, True, True, True, True, True, True, True, True, True, True, True]
         game.round[1]= game.round[0]
 
 def degats(game):
@@ -439,15 +439,15 @@ def remplir_tableau(game, display_surface):
     img4 = font1.render(game.prop[3], True, YELLOW)
     img5 = font1.render(game.prop[4], True, GREEN)
 
-    if game.rect_utilise[0]:
+    if game.rect_utilisé[0]:
         display_surface.blit(img1, (555, 331))
-    if game.rect_utilise[1]:
+    if game.rect_utilisé[1]:
         display_surface.blit(img2, (555, 381))
-    if game.rect_utilise[2]:
+    if game.rect_utilisé[2]:
         display_surface.blit(img3, (555, 431))
-    if game.rect_utilise[3]:
+    if game.rect_utilisé[3]:
         display_surface.blit(img4, (555, 481))
-    if game.rect_utilise[4]:
+    if game.rect_utilisé[4]:
         display_surface.blit(img5, (555, 531))
 
     if len(game.prop) > 5 :
@@ -457,23 +457,23 @@ def remplir_tableau(game, display_surface):
         img9 = font1.render(game.prop[8], True, YELLOW)
         img10 = font1.render(game.prop[9], True, GREEN)
 
-        if game.rect_utilise[5]:
+        if game.rect_utilisé[5]:
             display_surface.blit(img6, (555, 581))
-        if game.rect_utilise[6]:
+        if game.rect_utilisé[6]:
             display_surface.blit(img7, (555, 631))
-        if game.rect_utilise[7]:
+        if game.rect_utilisé[7]:
             display_surface.blit(img8, (555, 681))
-        if game.rect_utilise[8]:
+        if game.rect_utilisé[8]:
             display_surface.blit(img9, (555, 731))
-        if game.rect_utilise[9]:
+        if game.rect_utilisé[9]:
             display_surface.blit(img10, (555, 781))
 
     if len(game.prop) > 10 :
         img11 = font1.render(game.prop[10], True, RED)
         img12 = font1.render(game.prop[11], True, BLUE)
-        if game.rect_utilise[10]:
+        if game.rect_utilisé[10]:
             display_surface.blit(img11, (555, 831))
-        if game.rect_utilise[11]:
+        if game.rect_utilisé[11]:
             display_surface.blit(img12, (555, 881))
     img13 = font1.render(".", True, (0,0,0))
     img14 = font1.render("!", True, (0,0,0))
