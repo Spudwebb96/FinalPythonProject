@@ -213,21 +213,16 @@ def grammaire(game):
     #Joueur 1
     if game.player.p1_phrase[0][0] in game.sujetsref:
         game.player.score_J1 += 1
-        print(" sujet p1 ok")
     else:
         game.player.score_J1 -= 1
     if game.player.p1_phrase[0][1] in game.verbesref:
         game.player.score_J1 += 1
-        print(" verbe p1 ok")
     else:
         game.player.score_J1 -= 1
     if game.player.p1_phrase[0][2] in game.complementref:
         game.player.score_J1 += 1
-        print(" compleme,t p1 ok")
-        print(game.player.p1_phrase[0])
     else:
         game.player.score_J1 -= 1
-        print(game.player.p1_phrase[0])
     if len(game.player.p1_phrase[0]) > 4:
         if game.player.p1_phrase[0][3] in game.liaisonref:
             game.player.score_J1 += 1
@@ -266,16 +261,16 @@ def round(game):
     if game.round[0] != game.round[1]:
         game.tour = randint(0, 1)
         game.prop = []
-        game.sujets = game.sujetsref
-        game.verbes = game.verbesref
-        game.complement = game.complementref
-        game.liaison = game.liaisonref
+        game.sujets = game.sujetsref.copy()
+        game.verbes = game.verbesref.copy()
+        game.complement = game.complementref.copy()
+        game.liaison = game.liaisonref.copy()
         game.player.score_J1 = 0
         game.player.score_J2 = 0
         game.player.p1_phrase = [[], False]
         game.player.p2_phrase = [[], False]
-        game.rect_utilisé = [True, True, True, True, True, True, True, True, True, True, True, True]
-        game.round[1]= game.round[0]
+        game.rect_utilise = [True, True, True, True, True, True, True, True, True, True, True, True]
+        game.round[1] = game.round[0]
 
 def degats(game):
     if game.player.score_J1 > game.player.score_J2 and game.player.max_Hp_J2 == 500 :
@@ -451,15 +446,15 @@ def remplir_tableau(game, display_surface):
     img4 = font1.render(game.prop[3], True, YELLOW)
     img5 = font1.render(game.prop[4], True, GREEN)
 
-    if game.rect_utilisé[0]:
+    if game.rect_utilise[0]:
         display_surface.blit(img1, (555, 331))
-    if game.rect_utilisé[1]:
+    if game.rect_utilise[1]:
         display_surface.blit(img2, (555, 381))
-    if game.rect_utilisé[2]:
+    if game.rect_utilise[2]:
         display_surface.blit(img3, (555, 431))
-    if game.rect_utilisé[3]:
+    if game.rect_utilise[3]:
         display_surface.blit(img4, (555, 481))
-    if game.rect_utilisé[4]:
+    if game.rect_utilise[4]:
         display_surface.blit(img5, (555, 531))
 
     if len(game.prop) > 5 :
@@ -469,23 +464,23 @@ def remplir_tableau(game, display_surface):
         img9 = font1.render(game.prop[8], True, YELLOW)
         img10 = font1.render(game.prop[9], True, GREEN)
 
-        if game.rect_utilisé[5]:
+        if game.rect_utilise[5]:
             display_surface.blit(img6, (555, 581))
-        if game.rect_utilisé[6]:
+        if game.rect_utilise[6]:
             display_surface.blit(img7, (555, 631))
-        if game.rect_utilisé[7]:
+        if game.rect_utilise[7]:
             display_surface.blit(img8, (555, 681))
-        if game.rect_utilisé[8]:
+        if game.rect_utilise[8]:
             display_surface.blit(img9, (555, 731))
-        if game.rect_utilisé[9]:
+        if game.rect_utilise[9]:
             display_surface.blit(img10, (555, 781))
 
     if len(game.prop) > 10 :
         img11 = font1.render(game.prop[10], True, RED)
         img12 = font1.render(game.prop[11], True, BLUE)
-        if game.rect_utilisé[10]:
+        if game.rect_utilise[10]:
             display_surface.blit(img11, (555, 831))
-        if game.rect_utilisé[11]:
+        if game.rect_utilise[11]:
             display_surface.blit(img12, (555, 881))
     img13 = font1.render(".", True, (0,0,0))
     img14 = font1.render("!", True, (0,0,0))

@@ -38,7 +38,7 @@ class game:
         self.tour = randint(0,1)
         self.round = [1,1]
         self.sujets = ["Ta mere", "Ton pere", "Ton créateur", "Ton homme", "Tes cheveux", "Tes vetements", "Ta beauté", "Ton style", "Ton flow", "Tu", "Ta demarche", "Ta femme", "Ton odeur", "ton age", "ta musique"]
-        self.verbes = ["te bats/se bat/se battent", "es/est/sont", "deviendras/deviendra/deviendront", "ressemble x2/ressemblent a", "me rends/mend/rendent", "corresponds/correspond/correspondent a", "n'es/n’est/ne sont pas capable/nt d’etre", "me fais/fait/font penser a "]
+        self.verbes = ["te bats/se bat/se battent", "es/est/sont", "deviendras/deviendra/deviendront", "ressemble x2/ressemblent a", "me rends/mend/rendent", "corresponds/correspond/correspondent a", "n'es/n’est/ne sont pas capable/nt d’etre", "me fais/fait/font penser a ","me fais/fait/font penser"]
         self.complement = ["une chevre", "un cochon", "un pigeon", "un vieux plouc", "une morue", "de l’eau", "une ratatouille", "moi/toi", "un prisonnier", "a ma hauteur(?)", "une paysanne", "un village", "une foret", "un poulet roti", "sourd/e/s", "fou/e/s", "si moche/moches", "aveugle", "moche", "malade", "abominable", "un monstre", "un laboratoire"]
         self.liaison = ["pour", "et", "a l'image de", "comme", "et", "comme", "dans"]
         '''self.final = [",c'est repugnant ", ",quelle monstre ", ". Eloignez cette bete ", ", vieux plouc ", ", folichon va ", ", espece de marionette ", ", babolard a papa", ",sac a patate solitaire ", ", sale paysan "]'''
@@ -50,7 +50,7 @@ class game:
         '''self.finalref = [",c'est repugnant ", ",quelle monstre ", ". Eloignez cette bete ", ", vieux plouc ", ", folichon va ", ", espece de marionette ", ", babolard a papa", ",sac a patate solitaire ", ", sale paysan "]'''
         self.stage_select = None
         self.alpha = 300
-        self.rect_utilisé = [True,True,True,True,True,True,True,True,True,True,True,True]
+        self.rect_utilise = [True,True,True,True,True,True,True,True,True,True,True,True]
         self.prop = []
 
         ### STATS DES LEGENDS
