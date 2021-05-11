@@ -5,9 +5,6 @@ pygame.init()
 def menu(game,curseur, display_surface):
     display_surface.blit(game.image['background_menu'], (0, 0))
 
-    # Fonction hover boutons menu
-    hover_boutons(game,curseur, display_surface)
-
     # Affichage des regles
     if game.menu_regles:
         if game.menu_regles_page == 1:
@@ -22,6 +19,9 @@ def menu(game,curseur, display_surface):
     # Affichage l'onglet parametre
     if game.menu_parametre:
         parametres(game, display_surface)
+    else :
+        # Fonction hover boutons menu
+        hover_boutons(game, curseur, display_surface)
 
 
 

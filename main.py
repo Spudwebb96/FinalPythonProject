@@ -11,10 +11,10 @@ mixer.init()
 
 frame_per_sec = pygame.time.Clock()
 
-display_surface = pygame.display.set_mode((1440,1024))
-
 icon = pygame.image.load("assets/image/logo_words_legends.png")
 pygame.display.set_icon(icon)
+
+display_surface = pygame.display.set_mode((1440,1024))
 
 pygame.display.set_caption("Words Legends",)
 
