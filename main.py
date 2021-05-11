@@ -372,7 +372,7 @@ while game.is_running:
                         game.menu_pause = False
                         pygame.mixer.Channel(0).unpause()
                         pygame.mixer.Channel(1).unpause()
-                    elif game.menu_pause == False and game.menu_parametre == False:
+                    elif game.menu_pause == False and game.menu_parametre == False and game.player.max_Hp_J2 > 0 and game.player.max_Hp_J1 > 0:
                         game.menu_pause = True
                         pygame.mixer.Channel(1).pause()
                         pygame.mixer.Channel(0).pause()

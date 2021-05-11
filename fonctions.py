@@ -305,6 +305,7 @@ def musique_ingame(game):
         pygame.mixer.Channel(0).play(pygame.mixer.Sound('assets/son/harry_musique.wav'), -1)
     else:
         pygame.mixer.Channel(0).play(pygame.mixer.Sound('assets/son/lucie_musique.wav'), -1)
+
 def grammaire(game):
     #Joueur 1
     if len(game.player.p1_phrase[0]) > 1:
@@ -471,8 +472,8 @@ def nuage(game, display_surface):
         concatenationJ2 = concatenationJ2 + " " + i
     phraseJ1 = font1.render(concatenationJ1, True, (0, 0, 0))
     phraseJ2 = font1.render(concatenationJ2, True, (0, 0, 0))
-    display_surface.blit(phraseJ1, (76, 173))
-    display_surface.blit(phraseJ2, (818, 173))
+    display_surface.blit(phraseJ1, (70, 173))
+    display_surface.blit(phraseJ2, (812, 173))
 
 def barre_de_vie(game,display_surface):
     bar_border = (0, 0, 0)
@@ -536,6 +537,7 @@ def remplir_tableau(game, display_surface):
     YELLOW = (255, 135, 0)
 
     font1 = pygame.font.SysFont("palatinolinotype", 40, bold=True, italic=False)
+    font2 = pygame.font.SysFont("palatinolinotype", 28, bold=True, italic=False)
 
 
     if len(game.prop) != 12:
@@ -564,8 +566,14 @@ def remplir_tableau(game, display_surface):
 
     if game.rect_utilise[0]:
         display_surface.blit(img1, (555, 331))
-    if game.rect_utilise[1]:
+
+    # correction police pour "ne pas etre capable d'être"
+    if game.rect_utilise[1] and game.prop[1] != "ne pas être capable d'être":
         display_surface.blit(img2, (555, 381))
+    elif game.rect_utilise[1] :
+        img2 = font2.render(game.prop[1], True, BLUE)
+        display_surface.blit(img2, (555, 389))
+
     if game.rect_utilise[2]:
         display_surface.blit(img3, (555, 431))
     if game.rect_utilise[3]:
@@ -582,8 +590,14 @@ def remplir_tableau(game, display_surface):
 
         if game.rect_utilise[5]:
             display_surface.blit(img6, (555, 581))
-        if game.rect_utilise[6]:
+
+        # correction police pour "ne pas etre capable d'être"
+        if game.rect_utilise[6] and game.prop[6] != "ne pas être capable d'être":
             display_surface.blit(img7, (555, 631))
+        elif game.rect_utilise[6]:
+            img7 = font2.render(game.prop[6], True, BLUE)
+            display_surface.blit(img7, (555, 639))
+
         if game.rect_utilise[7]:
             display_surface.blit(img8, (555, 681))
         if game.rect_utilise[8]:
@@ -594,10 +608,17 @@ def remplir_tableau(game, display_surface):
     if len(game.prop) > 10 :
         img11 = font1.render(game.prop[10], True, RED)
         img12 = font1.render(game.prop[11], True, BLUE)
+
         if game.rect_utilise[10]:
             display_surface.blit(img11, (555, 831))
-        if game.rect_utilise[11]:
+
+        # correction police pour "ne pas etre capable d'être"
+        if game.rect_utilise[11] and game.prop[11] != "ne pas être capable d'être":
             display_surface.blit(img12, (555, 881))
+        elif game.rect_utilise[11]:
+            img12 = font2.render(game.prop[11], True, BLUE)
+            display_surface.blit(img12, (555, 889))
+
     img13 = font1.render(".", True, (0,0,0))
     img14 = font1.render("!", True, (0,0,0))
     display_surface.blit(img13, (632.5,931))
