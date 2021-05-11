@@ -9,13 +9,13 @@ pygame.init()
 def in_game(game,curseur, display_surface):
     choix_background_local(game,display_surface)
     tour(game, display_surface)
-    affichage_joueur(game, display_surface)
     if game.player.Hp_J1 != 0 and game.player.Hp_J2 != 0 and game.menu_pause == False and game.menu_parametre == False:
         display_surface.blit(game.image['nuage_J1'], (20,87))
         display_surface.blit(game.image['nuage_J2'], (767,87))
         tableau_prop(game, display_surface)
         nuage(game, display_surface)
     barre_de_vie(game,display_surface)
+    affichage_joueur(game, display_surface)
     if game.menu_parametre :
         parametres(game, display_surface)
 
